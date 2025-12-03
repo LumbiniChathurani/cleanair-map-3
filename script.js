@@ -22,7 +22,7 @@ function getAQIColor(aqi) {
 // ---------------------------
 // LOAD AQI JSON FILE
 // ---------------------------
-fetch("/aq_stations.json")
+fetch("aq_stations.json")
   .then((res) => res.json())
   .then((stations) => {
     stations.forEach((st) => {
