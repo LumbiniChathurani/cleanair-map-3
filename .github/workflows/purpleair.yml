@@ -1,5 +1,8 @@
 name: Fetch PurpleAir AQI
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "*/10 * * * *"

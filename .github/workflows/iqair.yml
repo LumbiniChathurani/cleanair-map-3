@@ -1,5 +1,8 @@
 name: Fetch IQAir AQI
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "0 * * * *"
