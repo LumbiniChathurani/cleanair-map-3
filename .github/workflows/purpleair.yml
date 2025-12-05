@@ -5,30 +5,24 @@ permissions:
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # every 10 minutes
+    - cron: "*/10 * * * *"
   workflow_dispatch: {}
 
 jobs:
   fetch-purpleair:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: 3.11
 
       - run: pip install requests
 
-      # Ensure JSON file exists before updating PurpleAir section
-      - name: Create JSON if missing
-        run: |
-          if [ ! -f aq_stations.json ]; then
-            echo '{"purpleair": [], "iqair": []}' > aq_stations.json
-          fi
-
       - name: Fetch PurpleAir AQI
+        env:
+          PURPLEAIR_API_KEY: ${{ secrets.PURPLEAIR_API_KEY }}
         run: python map.py purpleair
 
       - name: Commit & Push

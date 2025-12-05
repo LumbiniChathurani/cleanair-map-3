@@ -5,30 +5,24 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 * * * *"    # every hour
+    - cron: "0 * * * *"
   workflow_dispatch: {}
 
 jobs:
   fetch-iqair:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: 3.11
 
       - run: pip install requests
 
-      # Ensure JSON file exists before updating IQAir section
-      - name: Create JSON if missing
-        run: |
-          if [ ! -f aq_stations.json ]; then
-            echo '{"purpleair": [], "iqair": []}' > aq_stations.json
-          fi
-
       - name: Fetch IQAir AQI
+        env:
+          IQAIR_API_KEY: ${{ secrets.IQAIR_API_KEY }}
         run: python map.py iqair
 
       - name: Commit & Push

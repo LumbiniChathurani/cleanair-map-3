@@ -1,47 +1,12 @@
 import json
 import time
 import requests
-import os
 
 # -------------------------------------------------------------
 # API KEYS
 # -------------------------------------------------------------
 PURPLEAIR_API_KEY = "30417898-B7AF-11F0-BDE5-4201AC1DC121"
 IQAIR_API_KEY = "b50f8e17-d19d-42b1-a087-0d5ad5434d71"
-
-JSON_FILE = "aq_stations.json"
-
-# -------------------------------------------------------------
-# Load existing JSON safely
-# -------------------------------------------------------------
-def load_existing_json():
-    if os.path.exists(JSON_FILE):
-        try:
-            with open(JSON_FILE, "r") as f:
-                return json.load(f)
-        except:
-            return {"purpleair": [], "iqair": []}
-    return {"purpleair": [], "iqair": []}
-
-# -------------------------------------------------------------
-# Save merged JSON
-# -------------------------------------------------------------
-def save_merged_json(updated_section, mode):
-    data = load_existing_json()
-
-    if mode == "purpleair":
-        data["purpleair"] = updated_section
-    elif mode == "iqair":
-        data["iqair"] = updated_section
-    else:
-        # when running "all", we overwrite both
-        data["purpleair"] = updated_section["purpleair"]
-        data["iqair"] = updated_section["iqair"]
-
-    with open(JSON_FILE, "w") as f:
-        json.dump(data, f, indent=4)
-
-    print(f"[OK] Saved updated {mode} data to {JSON_FILE}")
 
 # -------------------------------------------------------------
 # RETRY WRAPPER
@@ -84,6 +49,7 @@ IQAIR_CITIES = [
     {"city": "Gampaha", "lat": 7.086, "lon": 79.999},
     {"city": "Negombo", "lat": 7.208, "lon": 79.835},
     {"city": "Nugegoda", "lat": 6.852, "lon": 79.901},
+    # Add other cities as needed
 ]
 
 # -------------------------------------------------------------
@@ -119,16 +85,12 @@ def get_realtime_aqi_purpleair(sensorid):
     headers = {"X-API-Key": PURPLEAIR_API_KEY}
     response = safe_request(url, headers=headers)
     data = response.json()
-
     if "sensor" not in data:
         raise ValueError("PurpleAir: 'sensor' missing")
-
     stats = data["sensor"].get("stats", {})
     pm25 = stats.get("pm2.5_10minute")
-
     if pm25 is None:
-        raise ValueError("PurpleAir: pm2.5_10minute missing")
-
+        raise ValueError("PurpleAir: pm2.5_10minute not found in stats")
     aqi = pm25_to_aqi(pm25)
     return {
         "source": "PurpleAir",
@@ -157,12 +119,9 @@ def get_realtime_aqi_iqair(city, lat, lon):
     url = f"https://api.airvisual.com/v2/nearest_city?lat={lat}&lon={lon}&key={IQAIR_API_KEY}"
     response = safe_request(url)
     data = response.json()
-
     if data.get("status") != "success":
         raise ValueError(f"IQAir API error: {data}")
-
     pollution = data["data"]["current"]["pollution"]
-
     return {
         "source": "IQAir",
         "name": city,
@@ -186,6 +145,14 @@ def fetch_all_iqair():
     return results
 
 # -------------------------------------------------------------
+# SAVE JSON FILE
+# -------------------------------------------------------------
+def save_to_json(data, filename="aq_stations.json"):
+    with open(filename, "w") as f:
+        json.dump(data, f, indent=4)
+    print(f"[OK] Saved {len(data)} stations to {filename}")
+
+# -------------------------------------------------------------
 # MAIN RUN
 # -------------------------------------------------------------
 if __name__ == "__main__":
@@ -194,14 +161,10 @@ if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "all"
 
     if mode == "purpleair":
-        pa = fetch_all_purpleair()
-        save_merged_json(pa, "purpleair")
-
+        all_data = fetch_all_purpleair()
     elif mode == "iqair":
-        iq = fetch_all_iqair()
-        save_merged_json(iq, "iqair")
-
+        all_data = fetch_all_iqair()
     else:
-        pa = fetch_all_purpleair()
-        iq = fetch_all_iqair()
-        save_merged_json({"purpleair": pa, "iqair": iq}, "all")
+        all_data = fetch_all_purpleair() + fetch_all_iqair()
+
+    save_to_json(all_data)
