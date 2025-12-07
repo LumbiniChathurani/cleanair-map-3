@@ -1,57 +1,20 @@
 [
     {
-        "source": "IQAir",
-        "name": "Battaramulla",
-        "nearest_station": "Battaramulla",
-        "aqi": 99,
+        "source": "PurpleAir",
+        "name": "FECT Akurana",
+        "pm25_10min": 27.2,
+        "aqi": 83,
         "category": "Moderate",
-        "timestamp": "2025-12-07T04:00:00.000Z",
-        "main_pollutant": "p2",
-        "lat": 6.899,
-        "lon": 79.923
+        "lat": 7.718,
+        "lon": 80.633
     },
     {
-        "source": "IQAir",
-        "name": "Colombo",
-        "nearest_station": "Colombo",
-        "aqi": 85,
-        "category": "Moderate",
-        "timestamp": "2025-12-07T04:00:00.000Z",
-        "main_pollutant": "p2",
+        "source": "PurpleAir",
+        "name": "AQD01CJ",
+        "pm25_10min": 42.4,
+        "aqi": 118,
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 6.927,
         "lon": 79.861
-    },
-    {
-        "source": "IQAir",
-        "name": "Gampaha",
-        "nearest_station": "Gampaha",
-        "aqi": 61,
-        "category": "Moderate",
-        "timestamp": "2025-12-07T03:00:00.000Z",
-        "main_pollutant": "p2",
-        "lat": 7.086,
-        "lon": 79.999
-    },
-    {
-        "source": "IQAir",
-        "name": "Negombo",
-        "nearest_station": "Negombo",
-        "aqi": 52,
-        "category": "Moderate",
-        "timestamp": "2025-12-07T04:00:00.000Z",
-        "main_pollutant": "p2",
-        "lat": 7.208,
-        "lon": 79.835
-    },
-    {
-        "source": "IQAir",
-        "name": "Nugegoda",
-        "nearest_station": "Nugegoda",
-        "aqi": 113,
-        "category": "Unhealthy for Sensitive Groups",
-        "timestamp": "2025-12-07T04:00:00.000Z",
-        "main_pollutant": "p2",
-        "lat": 6.852,
-        "lon": 79.901
     }
 ]
