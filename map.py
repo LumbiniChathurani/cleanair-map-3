@@ -147,10 +147,33 @@ def fetch_all_iqair():
 # -------------------------------------------------------------
 # SAVE JSON FILE
 # -------------------------------------------------------------
-def save_to_json(data, filename="aq_stations.json"):
+def save_to_json(new_data, filename="aq_stations.json"):
+    # 1. Load existing data if the file already exists
+    try:
+        with open(filename, "r") as f:
+            existing_data = json.load(f)
+    except FileNotFoundError:
+        existing_data = []
+
+    # 2. Convert existing data into a dictionary using "source + name" as keys
+    combined = {}
+
+    # Add existing entries first
+    for item in existing_data:
+        key = (item["source"], item["name"])
+        combined[key] = item
+
+    # 3. Add/update with new entries (PurpleAir or IQAir depending on workflow)
+    for item in new_data:
+        key = (item["source"], item["name"])
+        combined[key] = item  # overwrite only matching source+name
+
+    # 4. Save merged results
     with open(filename, "w") as f:
-        json.dump(data, f, indent=4)
-    print(f"[OK] Saved {len(data)} stations to {filename}")
+        json.dump(list(combined.values()), f, indent=4)
+
+    print(f"[OK] Saved {len(combined)} stations to {filename}")
+
 
 # -------------------------------------------------------------
 # MAIN RUN
