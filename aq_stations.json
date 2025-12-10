@@ -23,7 +23,7 @@
         "nearest_station": "Battaramulla",
         "aqi": 67,
         "category": "Moderate",
-        "timestamp": "2025-12-10T04:00:00.000Z",
+        "timestamp": "2025-12-10T05:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.899,
         "lon": 79.923
@@ -32,9 +32,9 @@
         "source": "IQAir",
         "name": "Colombo",
         "nearest_station": "Colombo",
-        "aqi": 55,
+        "aqi": 64,
         "category": "Moderate",
-        "timestamp": "2025-12-10T04:00:00.000Z",
+        "timestamp": "2025-12-10T05:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.927,
         "lon": 79.861
@@ -65,9 +65,9 @@
         "source": "IQAir",
         "name": "Nugegoda",
         "nearest_station": "Nugegoda",
-        "aqi": 62,
+        "aqi": 82,
         "category": "Moderate",
-        "timestamp": "2025-12-10T04:00:00.000Z",
+        "timestamp": "2025-12-10T05:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.852,
         "lon": 79.901
