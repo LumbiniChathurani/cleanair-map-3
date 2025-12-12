@@ -1,11 +1,61 @@
 // ---------------------------
-// Leaflet base map
+// LIGHT & DARK TILE LAYERS
 // ---------------------------
-const map = L.map("map").setView([7.8731, 80.7718], 8); // Sri Lanka center
+const lightTiles = L.tileLayer(
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  {
+    maxZoom: 18,
+  }
+);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 18,
-}).addTo(map);
+const darkTiles = L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+  {
+    maxZoom: 18,
+  }
+);
+
+// ---------------------------
+// CREATE MAP
+// ---------------------------
+const map = L.map("map").setView([7.8731, 80.7718], 8);
+
+// Load tile based on saved theme
+let savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  darkTiles.addTo(map);
+  document.body.classList.add("dark-mode");
+  document.getElementById("themeToggle").textContent = "Light Mode";
+} else {
+  lightTiles.addTo(map);
+  document.getElementById("themeToggle").textContent = "Dark Mode";
+}
+
+// ---------------------------
+// THEME TOGGLE BUTTON LOGIC
+// ---------------------------
+document.getElementById("themeToggle").addEventListener("click", () => {
+  if (document.body.classList.contains("dark-mode")) {
+    // Switch to light
+    document.body.classList.remove("dark-mode");
+
+    map.removeLayer(darkTiles);
+    lightTiles.addTo(map);
+
+    document.getElementById("themeToggle").textContent = "Dark Mode";
+    localStorage.setItem("theme", "light");
+  } else {
+    // Switch to dark
+    document.body.classList.add("dark-mode");
+
+    map.removeLayer(lightTiles);
+    darkTiles.addTo(map);
+
+    document.getElementById("themeToggle").textContent = "Light Mode";
+    localStorage.setItem("theme", "dark");
+  }
+});
 
 // ---------------------------
 // AQI COLOR FUNCTION
@@ -26,15 +76,13 @@ fetch("./aq_stations.json")
   .then((res) => res.json())
   .then((stations) => {
     stations.forEach((st) => {
-      // Popup content
       const popupContent = `
-                <b>${st.name}</b><br>
-                Source: ${st.source}<br>
-                AQI: <b>${st.aqi}</b><br>
-                Category: ${st.category}<br>
-            `;
+        <b>${st.name}</b><br>
+        Source: ${st.source}<br>
+        AQI: <b>${st.aqi}</b><br>
+        Category: ${st.category}<br>
+      `;
 
-      // Marker
       L.circleMarker([st.lat, st.lon], {
         radius: 8,
         fillColor: getAQIColor(st.aqi),
