@@ -69,6 +69,27 @@ function getAQIColor(aqi) {
   return "#7e0023"; // Hazardous
 }
 
+function createAQISvgIcon(color) {
+  return L.divIcon({
+    className: "aqi-svg-marker",
+    html: `
+      <svg width="18" height="26" viewBox="0 0 30 40" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M15 0C7 0 0 7 0 15c0 11.25 15 25 15 25s15-13.75 15-25C30 7 23 0 15 0z"
+          fill="${color}"
+        />
+        <circle cx="15" cy="15" r="6" fill="white"/>
+      </svg>
+    `,
+    iconSize: [18, 26],
+    iconAnchor: [9, 26],   // bottom center
+    popupAnchor: [0, -22],
+  });
+}
+
+
+
+
 // ---------------------------
 // LOAD AQI JSON FILE
 // ---------------------------
@@ -83,16 +104,23 @@ fetch("./aq_stations.json")
         Category: ${st.category}<br>
       `;
 
-      L.circleMarker([st.lat, st.lon], {
-        radius: 8,
-        fillColor: getAQIColor(st.aqi),
-        color: "#000",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.9,
-      })
-        .addTo(map)
-        .bindPopup(popupContent);
+      const marker = L.marker(
+        [st.lat, st.lon],
+        {
+          icon: createAQISvgIcon(getAQIColor(st.aqi)),
+        }
+      ).addTo(map).bindPopup(popupContent);
+      
+      // Glow pulse on click
+      marker.on("click", () => {
+        const el = marker.getElement();
+        if (!el) return;
+      
+        el.classList.remove("aqi-glow");
+        void el.offsetWidth; // restart animation
+        el.classList.add("aqi-glow");
+      });
+      
     });
   })
   .catch(() => {

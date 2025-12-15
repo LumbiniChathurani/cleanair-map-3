@@ -68,3 +68,23 @@ body.dark-mode .theme-toggle-btn:hover {
     background: #2e2c2c;
 }
 
+@keyframes glowPulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+    }
+    70% {
+      box-shadow: 0 0 0 18px rgba(255, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+  
+  .aqi-svg-marker {
+    border-radius: 50%;
+  }
+  
+  .aqi-glow {
+    animation: glowPulse 1.2s ease-out;
+  }
+  
