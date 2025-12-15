@@ -26,10 +26,10 @@ let savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   darkTiles.addTo(map);
   document.body.classList.add("dark-mode");
-  document.getElementById("themeToggle").textContent = "🔆";
+  document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-sun"></i>';
 } else {
   lightTiles.addTo(map);
-  document.getElementById("themeToggle").textContent = "🌙";
+  document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
 
 // ---------------------------
@@ -43,7 +43,7 @@ document.getElementById("themeToggle").addEventListener("click", () => {
     map.removeLayer(darkTiles);
     lightTiles.addTo(map);
 
-    document.getElementById("themeToggle").textContent = "🌙";
+    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
     localStorage.setItem("theme", "light");
   } else {
     // Switch to dark
@@ -52,7 +52,7 @@ document.getElementById("themeToggle").addEventListener("click", () => {
     map.removeLayer(lightTiles);
     darkTiles.addTo(map);
 
-    document.getElementById("themeToggle").textContent = "🔆";
+    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-sun"></i>';
     localStorage.setItem("theme", "dark");
   }
 });

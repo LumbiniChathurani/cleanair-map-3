@@ -32,17 +32,17 @@ body {
 
 .theme-toggle-btn {
     padding: 8px 14px;
-    background: #333;
+    background: transparent;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: large;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .theme-toggle-btn:hover {
-    background: #555;
+    background: #9aedf4;
 }
 
 /* ----------------------------- */
@@ -59,11 +59,12 @@ body.dark-mode .title {
 }
 
 body.dark-mode .theme-toggle-btn {
-    background: #ddd;
-    color: #111;
+   /* background: #ddd; */
+    color: #e6e6e6;
+    font-size: large;
 }
 
 body.dark-mode .theme-toggle-btn:hover {
-    background: #ccc;
+    background: #2e2c2c;
 }
 
