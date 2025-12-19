@@ -43,12 +43,33 @@ PURPLEAIR_STATIONS = [
 # IQAir Cities
 # -------------------------------------------------------------
 IQAIR_CITIES = [
-    {"city": "Battaramulla", "lat": 6.899, "lon": 79.923},
-    {"city": "Colombo", "lat": 6.927, "lon": 79.861},
-    {"city": "Gampaha", "lat": 7.086, "lon": 79.999},
-    {"city": "Negombo", "lat": 7.208, "lon": 79.835},
-    {"city": "Nugegoda", "lat": 6.852, "lon": 79.901},
-    # Add other cities as needed
+ { city: "Colombo", lat: 6.9271, lon: 79.8612 },
+  { city: "Battaramulla", lat: 6.8990, lon: 79.9230 },
+  { city: "Gampaha", lat: 7.0860, lon: 79.9990 },
+
+  // Central Province
+  { city: "Digana", lat: 7.2970, lon: 80.7600 },
+
+  // North Central Province
+  { city: "Anuradhapura", lat: 8.3114, lon: 80.4037 },
+
+  // Northern Province
+  { city: "Jaffna", lat: 9.6615, lon: 80.0255 },
+
+  // Eastern Province
+  { city: "Batticaloa", lat: 7.7170, lon: 81.7000 },
+
+  // Southern Province
+  { city: "Galle", lat: 6.0535, lon: 80.2210 },
+
+  // North Western Province
+  { city: "Kurunegala", lat: 7.4867, lon: 80.3647 },
+
+  // Sabaragamuwa Province
+  { city: "Ratnapura", lat: 6.6828, lon: 80.3992 },
+
+  // Uva Province
+  { city: "Bandarawela", lat: 6.8289, lon: 80.9870 }
 ]
 
 # -------------------------------------------------------------

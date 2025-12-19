@@ -28,6 +28,26 @@
 
     <div id="map"></div>
 
+        <!-- Search Bar Container -->
+<div class="station-search">
+  <input
+    type="text"
+    id="stationSearch"
+    placeholder="Search station..."
+    autocomplete="off"
+  />
+  <button id="search" title="search" class="magnifying-glass">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+  
+  <!--<button id="clearSearch" title="Clear">
+    ✕
+  </button>-->
+
+  <!-- Search results dropdown -->
+  <ul id="searchResults" class="search-results"></ul>
+</div>
+
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
