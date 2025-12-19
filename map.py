@@ -11,7 +11,7 @@ import requests
 # RETRY WRAPPER
 # -------------------------------------------------------------
 def safe_request(url, headers=None, max_attempts=5):
-    delay = 1
+    delay = 1.6
     for attempt in range(1, max_attempts + 1):
         try:
             response = requests.get(url, headers=headers, timeout=10)
@@ -43,34 +43,36 @@ PURPLEAIR_STATIONS = [
 # IQAir Cities
 # -------------------------------------------------------------
 IQAIR_CITIES = [
- { city: "Colombo", lat: 6.9271, lon: 79.8612 },
-  { city: "Battaramulla", lat: 6.8990, lon: 79.9230 },
-  { city: "Gampaha", lat: 7.0860, lon: 79.9990 },
+    # Western Province
+    {"city": "Colombo", "lat": 6.9271, "lon": 79.8612},
+    {"city": "Battaramulla", "lat": 6.8990, "lon": 79.9230},
+    {"city": "Gampaha", "lat": 7.0860, "lon": 79.9990},
 
-  // Central Province
-  { city: "Digana", lat: 7.2970, lon: 80.7600 },
+    # Central Province
+    {"city": "Digana", "lat": 7.2970, "lon": 80.7600},
 
-  // North Central Province
-  { city: "Anuradhapura", lat: 8.3114, lon: 80.4037 },
+    # North Central Province
+    {"city": "Anuradhapura", "lat": 8.3114, "lon": 80.4037},
 
-  // Northern Province
-  { city: "Jaffna", lat: 9.6615, lon: 80.0255 },
+    # Northern Province
+    {"city": "Jaffna", "lat": 9.6615, "lon": 80.0255},
 
-  // Eastern Province
-  { city: "Batticaloa", lat: 7.7170, lon: 81.7000 },
+    # Eastern Province
+    {"city": "Batticaloa", "lat": 7.7170, "lon": 81.7000},
 
-  // Southern Province
-  { city: "Galle", lat: 6.0535, lon: 80.2210 },
+    # Southern Province
+    {"city": "Galle", "lat": 6.0535, "lon": 80.2210},
 
-  // North Western Province
-  { city: "Kurunegala", lat: 7.4867, lon: 80.3647 },
+    # North Western Province
+    {"city": "Kurunegala", "lat": 7.4867, "lon": 80.3647},
 
-  // Sabaragamuwa Province
-  { city: "Ratnapura", lat: 6.6828, lon: 80.3992 },
+    # Sabaragamuwa Province
+    {"city": "Ratnapura", "lat": 6.6828, "lon": 80.3992},
 
-  // Uva Province
-  { city: "Bandarawela", lat: 6.8289, lon: 80.9870 }
+    # Uva Province
+    {"city": "Bandarawela", "lat": 6.8289, "lon": 80.9870}
 ]
+
 
 # -------------------------------------------------------------
 # AQI Conversion (PurpleAir only)

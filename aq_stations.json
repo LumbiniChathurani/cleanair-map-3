@@ -2,17 +2,17 @@
     {
         "source": "PurpleAir",
         "name": "FECT Akurana",
-        "pm25_10min": 52.5,
-        "aqi": 143,
-        "category": "Unhealthy for Sensitive Groups",
+        "pm25_10min": 31.2,
+        "aqi": 91,
+        "category": "Moderate",
         "lat": 7.718,
         "lon": 80.633
     },
     {
         "source": "PurpleAir",
         "name": "AQD01CJ",
-        "pm25_10min": 19.0,
-        "aqi": 66,
+        "pm25_10min": 15.2,
+        "aqi": 58,
         "category": "Moderate",
         "lat": 6.927,
         "lon": 79.861
@@ -21,9 +21,9 @@
         "source": "IQAir",
         "name": "Battaramulla",
         "nearest_station": "Battaramulla",
-        "aqi": 62,
+        "aqi": 86,
         "category": "Moderate",
-        "timestamp": "2025-12-13T05:00:00.000Z",
+        "timestamp": "2025-12-19T05:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.899,
         "lon": 79.923
@@ -32,20 +32,20 @@
         "source": "IQAir",
         "name": "Colombo",
         "nearest_station": "Colombo",
-        "aqi": 66,
+        "aqi": 88,
         "category": "Moderate",
-        "timestamp": "2025-12-13T05:00:00.000Z",
+        "timestamp": "2025-12-19T05:00:00.000Z",
         "main_pollutant": "p2",
-        "lat": 6.927,
-        "lon": 79.861
+        "lat": 6.9271,
+        "lon": 79.8612
     },
     {
         "source": "IQAir",
         "name": "Gampaha",
         "nearest_station": "Gampaha",
-        "aqi": 56,
+        "aqi": 95,
         "category": "Moderate",
-        "timestamp": "2025-12-13T03:00:00.000Z",
+        "timestamp": "2025-12-19T05:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.086,
         "lon": 79.999
@@ -71,5 +71,82 @@
         "main_pollutant": "p2",
         "lat": 6.852,
         "lon": 79.901
+    },
+    {
+        "source": "IQAir",
+        "name": "Digana",
+        "nearest_station": "Digana",
+        "aqi": 48,
+        "category": "Good",
+        "timestamp": "2025-12-19T03:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 7.297,
+        "lon": 80.76
+    },
+    {
+        "source": "IQAir",
+        "name": "Anuradhapura",
+        "nearest_station": "Anuradhapura",
+        "aqi": 155,
+        "category": "Unhealthy",
+        "timestamp": "2025-12-19T05:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 8.3114,
+        "lon": 80.4037
+    },
+    {
+        "source": "IQAir",
+        "name": "Galle",
+        "nearest_station": "Galle",
+        "aqi": 58,
+        "category": "Moderate",
+        "timestamp": "2025-12-19T05:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 6.0535,
+        "lon": 80.221
+    },
+    {
+        "source": "IQAir",
+        "name": "Kurunegala",
+        "nearest_station": "Kurunegala",
+        "aqi": 110,
+        "category": "Unhealthy for Sensitive Groups",
+        "timestamp": "2025-12-19T05:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 7.4867,
+        "lon": 80.3647
+    },
+    {
+        "source": "IQAir",
+        "name": "Ratnapura",
+        "nearest_station": "Ratnapura",
+        "aqi": 58,
+        "category": "Moderate",
+        "timestamp": "2025-12-19T05:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 6.6828,
+        "lon": 80.3992
+    },
+    {
+        "source": "IQAir",
+        "name": "Bandarawela",
+        "nearest_station": "Bandarawela",
+        "aqi": 27,
+        "category": "Good",
+        "timestamp": "2025-12-19T05:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 6.8289,
+        "lon": 80.987
+    },
+    {
+        "source": "IQAir",
+        "name": "Batticaloa",
+        "nearest_station": "Batticaloa",
+        "aqi": 89,
+        "category": "Moderate",
+        "timestamp": "2025-12-19T05:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 7.717,
+        "lon": 81.7
     }
 ]
