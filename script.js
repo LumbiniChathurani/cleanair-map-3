@@ -108,6 +108,8 @@ fetch("./aq_stations.json")
           icon: createAQISvgIcon(getAQIColor(st.aqi)),
         }
       ).addTo(map).bindPopup(popupContent);
+
+      st.marker = marker; 
       
       // Glow pulse on click
       marker.on("click", () => {

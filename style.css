@@ -1,9 +1,11 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5; /* Light mode background */
-    transition: background 0.3s ease;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* IMPORTANT */
 }
+
 
 /* Title */
 .title {
@@ -129,21 +131,26 @@ body.dark-mode .theme-toggle-btn:hover {
 
   /* SIDEBAR */
   .sidebar {
-    position: absolute;
+    position: fixed;              /* IMPORTANT */
     top: 0;
-    left: -320px;
+    left: 0;
     width: 320px;
-    height: 100%;
+    height: 100vh;
     background: #fff;
-    z-index: 1200;
-    transition: left 0.3s ease;
+    z-index: 9999;
+  
+    transform: translateX(-100%); /* FULLY off screen */
+    transition: transform 0.3s ease;
+  
     padding: 20px;
     box-shadow: 2px 0 10px rgba(0,0,0,0.3);
   }
+  
 
   .sidebar.open {
-    left: 0;
+    transform: translateX(0);
   }
+  
 
 
 
