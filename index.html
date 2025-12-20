@@ -19,34 +19,49 @@
   </head>
 
   <body>
+
+    <div class="search-container">
+      <input id="searchInput" placeholder="Search station..." />
+      <ul class="suggestions" id="suggestions"></ul>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+      <h2 id="stationName"></h2>
+      <p><b>AQI:</b> <span id="stationAqi"></span></p>
+      <p><b>Category:</b> <span id="stationCategory"></span></p>
+      <p><b>Source:</b> <span id="stationSource"></span></p>
+    </div>
+
     <!-- Theme Toggle Button -->
     <div class="theme-toggle-container">
       <button id="themeToggle" class="theme-toggle-btn">Dark Mode</button>
     </div>
 
-    <h2 class="title">Sri Lanka Air Quality Map (Real-time)</h2>
+    <!--<h2 class="title">Sri Lanka Air Quality Map (Real-time)</h2>-->
 
     <div id="map"></div>
 
         <!-- Search Bar Container -->
-<div class="station-search">
+<!--<div class="station-search">
   <input
     type="text"
     id="stationSearch"
     placeholder="Search station..."
     autocomplete="off"
   />
-  <button id="search" title="search" class="magnifying-glass">
+ 
+   <button id="search" title="search" class="magnifying-glass">
     <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  
-  <!--<button id="clearSearch" title="Clear">
+ <button id="clearSearch" title="Clear">
     ✕
-  </button>-->
+  </button> -->
 
-  <!-- Search results dropdown -->
-  <ul id="searchResults" class="search-results"></ul>
+ <!--
+ Search results dropdown 
+<ul id="searchResults" class="search-results"></ul>
 </div>
+ --> 
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

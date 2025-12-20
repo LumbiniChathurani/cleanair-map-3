@@ -88,8 +88,6 @@ function createAQISvgIcon(color) {
 }
 
 
-
-
 // ---------------------------
 // LOAD AQI JSON FILE
 // ---------------------------
@@ -120,9 +118,76 @@ fetch("./aq_stations.json")
         void el.offsetWidth; // restart animation
         el.classList.add("aqi-glow");
       });
+      marker.on("click", () => focusStation(st));
+
+      /* ================= FOCUS ================= */
+function focusStation(st) {
+  map.setView([st.lat, st.lon], 13);
+
+  const el = st.marker.getElement();
+  if (el) {
+    el.classList.remove("glow");
+    void el.offsetWidth;
+    el.classList.add("glow");
+  }
+
+  document.getElementById("stationName").textContent = st.name;
+  document.getElementById("stationAqi").textContent = st.aqi;
+  document.getElementById("stationCategory").textContent = st.category;
+  document.getElementById("stationSource").textContent = st.source;
+
+  document.getElementById("sidebar").classList.add("open");
+}
+
+/* ================= SEARCH ================= */
+const input = document.getElementById("searchInput");
+const suggestions = document.getElementById("suggestions");
+let activeIndex = -1;
+
+input.addEventListener("input", () => {
+  const query = input.value.toLowerCase();
+  suggestions.innerHTML = "";
+  activeIndex = -1;
+
+  if (!query) {
+    suggestions.style.display = "none";
+    return;
+  }
+
+  const matches = stations.filter(s =>
+    s.name.toLowerCase().includes(query)
+  );
+
+  matches.forEach(st => {
+    const li = document.createElement("li");
+    li.textContent = st.name;
+    li.onclick = () => {
+      focusStation(st);
+      suggestions.style.display = "none";
+    };
+    suggestions.appendChild(li);
+  });
+
+  suggestions.style.display = matches.length ? "block" : "none";
+});
+
+input.addEventListener("keydown", e => {
+  const items = suggestions.querySelectorAll("li");
+  if (!items.length) return;
+
+  if (e.key === "ArrowDown") activeIndex = (activeIndex + 1) % items.length;
+  if (e.key === "ArrowUp") activeIndex = (activeIndex - 1 + items.length) % items.length;
+  if (e.key === "Enter") items[activeIndex]?.click();
+
+  items.forEach((el, i) =>
+    el.classList.toggle("active", i === activeIndex)
+  );
+});
       
     });
   })
   .catch(() => {
     alert("Failed to load AQI data.");
   });
+
+ 
