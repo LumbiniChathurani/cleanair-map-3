@@ -18,6 +18,12 @@ html, body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+.leaflet-top.leaflet-right {
+  margin-top: 60px; /* adjust to theme toggle height */
+  margin-right: 10px;
+}
+
+
 /* Map */
 #map {
     height: 100vh;
@@ -109,6 +115,31 @@ body.dark-mode .theme-toggle-btn:hover {
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
 
+  .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #444;
+  }
+  
+  .close-btn:hover {
+    color: #000;
+  }
+  
+  /* Dark mode */
+  body.dark-mode .close-btn {
+    color: #e6e6e6;
+  }
+  
+  body.dark-mode .close-btn:hover {
+    color: #fff;
+  }
+  
+
   .suggestions {
     display: none;
     background: #fff;
@@ -172,5 +203,35 @@ body.dark-mode .search-results li:hover {
 body.dark-mode #clearSearch {
   color: #aaa;
 }
+
+.aqi-legend {
+  background: transparent;
+  padding: 10px 12px;
+  /*border-radius: 8px;*/
+  font-size: 13px;
+  line-height: 18px;
+  /*box-shadow: 0 2px 10px rgba(0,0,0,0.3);*/
+}
+
+.aqi-legend h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.aqi-legend i {
+  width: 14px;
+  height: 14px;
+  float: left;
+  margin-right: 8px;
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+/* Dark mode */
+body.dark-mode .aqi-legend {
+  background: transparent;
+  color: #e6e6e6;
+}
+
 
   

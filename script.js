@@ -18,7 +18,48 @@ const darkTiles = L.tileLayer(
 // ---------------------------
 // CREATE MAP
 // ---------------------------
-const map = L.map("map").setView([7.8731, 80.7718], 8);
+const map = L.map("map", {
+  zoomControl: false
+}).setView([7.8731, 80.7718], 8);
+
+L.control.zoom({
+  position: "topright"
+}).addTo(map);
+
+// ---------------------------
+// AQI LEGEND (BOTTOM RIGHT)
+// ---------------------------
+const legend = L.control({ position: "bottomright" });
+
+legend.onAdd = function () {
+  const div = L.DomUtil.create("div", "aqi-legend");
+
+  const grades = [0, 51, 101, 151, 201, 301];
+  const labels = [
+    "Good (0–50)",
+    "Moderate (51–100)",
+    "Unhealthy for SG (101–150)",
+    "Unhealthy (151–200)",
+    "Very Unhealthy (201–300)",
+    "Hazardous (300+)"
+  ];
+
+  div.innerHTML = "<h4>AQI Scale</h4>";
+
+  for (let i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+      `<div>
+        <i style="background:${getAQIColor(grades[i])}"></i>
+        ${labels[i]}
+      </div>`;
+  }
+
+  return div;
+};
+
+legend.addTo(map);
+
+
 
 // Load tile based on saved theme
 let savedTheme = localStorage.getItem("theme");
@@ -140,6 +181,11 @@ function focusStation(st) {
 
   document.getElementById("sidebar").classList.add("open");
 }
+
+document.getElementById("closeSidebar").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.remove("open");
+});
+
 
 /* ================= SEARCH ================= */
 const input = document.getElementById("searchInput");

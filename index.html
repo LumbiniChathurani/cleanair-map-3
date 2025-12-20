@@ -21,11 +21,14 @@
   <body>
 
     <div class="search-container">
-      <input id="searchInput" placeholder="Search station..." />
+      <input id="searchInput" placeholder="Search station, city..." />
       <ul class="suggestions" id="suggestions"></ul>
     </div>
     
     <div class="sidebar" id="sidebar">
+      <button class="close-btn" id="closeSidebar" aria-label="Close sidebar">
+        &times;
+      </button>
       <h2 id="stationName"></h2>
       <p><b>AQI:</b> <span id="stationAqi"></span></p>
       <p><b>Category:</b> <span id="stationCategory"></span></p>
