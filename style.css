@@ -232,6 +232,11 @@ body.dark-mode .aqi-legend {
   background: transparent;
   color: #e6e6e6;
 }
+.aqi-chart-container {
+  margin-top: 15px;
+  height: 200px;
+}
+
 
 
   

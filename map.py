@@ -6,10 +6,89 @@ import requests
 # API KEYS
 # -------------------------------------------------------------
 
+PURPLEAIR_API_KEY = "30417898-B7AF-11F0-BDE5-4201AC1DC121"
+IQAIR_API_KEY = "b50f8e17-d19d-42b1-a087-0d5ad5434d71"
 
 # -------------------------------------------------------------
 # RETRY WRAPPER
 # -------------------------------------------------------------
+HISTORY_FILE = "data/history.json"
+PURPLEAIR_BUFFER_FILE = "data/purpleair_buffer.json"
+
+
+def load_history():
+    try:
+        with open(HISTORY_FILE, "r") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+def save_history(history):
+    with open(HISTORY_FILE, "w") as f:
+        json.dump(history, f, indent=2)
+
+def trim_old_entries(entries, max_hours=168):
+    if len(entries) > max_hours:
+        return entries[-max_hours:]
+    return entries
+
+def append_hourly_aqi(station_id, aqi, source, timestamp):
+    history = load_history()
+
+    if station_id not in history:
+        history[station_id] = []
+
+    if not any(e["time"] == timestamp and e["source"] == source for e in history[station_id]):
+        history[station_id].append({
+            "time": timestamp,
+            "aqi": aqi,
+            "source": source
+        })
+
+    history[station_id] = trim_old_entries(history[station_id])
+    save_history(history)
+
+
+
+def current_hour_timestamp():
+    return time.strftime("%Y-%m-%dT%H:00:00Z", time.gmtime())
+
+
+def load_buffer():
+    try:
+        with open(PURPLEAIR_BUFFER_FILE, "r") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+def save_buffer(buffer):
+    with open(PURPLEAIR_BUFFER_FILE, "w") as f:
+        json.dump(buffer, f, indent=2)
+
+
+def flush_purpleair_hourly():
+    buffer = load_buffer()
+    updated_buffer = {}
+
+    for station_id, hours in buffer.items():
+        for hour, values in hours.items():
+            if len(values) >= 6:  # full hour (10min × 6)
+                avg_aqi = round(sum(values) / len(values))
+                append_hourly_aqi(
+                    station_id=station_id,
+                    aqi=avg_aqi,
+                    source="purpleair",
+                    timestamp=hour
+                )
+            else:
+                # keep incomplete hours
+                updated_buffer.setdefault(station_id, {})[hour] = values
+
+    save_buffer(updated_buffer)
+
+
+
+
 def safe_request(url, headers=None, max_attempts=5):
     delay = 1.6
     for attempt in range(1, max_attempts + 1):
@@ -124,15 +203,30 @@ def get_realtime_aqi_purpleair(sensorid):
 
 def fetch_all_purpleair():
     results = []
+    buffer = load_buffer()  # load once
+
     for s in PURPLEAIR_STATIONS:
         try:
             data = get_realtime_aqi_purpleair(s["id"])
             data["lat"] = s["lat"]
             data["lon"] = s["lon"]
+
+            # ✅ STORE 10-MIN AQI IN BUFFER
+            hour = current_hour_timestamp()
+            station_id = f"purpleair_{s['id']}"
+
+            buffer.setdefault(station_id, {}).setdefault(hour, []).append(data["aqi"])
+
             results.append(data)
+
         except Exception as e:
             print(f"[ERROR] PurpleAir {s['name']}: {e}")
+
+    save_buffer(buffer)  # save once
+    flush_purpleair_hourly()  # try to convert to hourly
     return results
+
+
 
 # -------------------------------------------------------------
 # FETCH IQAIR
@@ -161,10 +255,20 @@ def fetch_all_iqair():
             data = get_realtime_aqi_iqair(c["city"], c["lat"], c["lon"])
             data["lat"] = c["lat"]
             data["lon"] = c["lon"]
+
+            # ✅ APPEND IQAIR HOURLY AQI TO HISTORY
+            append_hourly_aqi(
+                station_id=f"iqair_{c['city']}",
+                aqi=data["aqi"],
+                source="iqair",
+                timestamp=current_hour_timestamp()
+            )
+
             results.append(data)
         except Exception as e:
             print(f"[ERROR] IQAir {c['city']}: {e}")
     return results
+
 
 # -------------------------------------------------------------
 # SAVE JSON FILE
@@ -213,3 +317,5 @@ if __name__ == "__main__":
         all_data = fetch_all_purpleair() + fetch_all_iqair()
 
     save_to_json(all_data)
+
+

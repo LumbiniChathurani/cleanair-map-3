@@ -164,28 +164,49 @@ fetch("./aq_stations.json")
       marker.on("click", () => focusStation(st));
 
       /* ================= FOCUS ================= */
-function focusStation(st) {
-  map.setView([st.lat, st.lon], 13);
-
-  const el = st.marker.getElement();
-  if (el) {
-    el.classList.remove("glow");
-    void el.offsetWidth;
-    el.classList.add("glow");
-  }
-
-  document.getElementById("stationName").textContent = st.name;
-  document.getElementById("stationAqi").textContent = st.aqi;
-  document.getElementById("stationCategory").textContent = st.category;
-  document.getElementById("stationSource").textContent = st.source;
-
-  document.getElementById("sidebar").classList.add("open");
-}
-
-document.getElementById("closeSidebar").addEventListener("click", () => {
-  document.getElementById("sidebar").classList.remove("open");
-});
-
+      async function focusStation(st) {
+        map.setView([st.lat, st.lon], 13);
+      
+        const el = st.marker.getElement();
+        if (el) {
+          el.classList.remove("glow");
+          void el.offsetWidth;
+          el.classList.add("glow");
+        }
+      
+        // --------------------
+        // Update AQI details
+        // --------------------
+        document.getElementById("stationName").textContent = st.name;
+        document.getElementById("stationAqi").textContent = st.aqi;
+        document.getElementById("stationCategory").textContent = st.category;
+        document.getElementById("stationSource").textContent = st.source;
+      
+        document.getElementById("sidebar").classList.add("open");
+      
+        // --------------------
+        // 🔥 NEW: Load chart
+        // --------------------
+        const chartContainer = document.querySelector(".aqi-chart-container");
+      
+        // build stationId SAME as backend
+        const stationId =
+          st.source === "IQAir"
+            ? `iqair_${st.name}`
+            : `purpleair_${st.id || st.sensorId}`;
+      
+        const history = await loadStationHistory(stationId);
+      
+        if (history.length < 3) {
+          chartContainer.innerHTML = "<p>No historical data yet</p>";
+          return;
+        }
+      
+        // restore canvas if removed
+        chartContainer.innerHTML = `<canvas id="aqiChart"></canvas>`;
+        drawAQIChart(history);
+      }
+      
 
 /* ================= SEARCH ================= */
 const input = document.getElementById("searchInput");
@@ -238,4 +259,82 @@ input.addEventListener("keydown", e => {
     alert("Failed to load AQI data.");
   });
 
- 
+  async function loadStationHistory(stationId) {
+    const res = await fetch("data/history.json");
+    const history = await res.json();
+  
+    const entries = history[stationId] || [];
+  
+    // sort by time
+    entries.sort((a, b) => new Date(a.time) - new Date(b.time));
+  
+    // last 7 days (168 hours)
+    return entries.slice(-168);
+  }
+
+  let aqiChart = null;
+
+function drawAQIChart(entries) {
+  const ctx = document.getElementById("aqiChart").getContext("2d");
+
+  if (aqiChart) {
+    aqiChart.destroy();
+  }
+
+  const labels = entries.map(e =>
+    new Date(e.time).toLocaleString([], { hour: "2-digit", day: "numeric" })
+  );
+
+  const data = entries.map(e => e.aqi);
+
+  aqiChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "AQI (last 7 days)",
+          data,
+          borderWidth: 2,
+          tension: 0.3,
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 300
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `AQI: ${ctx.raw}`
+          }
+        }
+      }
+    }
+  });
+}
+
+// ---------------------------
+// SIDEBAR CLOSE HANDLING
+// ---------------------------
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("closeSidebar");
+
+closeBtn.addEventListener("click", (e) => {
+  e.stopPropagation();            // 🔥 prevents map click
+  sidebar.classList.remove("open");
+});
+
+// Prevent sidebar clicks from touching map
+sidebar.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
