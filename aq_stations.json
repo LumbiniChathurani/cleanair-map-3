@@ -2,7 +2,7 @@
     {
         "source": "PurpleAir",
         "name": "FECT Akurana",
-        "pm25_10min": 0.4,
+        "pm25_10min": 0.5,
         "aqi": 2,
         "category": "Good",
         "lat": 7.718,
@@ -11,7 +11,7 @@
     {
         "source": "PurpleAir",
         "name": "AQD01CJ",
-        "pm25_10min": 19.5,
+        "pm25_10min": 19.7,
         "aqi": 67,
         "category": "Moderate",
         "lat": 6.927,
