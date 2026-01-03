@@ -3,6 +3,10 @@ import time
 import requests
 
 import os
+
+
+os.makedirs("data", exist_ok=True)
+
 print("Current working directory:", os.getcwd())
 print("Files:", os.listdir("."))
 print("Data folder exists:", os.path.exists("data"))
