@@ -2,6 +2,12 @@ import json
 import time
 import requests
 
+import os
+print("Current working directory:", os.getcwd())
+print("Files:", os.listdir("."))
+print("Data folder exists:", os.path.exists("data"))
+
+
 # -------------------------------------------------------------
 # API KEYS
 # -------------------------------------------------------------
