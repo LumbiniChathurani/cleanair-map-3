@@ -23,8 +23,14 @@ IQAIR_API_KEY = "b50f8e17-d19d-42b1-a087-0d5ad5434d71"
 # -------------------------------------------------------------
 # RETRY WRAPPER
 # -------------------------------------------------------------
-HISTORY_FILE = "data/history.json"
-PURPLEAIR_BUFFER_FILE = "data/purpleair_buffer.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+os.makedirs(DATA_DIR, exist_ok=True)
+
+HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
+PURPLEAIR_BUFFER_FILE = os.path.join(DATA_DIR, "purpleair_buffer.json")
+
 
 
 def load_history():
