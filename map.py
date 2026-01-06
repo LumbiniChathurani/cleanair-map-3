@@ -89,7 +89,7 @@ def flush_purpleair_hourly():
 
     for station_id, hours in buffer.items():
         for hour, values in hours.items():
-            if len(values) >= 6:  # full hour (10min × 6)
+            if len(values) <= 6:  # full hour (10min × 6)
                 avg_aqi = round(sum(values) / len(values))
                 append_hourly_aqi(
                     station_id=station_id,
