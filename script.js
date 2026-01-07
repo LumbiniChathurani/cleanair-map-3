@@ -184,6 +184,17 @@ fetch("./aq_stations.json")
       
         document.getElementById("sidebar").classList.add("open");
 
+        
+        // --------------------
+        // Last Updated
+        // --------------------
+       if (history.length > 0) {
+       const lastTime = history[history.length - 1].time; // get last timestamp
+       const lastUpdated = new Date(lastTime).toLocaleString(); // format nicely
+       document.getElementById("stationLastUpdated").textContent = lastUpdated;
+       } else {
+       document.getElementById("stationLastUpdated").textContent = "N/A";
+       }
 
 
       
@@ -200,19 +211,6 @@ fetch("./aq_stations.json")
       
       
         const history = await loadStationHistory(stationId);
-
-
-        // --------------------
-        // Last Updated
-        // --------------------
-       if (history.length > 0) {
-        const lastTime = history[history.length - 1].time; // get last timestamp
-        const lastUpdated = new Date(lastTime).toLocaleString(); // format nicely
-        document.getElementById("stationLastUpdated").textContent = lastUpdated;
-        } else {
-        document.getElementById("stationLastUpdated").textContent = "N/A";
-        }
-
       
         if (history.length < 3) {
           chartContainer.innerHTML = "<p>No historical data yet</p>";
