@@ -486,6 +486,11 @@
       "time": "2026-01-07T17:00:00Z",
       "aqi": 126,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 109,
+      "source": "iqair"
     }
   ],
   "iqair_Battaramulla": [
@@ -967,6 +972,11 @@
     {
       "time": "2026-01-07T17:00:00Z",
       "aqi": 148,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 138,
       "source": "iqair"
     }
   ],
@@ -1450,6 +1460,11 @@
       "time": "2026-01-07T17:00:00Z",
       "aqi": 123,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 104,
+      "source": "iqair"
     }
   ],
   "iqair_Digana": [
@@ -1932,6 +1947,11 @@
       "time": "2026-01-07T17:00:00Z",
       "aqi": 149,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 154,
+      "source": "iqair"
     }
   ],
   "iqair_Anuradhapura": [
@@ -2413,6 +2433,11 @@
     {
       "time": "2026-01-07T17:00:00Z",
       "aqi": 142,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 137,
       "source": "iqair"
     }
   ],
@@ -3203,6 +3228,11 @@
       "time": "2026-01-07T17:00:00Z",
       "aqi": 135,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 152,
+      "source": "iqair"
     }
   ],
   "iqair_Kurunegala": [
@@ -3684,6 +3714,11 @@
     {
       "time": "2026-01-07T17:00:00Z",
       "aqi": 103,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 91,
       "source": "iqair"
     }
   ],
@@ -4167,6 +4202,11 @@
       "time": "2026-01-07T17:00:00Z",
       "aqi": 168,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
+      "aqi": 163,
+      "source": "iqair"
     }
   ],
   "iqair_Bandarawela": [
@@ -4647,6 +4687,11 @@
     },
     {
       "time": "2026-01-07T17:00:00Z",
+      "aqi": 88,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T18:00:00Z",
       "aqi": 88,
       "source": "iqair"
     }
