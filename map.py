@@ -234,7 +234,9 @@ def fetch_all_purpleair():
 
             buffer.setdefault(station_id, {}).setdefault(hour, []).append(data["aqi"])
 
+            data["stationId"] = station_id   # 🔥 ADD THIS
             results.append(data)
+
 
         except Exception as e:
             print(f"[ERROR] PurpleAir {s['name']}: {e}")
