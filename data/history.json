@@ -476,6 +476,11 @@
       "time": "2026-01-07T15:00:00Z",
       "aqi": 128,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 126,
+      "source": "iqair"
     }
   ],
   "iqair_Battaramulla": [
@@ -947,6 +952,11 @@
     {
       "time": "2026-01-07T15:00:00Z",
       "aqi": 153,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 151,
       "source": "iqair"
     }
   ],
@@ -1420,6 +1430,11 @@
       "time": "2026-01-07T15:00:00Z",
       "aqi": 140,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 125,
+      "source": "iqair"
     }
   ],
   "iqair_Digana": [
@@ -1891,6 +1906,11 @@
     {
       "time": "2026-01-07T15:00:00Z",
       "aqi": 154,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 151,
       "source": "iqair"
     }
   ],
@@ -2364,6 +2384,11 @@
       "time": "2026-01-07T15:00:00Z",
       "aqi": 153,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 149,
+      "source": "iqair"
     }
   ],
   "iqair_Batticaloa": [
@@ -2665,6 +2690,11 @@
     {
       "time": "2026-01-07T14:00:00Z",
       "aqi": 137,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 111,
       "source": "iqair"
     }
   ],
@@ -3138,6 +3168,11 @@
       "time": "2026-01-07T15:00:00Z",
       "aqi": 104,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 106,
+      "source": "iqair"
     }
   ],
   "iqair_Kurunegala": [
@@ -3609,6 +3644,11 @@
     {
       "time": "2026-01-07T15:00:00Z",
       "aqi": 136,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 132,
       "source": "iqair"
     }
   ],
@@ -4082,6 +4122,11 @@
       "time": "2026-01-07T15:00:00Z",
       "aqi": 165,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
+      "aqi": 174,
+      "source": "iqair"
     }
   ],
   "iqair_Bandarawela": [
@@ -4552,6 +4597,11 @@
     },
     {
       "time": "2026-01-07T15:00:00Z",
+      "aqi": 113,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-07T16:00:00Z",
       "aqi": 113,
       "source": "iqair"
     }
