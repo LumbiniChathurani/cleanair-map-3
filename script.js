@@ -193,7 +193,7 @@ fetch("./aq_stations.json")
         const stationId =
           st.source === "IQAir"
             ? `iqair_${st.name}`
-            : `purpleair_${st.name || st.sensorId}`;
+            : `purpleair_${st.stationId || st.sensorId}`;
       
         const history = await loadStationHistory(stationId);
       
