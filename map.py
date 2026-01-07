@@ -234,7 +234,7 @@ def fetch_all_purpleair():
 
             buffer.setdefault(station_id, {}).setdefault(hour, []).append(data["aqi"])
 
-            data["stationId"] = station_id   # 🔥 ADD THIS
+            data["stationId"] = station_id   
             results.append(data)
 
 
