@@ -164,52 +164,62 @@ fetch("./aq_stations.json")
       marker.on("click", () => focusStation(st));
 
       /* ================= FOCUS ================= */
-      async function focusStation(st) {
-        map.setView([st.lat, st.lon], 13);
-      
-        const el = st.marker.getElement();
-        if (el) {
-          el.classList.remove("glow");
-          void el.offsetWidth;
-          el.classList.add("glow");
-        }
-      
-        // --------------------
-        // Update AQI details
-        // --------------------
-        document.getElementById("stationName").textContent = st.name;
-        document.getElementById("stationAqi").textContent = st.aqi;
-        document.getElementById("stationCategory").textContent = st.category;
-        document.getElementById("stationSource").textContent = st.source;
-      
-        document.getElementById("sidebar").classList.add("open");
+async function focusStation(st) {
+  map.setView([st.lat, st.lon], 13);
 
+  const el = st.marker.getElement();
+  if (el) {
+    el.classList.remove("glow");
+    void el.offsetWidth;
+    el.classList.add("glow");
+  }
 
+  // --------------------
+  // Update AQI details
+  // --------------------
+  document.getElementById("stationName").textContent = st.name;
+  document.getElementById("stationAqi").textContent = st.aqi;
+  document.getElementById("stationCategory").textContent = st.category;
+  document.getElementById("stationSource").textContent = st.source;
 
-      
-        // --------------------
-        // 🔥 NEW: Load chart
-        // --------------------
-        const chartContainer = document.querySelector(".aqi-chart-container");
-      
-        // build stationId SAME as backend
-        const stationId =
-        st.source === "IQAir"
-          ? `iqair_${st.name}`
-          : st.stationId;   // ✅ EXACT match with history.json
-      
-      
-        const history = await loadStationHistory(stationId);
-      
-        if (history.length < 3) {
-          chartContainer.innerHTML = "<p>No historical data yet</p>";
-          return;
-        }
-      
-        // restore canvas if removed
-        chartContainer.innerHTML = `<canvas id="aqiChart"></canvas>`;
-        drawAQIChart(history);
-      }
+  document.getElementById("sidebar").classList.add("open");
+
+  // --------------------
+  // Build stationId SAME as backend and load history
+  // --------------------
+  const stationId =
+    st.source === "IQAir"
+      ? `iqair_${st.name}`
+      : st.stationId;   // ✅ EXACT match with history.json
+
+  const history = await loadStationHistory(stationId);
+
+  // --------------------
+  // Last Updated
+  // --------------------
+  const lastUpdatedEl = document.getElementById("stationLastUpdated");
+  if (history.length > 0) {
+    const lastTime = history[history.length - 1].time;
+    lastUpdatedEl.textContent = new Date(lastTime).toLocaleString(); // shows local date & time
+  } else {
+    lastUpdatedEl.textContent = "N/A";
+  }
+
+  // --------------------
+  // 🔥 NEW: Load chart
+  // --------------------
+  const chartContainer = document.querySelector(".aqi-chart-container");
+
+  if (history.length < 3) {
+    chartContainer.innerHTML = "<p>No historical data yet</p>";
+    return;
+  }
+
+  // restore canvas if removed
+  chartContainer.innerHTML = `<canvas id="aqiChart"></canvas>`;
+  drawAQIChart(history);
+}
+
       
 
 /* ================= SEARCH ================= */
