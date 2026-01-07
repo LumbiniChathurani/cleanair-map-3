@@ -191,9 +191,10 @@ fetch("./aq_stations.json")
       
         // build stationId SAME as backend
         const stationId =
-          st.source === "IQAir"
-            ? `iqair_${st.name}`
-            : `purpleair_${st.stationId || st.sensorId}`;
+        st.source === "IQAir"
+          ? `iqair_${st.name}`
+          : st.stationId;   // ✅ EXACT match with history.json
+      
       
         const history = await loadStationHistory(stationId);
       
