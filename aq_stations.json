@@ -12,9 +12,9 @@
     {
         "source": "PurpleAir",
         "name": "AQD01CJ",
-        "pm25_10min": 39.8,
-        "aqi": 112,
-        "category": "Unhealthy for Sensitive Groups",
+        "pm25_10min": 30.5,
+        "aqi": 90,
+        "category": "Moderate",
         "lat": 6.927,
         "lon": 79.861,
         "stationId": "purpleair_157599"
