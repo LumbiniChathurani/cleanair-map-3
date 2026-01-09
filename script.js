@@ -352,3 +352,45 @@ sidebar.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
+
+//Population data
+let populationData = {};
+
+fetch("data/population/population.json")
+  .then(r => r.json())
+  .then(data => {
+    populationData = data;
+  });
+
+  function getColor(pop) {
+    if (pop > 3000) return "#800026";
+    if (pop > 2000) return "#BD0026";
+    if (pop > 1000) return "#E31A1C";
+    return "#FED976";
+  }
+  fetch("data/boundaries/gn.geojson")
+  .then(r => r.json())
+  .then(geojson => {
+    L.geoJSON(geojson, {
+      style: feature => {
+        const gn = feature.properties.adm4_name;
+        const pop = populationData[gn] || 0;
+
+        return {
+          fillColor: getColor(pop),
+          weight: 1,
+          color: "#555",
+          fillOpacity: 0.6
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const gn = feature.properties.adm4_name;
+        const pop = populationData[gn] || "No data";
+
+        layer.bindPopup(
+          `<b>${gn}</b><br>Population: ${pop}`
+        );
+      }
+    }).addTo(map);
+  });
+  
