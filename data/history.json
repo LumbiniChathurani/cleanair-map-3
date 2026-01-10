@@ -801,6 +801,11 @@
       "time": "2026-01-10T15:00:00Z",
       "aqi": 92,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 77,
+      "source": "iqair"
     }
   ],
   "iqair_Battaramulla": [
@@ -1597,6 +1602,11 @@
     {
       "time": "2026-01-10T15:00:00Z",
       "aqi": 97,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 87,
       "source": "iqair"
     }
   ],
@@ -2395,6 +2405,11 @@
       "time": "2026-01-10T15:00:00Z",
       "aqi": 58,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 68,
+      "source": "iqair"
     }
   ],
   "iqair_Digana": [
@@ -3190,6 +3205,11 @@
     },
     {
       "time": "2026-01-10T15:00:00Z",
+      "aqi": 80,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
       "aqi": 80,
       "source": "iqair"
     }
@@ -3988,6 +4008,11 @@
     {
       "time": "2026-01-10T15:00:00Z",
       "aqi": 94,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 102,
       "source": "iqair"
     }
   ],
@@ -5288,6 +5313,11 @@
       "time": "2026-01-10T15:00:00Z",
       "aqi": 135,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 151,
+      "source": "iqair"
     }
   ],
   "iqair_Kurunegala": [
@@ -6084,6 +6114,11 @@
     {
       "time": "2026-01-10T15:00:00Z",
       "aqi": 87,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 82,
       "source": "iqair"
     }
   ],
@@ -6882,6 +6917,11 @@
       "time": "2026-01-10T15:00:00Z",
       "aqi": 102,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 92,
+      "source": "iqair"
     }
   ],
   "iqair_Bandarawela": [
@@ -7678,6 +7718,11 @@
     {
       "time": "2026-01-10T15:00:00Z",
       "aqi": 54,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T16:00:00Z",
+      "aqi": 65,
       "source": "iqair"
     }
   ],
