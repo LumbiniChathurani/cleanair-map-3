@@ -751,6 +751,11 @@
       "time": "2026-01-10T05:00:00Z",
       "aqi": 69,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 70,
+      "source": "iqair"
     }
   ],
   "iqair_Battaramulla": [
@@ -1498,6 +1503,11 @@
       "time": "2026-01-10T05:00:00Z",
       "aqi": 92,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 83,
+      "source": "iqair"
     }
   ],
   "iqair_Gampaha": [
@@ -2243,6 +2253,11 @@
     },
     {
       "time": "2026-01-10T05:00:00Z",
+      "aqi": 65,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
       "aqi": 65,
       "source": "iqair"
     }
@@ -2992,6 +3007,11 @@
       "time": "2026-01-10T05:00:00Z",
       "aqi": 49,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 54,
+      "source": "iqair"
     }
   ],
   "iqair_Anuradhapura": [
@@ -3738,6 +3758,11 @@
     {
       "time": "2026-01-10T05:00:00Z",
       "aqi": 127,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 141,
       "source": "iqair"
     }
   ],
@@ -4973,6 +4998,11 @@
       "time": "2026-01-10T05:00:00Z",
       "aqi": 82,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 107,
+      "source": "iqair"
     }
   ],
   "iqair_Kurunegala": [
@@ -5719,6 +5749,11 @@
     {
       "time": "2026-01-10T05:00:00Z",
       "aqi": 74,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 70,
       "source": "iqair"
     }
   ],
@@ -6467,6 +6502,11 @@
       "time": "2026-01-10T05:00:00Z",
       "aqi": 73,
       "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 62,
+      "source": "iqair"
     }
   ],
   "iqair_Bandarawela": [
@@ -7213,6 +7253,11 @@
     {
       "time": "2026-01-10T05:00:00Z",
       "aqi": 80,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-10T06:00:00Z",
+      "aqi": 27,
       "source": "iqair"
     }
   ],
