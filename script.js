@@ -368,9 +368,16 @@ fetch("data/population/population.json")
     if (pop > 1000) return "#E31A1C";
     return "#FED976";
   }
-  fetch("data/boundaries/gn.geojson")
+  fetch("data/boundaries/lka_admin4.topojson")
   .then(r => r.json())
-  .then(geojson => {
+  .then(topoData => {
+
+    // 🔁 Convert TopoJSON → GeoJSON
+    const geojson = topojson.feature(
+      topoData,
+      topoData.objects.lka_admin4
+    );
+
     L.geoJSON(geojson, {
       style: feature => {
         const gn = feature.properties.adm4_name;
@@ -393,4 +400,3 @@ fetch("data/population/population.json")
       }
     }).addTo(map);
   });
-  
