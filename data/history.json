@@ -8496,6 +8496,11 @@
       "time": "2026-01-11T21:00:00Z",
       "aqi": 85,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-01-11T22:00:00Z",
+      "aqi": 70,
+      "source": "purpleair"
     }
   ],
   "purpleair_157599": [
@@ -8832,6 +8837,11 @@
     {
       "time": "2026-01-11T21:00:00Z",
       "aqi": 44,
+      "source": "purpleair"
+    },
+    {
+      "time": "2026-01-11T22:00:00Z",
+      "aqi": 46,
       "source": "purpleair"
     }
   ]
