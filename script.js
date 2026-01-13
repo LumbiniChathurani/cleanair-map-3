@@ -368,7 +368,7 @@ fetch("data/population/population.json")
     if (pop > 1000) return "#E31A1C";
     return "#FED976";
   }
-  fetch("data/boundaries/lka_admin4.topojson")
+  fetch("data/boundaries/lka_admin4.json")
   .then(r => r.json())
   .then(topoData => {
 
