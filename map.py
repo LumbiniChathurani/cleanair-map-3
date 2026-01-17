@@ -17,7 +17,7 @@ print("Data folder exists:", os.path.exists("data"))
 # -------------------------------------------------------------
 
 PURPLEAIR_API_KEY = "30417898-B7AF-11F0-BDE5-4201AC1DC121"
-IQAIR_API_KEY = "b50f8e17-d19d-42b1-a087-0d5ad5434d71"
+IQAIR_API_KEY = "b50f8e17-d19d-42b1-a087-0d5ad5434d71" 
 
 
 # -------------------------------------------------------------
@@ -51,7 +51,7 @@ def trim_old_entries(entries, max_hours=168):
 
 def append_hourly_aqi(station_id, aqi, source, timestamp):
     history = load_history()
-
+ 
     if station_id not in history:
         history[station_id] = []
 

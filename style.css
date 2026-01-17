@@ -1,4 +1,5 @@
 
+
 html, body {
   height: 100%;
   margin: 0;
@@ -181,6 +182,26 @@ body.dark-mode .theme-toggle-btn:hover {
   .sidebar.open {
     transform: translateX(0);
   }
+ 
+  .sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .sidebar p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  #stationAqi {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  body.dark-mode #stationAqi {
+    color: #9aedf4;
+  }
   
 
 
@@ -235,8 +256,36 @@ body.dark-mode .aqi-legend {
 .aqi-chart-container {
   margin-top: 15px;
   height: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.03);
+}
+body.dark-mode .aqi-chart-container {
+  background: rgba(255,255,255,0.05);
 }
 
 
+/* ============================= */
+/*        SIDEBAR DARK MODE      */
+/* ============================= */
+
+body.dark-mode .sidebar {
+  background: #121826;
+  color: #e6e6e6;
+}
+
+body.dark-mode .sidebar p,
+body.dark-mode .sidebar b,
+body.dark-mode .sidebar h2 {
+  color: #e6e6e6;
+}
+
+.sidebar {
+  border-right: 1px solid rgba(0,0,0,0.08);
+}
+
+body.dark-mode .sidebar {
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
 
   
