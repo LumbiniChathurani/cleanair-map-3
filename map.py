@@ -16,13 +16,9 @@ print("Data folder exists:", os.path.exists("data"))
 # API KEYS
 # -------------------------------------------------------------
 
-IQAIR_API_KEY = os.getenv("IQAIR_API_KEY")
 
-
-PURPLEAIR_API_KEY = os.getenv("PURPLEAIR_API_KEY")
-
-if not IQAIR_API_KEY or not PURPLEAIR_API_KEY:
-    raise ValueError("API keys not set in environment variables")
+PURPLEAIR_API_KEY = "30417898-B7AF-11F0-BDE5-4201AC1DC121"
+IQAIR_API_KEY = "b50f8e17-d19d-42b1-a087-0d5ad5434d71"
 
 
 
