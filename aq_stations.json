@@ -150,5 +150,16 @@
         "main_pollutant": "p2",
         "lat": 7.717,
         "lon": 81.7
+    },
+    {
+        "source": "IQAir",
+        "name": "Jaffna",
+        "nearest_station": "Jaffna",
+        "aqi": 181,
+        "category": "Unhealthy",
+        "timestamp": "2026-01-18T13:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 9.6615,
+        "lon": 80.0255
     }
 ]

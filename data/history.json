@@ -9439,5 +9439,12 @@
       "aqi": 83,
       "source": "purpleair"
     }
+  ],
+  "iqair_Jaffna": [
+    {
+      "time": "2026-01-18T13:00:00Z",
+      "aqi": 181,
+      "source": "iqair"
+    }
   ]
 }
