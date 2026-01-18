@@ -32,6 +32,10 @@ jobs:
           IQAIR_API_KEY: ${{ secrets.IQAIR_API_KEY }}
         run: python map.py iqair
 
+      - name: Check secrets
+        run: |
+          echo "IQAir key exists: $([[ -z \"$IQAIR_API_KEY\" ]] && echo no || echo yes)"
+
       - name: Commit & Push changes
         run: |
           git config --local user.name "github-actions[bot]"
