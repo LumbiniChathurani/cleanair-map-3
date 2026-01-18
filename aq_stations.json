@@ -12,8 +12,8 @@
     {
         "source": "PurpleAir",
         "name": "AQD01CJ",
-        "pm25_10min": 84.5,
-        "aqi": 166,
+        "pm25_10min": 71.4,
+        "aqi": 159,
         "category": "Unhealthy",
         "lat": 6.927,
         "lon": 79.861,
@@ -122,9 +122,9 @@
         "source": "IQAir",
         "name": "Ratnapura",
         "nearest_station": "Ratnapura",
-        "aqi": 153,
+        "aqi": 163,
         "category": "Unhealthy",
-        "timestamp": "2026-01-18T11:00:00.000Z",
+        "timestamp": "2026-01-18T13:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.6828,
         "lon": 80.3992
@@ -150,5 +150,16 @@
         "main_pollutant": "p2",
         "lat": 7.717,
         "lon": 81.7
+    },
+    {
+        "source": "IQAir",
+        "name": "Jaffna",
+        "nearest_station": "Jaffna",
+        "aqi": 181,
+        "category": "Unhealthy",
+        "timestamp": "2026-01-18T13:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 9.6615,
+        "lon": 80.0255
     }
 ]

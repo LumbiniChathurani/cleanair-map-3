@@ -6744,11 +6744,6 @@
   ],
   "iqair_Ratnapura": [
     {
-      "time": "2026-01-10T06:00:00Z",
-      "aqi": 62,
-      "source": "iqair"
-    },
-    {
       "time": "2026-01-10T07:00:00Z",
       "aqi": 56,
       "source": "iqair"
@@ -7581,6 +7576,11 @@
     {
       "time": "2026-01-18T11:00:00Z",
       "aqi": 153,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-18T13:00:00Z",
+      "aqi": 163,
       "source": "iqair"
     }
   ],
@@ -9438,6 +9438,13 @@
       "time": "2026-01-18T10:00:00Z",
       "aqi": 83,
       "source": "purpleair"
+    }
+  ],
+  "iqair_Jaffna": [
+    {
+      "time": "2026-01-18T13:00:00Z",
+      "aqi": 181,
+      "source": "iqair"
     }
   ]
 }
