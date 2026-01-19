@@ -33,8 +33,15 @@ jobs:
         run: python map.py iqair
 
       - name: Check secrets
+        env:
+          IQAIR_API_KEY: ${{ secrets.IQAIR_API_KEY }}
         run: |
-          echo "IQAir key exists: $([[ -z \"$IQAIR_API_KEY\" ]] && echo no || echo yes)"
+          if [ -z "$IQAIR_API_KEY" ]; then
+            echo "❌ IQAIR_API_KEY is NOT set"
+          else
+            echo "✅ IQAIR_API_KEY is set"
+          fi
+      
 
       - name: Commit & Push changes
         run: |
