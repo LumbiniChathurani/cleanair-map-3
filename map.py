@@ -17,8 +17,19 @@ print("Data folder exists:", os.path.exists("data"))
 # -------------------------------------------------------------
 
 
-PURPLEAIR_API_KEY = "30417898-B7AF-11F0-BDE5-4201AC1DC121"
-IQAIR_API_KEY = "b50f8e17-d19d-42b1-a087-0d5ad5434d71"
+# -------------------------------------------------------------
+# API KEYS (loaded from environment variables)
+# -------------------------------------------------------------
+#IQAIR_API_KEY = os.getenv("IQAIR_API_KEY")
+#PURPLEAIR_API_KEY = os.getenv("PURPLEAIR_API_KEY")
+
+def require_key(name):
+    value = os.getenv(name)
+    if not value:
+        raise RuntimeError(f"{name} not set in environment")
+    return value
+
+
 
 
 
@@ -202,8 +213,9 @@ def get_aqi_category(aqi):
 # FETCH PURPLEAIR
 # -------------------------------------------------------------
 def get_realtime_aqi_purpleair(sensorid):
+    api_key = require_key("PURPLEAIR_API_KEY")
     url = f"https://api.purpleair.com/v1/sensors/{sensorid}?fields=name,pm2.5_10minute"
-    headers = {"X-API-Key": PURPLEAIR_API_KEY}
+    headers = {"X-API-Key": api_key}
     response = safe_request(url, headers=headers)
     data = response.json()
     if "sensor" not in data:
@@ -254,7 +266,8 @@ def fetch_all_purpleair():
 # FETCH IQAIR
 # -------------------------------------------------------------
 def get_realtime_aqi_iqair(city, lat, lon):
-    url = f"https://api.airvisual.com/v2/nearest_city?lat={lat}&lon={lon}&key={IQAIR_API_KEY}"
+    api_key = require_key("IQAIR_API_KEY")
+    url = f"https://api.airvisual.com/v2/nearest_city?lat={lat}&lon={lon}&key={api_key}"
     response = safe_request(url)
     data = response.json()
     if data.get("status") != "success":
