@@ -2,8 +2,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT Akurana",
-        "pm25_10min": 2.3,
-        "aqi": 10,
+        "pm25_10min": 4.4,
+        "aqi": 18,
         "category": "Good",
         "lat": 7.718,
         "lon": 80.633,
@@ -12,9 +12,9 @@
     {
         "source": "PurpleAir",
         "name": "AQD01CJ",
-        "pm25_10min": 20.5,
-        "aqi": 69,
-        "category": "Moderate",
+        "pm25_10min": 46.7,
+        "aqi": 129,
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 6.927,
         "lon": 79.861,
         "stationId": "purpleair_157599"
@@ -57,11 +57,11 @@
     },
     {
         "source": "WAQI",
-        "name": "Colombo",
+        "name": "Colombo 07",
         "aqi": null,
         "category": "N/A",
-        "lat": 6.913047,
-        "lon": 79.84807,
+        "lat": 6.9271,
+        "lon": 79.8612,
         "stationId": "waqi_562207"
     },
     {
@@ -75,11 +75,20 @@
     },
     {
         "source": "WAQI",
-        "name": "Anuradhapura",
+        "name": "Kandy \u2013 Peradeniya",
         "aqi": null,
         "category": "N/A",
-        "lat": 8.3114,
-        "lon": 80.4037,
+        "lat": 7.293,
+        "lon": 80.635,
         "stationId": "waqi_788896"
+    },
+    {
+        "source": "WAQI",
+        "name": "Negombo",
+        "aqi": null,
+        "category": "N/A",
+        "lat": 7.208,
+        "lon": 79.835,
+        "stationId": "waqi_789012"
     }
 ]
