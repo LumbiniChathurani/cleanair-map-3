@@ -185,7 +185,7 @@
     {
         "source": "WAQI",
         "name": "Colombo US Embassy",
-        "aqi": 59,
+        "aqi": 56,
         "category": "Moderate",
         "lat": 6.913047,
         "lon": 79.84807,
@@ -194,7 +194,7 @@
     {
         "source": "WAQI",
         "name": "Galle \u2013 Karapitiya",
-        "aqi": 59,
+        "aqi": 56,
         "category": "Moderate",
         "lat": 6.0535,
         "lon": 80.221,
@@ -203,7 +203,7 @@
     {
         "source": "WAQI",
         "name": "Jaffna \u2013 Chunnakam",
-        "aqi": 60,
+        "aqi": 67,
         "category": "Moderate",
         "lat": 9.6667,
         "lon": 80.0167,
@@ -212,7 +212,7 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 60,
+        "aqi": 67,
         "category": "Moderate",
         "lat": 8.3114,
         "lon": 80.4037,
