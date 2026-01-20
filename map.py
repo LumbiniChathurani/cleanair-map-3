@@ -3,20 +3,16 @@ import time
 import requests
 import os
 
-# -------------------------------------------------------------
-# Directories
-# -------------------------------------------------------------
+
 os.makedirs("data", exist_ok=True)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
-os.makedirs(DATA_DIR, exist_ok=True)
+print("Current working directory:", os.getcwd())
+print("Files:", os.listdir("."))
+print("Data folder exists:", os.path.exists("data"))
 
-HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
-PURPLEAIR_BUFFER_FILE = os.path.join(DATA_DIR, "purpleair_buffer.json")
 
 # -------------------------------------------------------------
-# API Keys
+# API KEYS
 # -------------------------------------------------------------
 def require_key(name):
     value = os.getenv(name)
@@ -24,29 +20,19 @@ def require_key(name):
         raise RuntimeError(f"{name} not set in environment")
     return value
 
-# -------------------------------------------------------------
-# Retry Wrapper
-# -------------------------------------------------------------
-def safe_request(url, headers=None, max_attempts=5):
-    delay = 1.6
-    for attempt in range(1, max_attempts + 1):
-        try:
-            response = requests.get(url, headers=headers, timeout=10)
-            if response.status_code == 429:
-                print(f"[RATE LIMIT] Waiting {delay}s (attempt {attempt}/{max_attempts})")
-                time.sleep(delay)
-                delay = min(delay * 2, 10)
-                continue
-            return response
-        except requests.exceptions.RequestException as e:
-            print(f"[NETWORK ERROR] {e} | retrying in {delay}s...")
-            time.sleep(delay)
-            delay = min(delay * 2, 10)
-    raise Exception("Max retries reached for: " + url)
 
 # -------------------------------------------------------------
-# Utility functions
+# RETRY WRAPPER
 # -------------------------------------------------------------
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+os.makedirs(DATA_DIR, exist_ok=True)
+
+HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
+PURPLEAIR_BUFFER_FILE = os.path.join(DATA_DIR, "purpleair_buffer.json")
+
+
 def load_history():
     try:
         with open(HISTORY_FILE, "r") as f:
@@ -54,60 +40,38 @@ def load_history():
     except (FileNotFoundError, json.JSONDecodeError):
         return {}
 
+
 def save_history(history):
     with open(HISTORY_FILE, "w") as f:
         json.dump(history, f, indent=2)
+
 
 def trim_old_entries(entries, max_hours=168):
     if len(entries) > max_hours:
         return entries[-max_hours:]
     return entries
 
+
 def append_hourly_aqi(station_id, aqi, source, timestamp):
     history = load_history()
+
     if station_id not in history:
         history[station_id] = []
+
     if not any(e["time"] == timestamp and e["source"] == source for e in history[station_id]):
         history[station_id].append({
             "time": timestamp,
             "aqi": aqi,
             "source": source
         })
+
     history[station_id] = trim_old_entries(history[station_id])
     save_history(history)
+
 
 def current_hour_timestamp():
     return time.strftime("%Y-%m-%dT%H:00:00Z", time.gmtime())
 
-# -------------------------------------------------------------
-# PurpleAir Logic
-# -------------------------------------------------------------
-PURPLEAIR_STATIONS = [
-    {"id": 12451, "name": "FECT Akurana", "lat": 7.718, "lon": 80.633},
-    {"id": 157599, "name": "Gregory's Road", "lat": 6.927, "lon": 79.861},
-]
-
-def pm25_to_aqi(pm25):
-    breakpoints = [
-        (0.0, 12.0, 0, 50),
-        (12.1, 35.4, 51, 100),
-        (35.5, 55.4, 101, 150),
-        (55.5, 150.4, 151, 200),
-        (150.5, 250.4, 201, 300),
-        (250.5, 500.4, 301, 500),
-    ]
-    for c_low, c_high, i_low, i_high in breakpoints:
-        if c_low <= pm25 <= c_high:
-            return round(((i_high - i_low) / (c_high - c_low)) * (pm25 - c_low) + i_low)
-    return None
-
-def get_aqi_category(aqi):
-    if aqi <= 50: return "Good"
-    if aqi <= 100: return "Moderate"
-    if aqi <= 150: return "Unhealthy for Sensitive Groups"
-    if aqi <= 200: return "Unhealthy"
-    if aqi <= 300: return "Very Unhealthy"
-    return "Hazardous"
 
 def load_buffer():
     try:
@@ -116,64 +80,65 @@ def load_buffer():
     except (FileNotFoundError, json.JSONDecodeError):
         return {}
 
+
 def save_buffer(buffer):
     with open(PURPLEAIR_BUFFER_FILE, "w") as f:
         json.dump(buffer, f, indent=2)
 
+
 def flush_purpleair_hourly():
     buffer = load_buffer()
     updated_buffer = {}
+
     for station_id, hours in buffer.items():
         for hour, values in hours.items():
             if len(values) >= 4:
                 avg_aqi = round(sum(values) / len(values))
-                append_hourly_aqi(station_id=station_id, aqi=avg_aqi, source="purpleair", timestamp=hour)
+                append_hourly_aqi(
+                    station_id=station_id,
+                    aqi=avg_aqi,
+                    source="purpleair",
+                    timestamp=hour
+                )
             else:
                 updated_buffer.setdefault(station_id, {})[hour] = values
+
     save_buffer(updated_buffer)
 
-def get_realtime_aqi_purpleair(sensorid):
-    api_key = require_key("PURPLEAIR_API_KEY")
-    url = f"https://api.purpleair.com/v1/sensors/{sensorid}?fields=name,pm2.5_10minute"
-    headers = {"X-API-Key": api_key}
-    response = safe_request(url, headers=headers)
-    data = response.json()
-    if "sensor" not in data:
-        raise ValueError("PurpleAir: 'sensor' missing")
-    stats = data["sensor"].get("stats", {})
-    pm25 = stats.get("pm2.5_10minute")
-    if pm25 is None:
-        raise ValueError("PurpleAir: pm2.5_10minute not found in stats")
-    aqi = pm25_to_aqi(pm25)
-    return {
-        "source": "purpleair",
-        "name": data["sensor"]["name"],
-        "pm25_10min": pm25,
-        "aqi": aqi,
-        "category": get_aqi_category(aqi)
-    }
 
-def fetch_all_purpleair():
-    results = []
-    buffer = load_buffer()
-    for s in PURPLEAIR_STATIONS:
+def safe_request(url, headers=None, max_attempts=5):
+    delay = 1.6
+    for attempt in range(1, max_attempts + 1):
         try:
-            data = get_realtime_aqi_purpleair(s["id"])
-            data["lat"] = s["lat"]
-            data["lon"] = s["lon"]
-            hour = current_hour_timestamp()
-            station_id = f"purpleair_{s['id']}"
-            buffer.setdefault(station_id, {}).setdefault(hour, []).append(data["aqi"])
-            data["stationId"] = station_id
-            results.append(data)
-        except Exception as e:
-            print(f"[ERROR] PurpleAir {s['name']}: {e}")
-    save_buffer(buffer)
-    flush_purpleair_hourly()
-    return results
+            response = requests.get(url, headers=headers, timeout=10)
+
+            if response.status_code == 429:
+                print(f"[RATE LIMIT] Waiting {delay}s (attempt {attempt}/{max_attempts})")
+                time.sleep(delay)
+                delay = min(delay * 2, 10)
+                continue
+
+            return response
+
+        except requests.exceptions.RequestException as e:
+            print(f"[NETWORK ERROR] {e} | retrying in {delay}s...")
+            time.sleep(delay)
+            delay = min(delay * 2, 10)
+
+    raise Exception("Max retries reached for: " + url)
+
 
 # -------------------------------------------------------------
-# IQAir Logic
+# PurpleAir Stations
+# -------------------------------------------------------------
+PURPLEAIR_STATIONS = [
+    {"id": 12451, "name": "FECT Akurana", "lat": 7.718, "lon": 80.633},
+    {"id": 157599, "name": "Gregory's Road", "lat": 6.927, "lon": 79.861},
+]
+
+
+# -------------------------------------------------------------
+# IQAir Cities
 # -------------------------------------------------------------
 IQAIR_CITIES = [
     {"city": "Colombo", "lat": 6.9271, "lon": 79.8612},
@@ -189,60 +154,136 @@ IQAIR_CITIES = [
     {"city": "Bandarawela", "lat": 6.8289, "lon": 80.9870}
 ]
 
+
+# -------------------------------------------------------------
+# AQI helpers
+# -------------------------------------------------------------
+def pm25_to_aqi(pm25):
+    breakpoints = [
+        (0.0, 12.0, 0, 50),
+        (12.1, 35.4, 51, 100),
+        (35.5, 55.4, 101, 150),
+        (55.5, 150.4, 151, 200),
+        (150.5, 250.4, 201, 300),
+        (250.5, 500.4, 301, 500),
+    ]
+    for c_low, c_high, i_low, i_high in breakpoints:
+        if c_low <= pm25 <= c_high:
+            return round(((i_high - i_low) / (c_high - c_low)) * (pm25 - c_low) + i_low)
+    return None
+
+
+def get_aqi_category(aqi):
+    if aqi <= 50: return "Good"
+    if aqi <= 100: return "Moderate"
+    if aqi <= 150: return "Unhealthy for Sensitive Groups"
+    if aqi <= 200: return "Unhealthy"
+    if aqi <= 300: return "Very Unhealthy"
+    return "Hazardous"
+
+
+# -------------------------------------------------------------
+# FETCH PURPLEAIR
+# -------------------------------------------------------------
+def get_realtime_aqi_purpleair(sensorid):
+    api_key = require_key("PURPLEAIR_API_KEY")
+    url = f"https://api.purpleair.com/v1/sensors/{sensorid}?fields=name,pm2.5_10minute"
+    headers = {"X-API-Key": api_key}
+    response = safe_request(url, headers=headers)
+    data = response.json()
+
+    stats = data["sensor"]["stats"]
+    pm25 = stats["pm2.5_10minute"]
+    aqi = pm25_to_aqi(pm25)
+
+    return {
+        "source": "PurpleAir",
+        "name": data["sensor"]["name"],
+        "pm25_10min": pm25,
+        "aqi": aqi,
+        "category": get_aqi_category(aqi)
+    }
+
+
+def fetch_all_purpleair():
+    results = []
+    buffer = load_buffer()
+
+    for s in PURPLEAIR_STATIONS:
+        data = get_realtime_aqi_purpleair(s["id"])
+        data["lat"] = s["lat"]
+        data["lon"] = s["lon"]
+
+        hour = current_hour_timestamp()
+        station_id = f"purpleair_{s['id']}"
+        buffer.setdefault(station_id, {}).setdefault(hour, []).append(data["aqi"])
+
+        data["stationId"] = station_id
+        results.append(data)
+
+    save_buffer(buffer)
+    flush_purpleair_hourly()
+    return results
+
+
+# -------------------------------------------------------------
+# FETCH IQAIR
+# -------------------------------------------------------------
 def get_realtime_aqi_iqair(city, lat, lon):
     api_key = require_key("IQAIR_API_KEY")
     url = f"https://api.airvisual.com/v2/nearest_city?lat={lat}&lon={lon}&key={api_key}"
     response = safe_request(url)
     data = response.json()
-    if data.get("status") != "success":
-        raise ValueError(f"IQAir API error: {data}")
     pollution = data["data"]["current"]["pollution"]
+
     return {
-        "source": "iqair",
+        "source": "IQAir",
         "name": city,
-        "nearest_station": data["data"]["city"],
         "aqi": pollution["aqius"],
         "category": get_aqi_category(pollution["aqius"]),
-        "timestamp": pollution["ts"],
-        "main_pollutant": pollution["mainus"]
+        "timestamp": pollution["ts"]
     }
+
 
 def fetch_all_iqair():
     results = []
     for c in IQAIR_CITIES:
-        try:
-            data = get_realtime_aqi_iqair(c["city"], c["lat"], c["lon"])
-            data["lat"] = c["lat"]
-            data["lon"] = c["lon"]
-            append_hourly_aqi(station_id=f"iqair_{c['city']}", aqi=data["aqi"], source="iqair", timestamp=current_hour_timestamp())
-            results.append(data)
-        except Exception as e:
-            print(f"[ERROR] IQAir {c['city']}: {e}")
+        data = get_realtime_aqi_iqair(c["city"], c["lat"], c["lon"])
+        data["lat"] = c["lat"]
+        data["lon"] = c["lon"]
+
+        append_hourly_aqi(
+            station_id=f"iqair_{c['city']}",
+            aqi=data["aqi"],
+            source="iqair",
+            timestamp=current_hour_timestamp()
+        )
+
+        results.append(data)
     return results
 
+
 # -------------------------------------------------------------
-# WAQI Logic (NEW)
+# ✅ WAQI ADDITION (NEW)
 # -------------------------------------------------------------
 WAQI_STATIONS = [
-    {"city": "Colombo US Embassy", "lat": 6.913047, "lon": 79.84807, "idx": 9571, "name": "Colombo US Embassy"},
-    {"city": "Kilinochchi", "lat": 9.38333, "lon": 80.41333, "idx": "A581482", "name": "Kilinochchi"},
-    {"city": "Galle", "lat": 6.0535, "lon": 80.2210, "idx": "A562177", "name": "Galle – Karapitiya"},
-    {"city": "Jaffna (Chunnakam)", "lat": 9.6667, "lon": 80.0167, "idx": "A???", "name": "Jaffna – Chunnakam"},
-    {"city": "Matara", "lat": 5.9487, "lon": 80.5355, "idx": "A???", "name": "Matara"},
-    {"city": "Anuradhapura", "lat": 8.3114, "lon": 80.4037, "idx": "A???", "name": "Anuradhapura"},
+    {"idx": 9571, "name": "Colombo US Embassy", "lat": 6.913047, "lon": 79.84807},
+    {"idx": 14573, "name": "Galle – Karapitiya", "lat": 6.0535, "lon": 80.2210},
+    {"idx": 14479, "name": "Jaffna – Chunnakam", "lat": 9.6667, "lon": 80.0167},
+    {"idx": 15029, "name": "Anuradhapura", "lat": 8.3114, "lon": 80.4037},
 ]
 
 
 def get_realtime_aqi_waqi(station):
-    token = require_key("WAQI_API_KEY")
+    token = require_key("WAQI_TOKEN")
     url = f"https://api.waqi.info/feed/geo:{station['lat']};{station['lon']}/?token={token}"
     response = safe_request(url)
     data = response.json()
-    if data.get("status") != "ok":
-        raise ValueError(f"WAQI API error: {data}")
+
     aqi = data["data"]["aqi"]
+
     return {
-        "source": "waqi",
+        "source": "WAQI",
         "name": station["name"],
         "aqi": aqi,
         "category": get_aqi_category(aqi),
@@ -251,17 +292,25 @@ def get_realtime_aqi_waqi(station):
         "stationId": f"waqi_{station['idx']}"
     }
 
+
 def fetch_all_waqi():
     results = []
     for s in WAQI_STATIONS:
-        try:
-            results.append(get_realtime_aqi_waqi(s))
-        except Exception as e:
-            print(f"[ERROR] WAQI {s['name']}: {e}")
+        data = get_realtime_aqi_waqi(s)
+
+        append_hourly_aqi(
+            station_id=data["stationId"],
+            aqi=data["aqi"],
+            source="waqi",
+            timestamp=current_hour_timestamp()
+        )
+
+        results.append(data)
     return results
 
+
 # -------------------------------------------------------------
-# Save JSON
+# SAVE JSON
 # -------------------------------------------------------------
 def save_to_json(new_data, filename="aq_stations.json"):
     try:
@@ -272,20 +321,17 @@ def save_to_json(new_data, filename="aq_stations.json"):
 
     combined = {}
     for item in existing_data:
-        key = (item["source"], item["name"])
-        combined[key] = item
+        combined[(item["source"], item["name"])] = item
 
     for item in new_data:
-        key = (item["source"], item["name"])
-        combined[key] = item
+        combined[(item["source"], item["name"])] = item
 
     with open(filename, "w") as f:
         json.dump(list(combined.values()), f, indent=4)
 
-    print(f"[OK] Saved {len(combined)} stations to {filename}")
 
 # -------------------------------------------------------------
-# Main
+# MAIN
 # -------------------------------------------------------------
 if __name__ == "__main__":
     import sys
