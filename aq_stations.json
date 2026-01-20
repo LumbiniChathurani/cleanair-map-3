@@ -57,11 +57,11 @@
     },
     {
         "source": "WAQI",
-        "name": "Colombo",
+        "name": "Colombo 07",
         "aqi": null,
         "category": "N/A",
-        "lat": 6.913047,
-        "lon": 79.84807,
+        "lat": 6.9271,
+        "lon": 79.8612,
         "stationId": "waqi_562207"
     },
     {
@@ -75,11 +75,20 @@
     },
     {
         "source": "WAQI",
-        "name": "Anuradhapura",
+        "name": "Kandy \u2013 Peradeniya",
         "aqi": null,
         "category": "N/A",
-        "lat": 8.3114,
-        "lon": 80.4037,
+        "lat": 7.293,
+        "lon": 80.635,
         "stationId": "waqi_788896"
+    },
+    {
+        "source": "WAQI",
+        "name": "Negombo",
+        "aqi": null,
+        "category": "N/A",
+        "lat": 7.208,
+        "lon": 79.835,
+        "stationId": "waqi_789012"
     }
 ]
