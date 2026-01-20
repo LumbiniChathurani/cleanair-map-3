@@ -276,7 +276,7 @@ WAQI_STATIONS = [
 
 def get_realtime_aqi_waqi(station):
     token = require_key("WAQI_TOKEN")
-    url = f"https://api.waqi.info/feed/geo:{station['lat']};{station['lon']}/?token={token}"
+    url = f"https://api.waqi.info/feed/@{station['idx']}/?token={token}"
     response = safe_request(url)
     data = response.json()
 
