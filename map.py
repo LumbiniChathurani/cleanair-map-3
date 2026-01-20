@@ -316,18 +316,17 @@ def save_to_json(new_data, filename="aq_stations.json"):
     try:
         with open(filename, "r") as f:
             existing_data = json.load(f)
-    except FileNotFoundError:
+    except (FileNotFoundError, json.JSONDecodeError):
         existing_data = []
 
-combined = {}
+    combined = {}
 
-for item in existing_data:
-    if "stationId" in item:
+    for item in existing_data:
+        if "stationId" in item:
+            combined[item["stationId"]] = item
+
+    for item in new_data:
         combined[item["stationId"]] = item
-
-for item in new_data:
-    combined[item["stationId"]] = item
-
 
     with open(filename, "w") as f:
         json.dump(list(combined.values()), f, indent=4)
