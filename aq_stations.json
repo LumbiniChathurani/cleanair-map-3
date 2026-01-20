@@ -161,5 +161,25 @@
         "main_pollutant": "p2",
         "lat": 9.6615,
         "lon": 80.0255
+    },
+    {
+        "source": "purpleair",
+        "name": "FECT Akurana",
+        "pm25_10min": 2.1,
+        "aqi": 9,
+        "category": "Good",
+        "lat": 7.718,
+        "lon": 80.633,
+        "stationId": "purpleair_12451"
+    },
+    {
+        "source": "purpleair",
+        "name": "AQD01CJ",
+        "pm25_10min": 15.9,
+        "aqi": 59,
+        "category": "Moderate",
+        "lat": 6.927,
+        "lon": 79.861,
+        "stationId": "purpleair_157599"
     }
 ]
