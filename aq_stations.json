@@ -31,7 +31,7 @@
     {
         "source": "WAQI",
         "name": "Galle \u2013 Karapitiya",
-        "aqi": 124,
+        "aqi": 138,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 6.0535,
         "lon": 80.221,
@@ -54,5 +54,32 @@
         "lat": 8.3114,
         "lon": 80.4037,
         "stationId": "waqi_15029"
+    },
+    {
+        "source": "WAQI",
+        "name": "Colombo",
+        "aqi": null,
+        "category": "N/A",
+        "lat": 6.913047,
+        "lon": 79.84807,
+        "stationId": "waqi_562207"
+    },
+    {
+        "source": "WAQI",
+        "name": "Jaffna \u2013 Ariyalai",
+        "aqi": null,
+        "category": "N/A",
+        "lat": 9.6667,
+        "lon": 80.0167,
+        "stationId": "waqi_788899"
+    },
+    {
+        "source": "WAQI",
+        "name": "Anuradhapura",
+        "aqi": null,
+        "category": "N/A",
+        "lat": 8.3114,
+        "lon": 80.4037,
+        "stationId": "waqi_788896"
     }
 ]
