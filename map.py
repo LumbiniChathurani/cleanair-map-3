@@ -228,7 +228,11 @@ WAQI_STATIONS = [
     {"idx": 14573, "name": "Galle – Karapitiya", "lat": 6.0535, "lon": 80.2210},
     {"idx": 14479, "name": "Jaffna – Chunnakam", "lat": 9.6667, "lon": 80.0167},
     {"idx": 15029, "name": "Anuradhapura", "lat": 8.3114, "lon": 80.4037},
+    {"idx": 562207, "name": "Colombo 07", "lat": 6.9271, "lon": 79.8612},
+    {"idx": 788896, "name": "Kandy – Peradeniya", "lat": 7.293, "lon": 80.635},
+    {"idx": 789012, "name": "Negombo", "lat": 7.208, "lon": 79.835},
 ]
+
 
 def get_realtime_aqi_waqi(station):
     token = require_key("WAQI_TOKEN")
