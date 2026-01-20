@@ -235,27 +235,26 @@ def get_realtime_aqi_waqi(station):
     url = f"https://api.waqi.info/feed/@{station['idx']}/?token={token}"
     response = safe_request(url)
     data = response.json()
+
     if data.get("status") != "ok":
         print(f"[WAQI ERROR] Station {station['name']}: {data.get('data')}")
-        return {
-            "source": "WAQI",
-            "name": station["name"],
-            "aqi": None,
-            "category": "N/A",
-            "lat": station["lat"],
-            "lon": station["lon"],
-            "stationId": f"waqi_{station['idx']}"
-        }
-    aqi = data["data"]["aqi"]
+        aqi_value = None
+    else:
+        aqi_value = data["data"].get("aqi")
+        if aqi_value is None or aqi_value == "-" or not isinstance(aqi_value, int):
+            print(f"[WAQI WARNING] Station {station['name']} returned invalid AQI: {aqi_value}")
+            aqi_value = None
+
     return {
         "source": "WAQI",
         "name": station["name"],
-        "aqi": aqi,
-        "category": get_aqi_category(aqi),
+        "aqi": aqi_value,
+        "category": get_aqi_category(aqi_value),
         "lat": station["lat"],
         "lon": station["lon"],
         "stationId": f"waqi_{station['idx']}"
     }
+
 
 def fetch_all_waqi():
     results = []
