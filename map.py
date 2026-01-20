@@ -238,26 +238,38 @@ def get_realtime_aqi_waqi(station):
     token = require_key("WAQI_TOKEN")
     url = f"https://api.waqi.info/feed/@{station['idx']}/?token={token}"
     response = safe_request(url)
-    data = response.json()
+    payload = response.json()
 
-    if data.get("status") != "ok":
-        print(f"[WAQI ERROR] Station {station['name']}: {data.get('data')}")
-        aqi_value = None
-    else:
-        aqi_value = data["data"].get("aqi")
-        if aqi_value is None or aqi_value == "-" or not isinstance(aqi_value, int):
-            print(f"[WAQI WARNING] Station {station['name']} returned invalid AQI: {aqi_value}")
-            aqi_value = None
+    aqi_value = None
+    pm25 = None
+
+    if payload.get("status") == "ok":
+        data = payload.get("data", {})
+
+        # 1️⃣ Try WAQI AQI first
+        raw_aqi = data.get("aqi")
+        if isinstance(raw_aqi, int):
+            aqi_value = raw_aqi
+        else:
+            # 2️⃣ Fallback: compute from PM2.5
+            pm25 = data.get("iaqi", {}).get("pm25", {}).get("v")
+            if isinstance(pm25, (int, float)):
+                aqi_value = pm25_to_aqi(pm25)
+
+    if aqi_value is None:
+        print(f"[WAQI INFO] {station['name']} has no valid AQI")
 
     return {
         "source": "WAQI",
         "name": station["name"],
         "aqi": aqi_value,
+        "pm25": pm25,
         "category": get_aqi_category(aqi_value),
         "lat": station["lat"],
         "lon": station["lon"],
         "stationId": f"waqi_{station['idx']}"
     }
+
 
 
 def fetch_all_waqi():
