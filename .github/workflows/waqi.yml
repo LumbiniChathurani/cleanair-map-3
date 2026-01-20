@@ -1,0 +1,53 @@
+name: Fetch WAQI AQI
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # Runs every hour
+  workflow_dispatch: {}    # Allows manual trigger
+
+jobs:
+  fetch-waqi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Ensure data directory exists
+        run: mkdir -p data
+
+      - name: Fetch WAQI AQI
+        env:
+          WAQI_TOKEN: ${{ secrets.WAQI_TOKEN }}
+        run: python map.py waqi
+
+      - name: Check WAQI token
+        env:
+          WAQI_TOKEN: ${{ secrets.WAQI_TOKEN }}
+        run: |
+          if [ -z "$WAQI_TOKEN" ]; then
+            echo "❌ WAQI_TOKEN is NOT set"
+          else
+            echo "✅ WAQI_TOKEN is set"
+          fi
+
+      - name: Commit & Push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add aq_stations.json data/history.json data/purpleair_buffer.json
+
+          git commit -m "Update WAQI AQI data" || echo "No changes to commit"
+          git push
