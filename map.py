@@ -224,10 +224,10 @@ def fetch_all_iqair():
 # Fetch WAQI
 # -------------------------------------------------------------
 WAQI_STATIONS = [
-    {"idx": 562207, "name": "Colombo", "lat": 6.913047, "lon": 79.84807},
+    {"idx": 9571, "name": "Colombo US Embassy", "lat": 6.913047, "lon": 79.84807},
     {"idx": 14573, "name": "Galle – Karapitiya", "lat": 6.0535, "lon": 80.2210},
-    {"idx": 788899, "name": "Jaffna – Ariyalai", "lat": 9.6667, "lon": 80.0167},
-    {"idx": 788896, "name": "Anuradhapura", "lat": 8.3114, "lon": 80.4037},
+    {"idx": 14479, "name": "Jaffna – Chunnakam", "lat": 9.6667, "lon": 80.0167},
+    {"idx": 15029, "name": "Anuradhapura", "lat": 8.3114, "lon": 80.4037},
 ]
 
 def get_realtime_aqi_waqi(station):
