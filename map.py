@@ -345,7 +345,13 @@ def save_to_json(new_data, filename="aq_stations.json"):
         if "stationId" in item:
             combined[item["stationId"]] = item
     for item in new_data:
+        if not isinstance(item, dict):
+           continue
+        if "stationId" not in item:
+            print("[SKIPPED] Missing stationId:", item)
+            continue
         combined[item["stationId"]] = item
+
 
     with open(filename, "w") as f:
         json.dump(list(combined.values()), f, indent=4)
