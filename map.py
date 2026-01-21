@@ -112,16 +112,33 @@ PURPLEAIR_STATIONS = [
 # IQAir Cities
 # -------------------------------------------------------------
 IQAIR_CITIES = [
+    # Western Province
     {"city": "Colombo", "lat": 6.9271, "lon": 79.8612},
     {"city": "Battaramulla", "lat": 6.8990, "lon": 79.9230},
     {"city": "Gampaha", "lat": 7.0860, "lon": 79.9990},
+
+    # Central Province
     {"city": "Digana", "lat": 7.2970, "lon": 80.7600},
+
+    # North Central Province
     {"city": "Anuradhapura", "lat": 8.3114, "lon": 80.4037},
+
+    # Northern Province
     {"city": "Jaffna", "lat": 9.6615, "lon": 80.0255},
+
+    # Eastern Province
     {"city": "Batticaloa", "lat": 7.7170, "lon": 81.7000},
+
+    # Southern Province
     {"city": "Galle", "lat": 6.0535, "lon": 80.2210},
+
+    # North Western Province
     {"city": "Kurunegala", "lat": 7.4867, "lon": 80.3647},
+
+    # Sabaragamuwa Province
     {"city": "Ratnapura", "lat": 6.6828, "lon": 80.3992},
+
+    # Uva Province
     {"city": "Bandarawela", "lat": 6.8289, "lon": 80.9870}
 ]
 
@@ -196,29 +213,40 @@ def get_realtime_aqi_iqair(city, lat, lon):
     url = f"https://api.airvisual.com/v2/nearest_city?lat={lat}&lon={lon}&key={api_key}"
     response = safe_request(url)
     data = response.json()
+    if data.get("status") != "success":
+        raise ValueError(f"IQAir API error: {data}")
     pollution = data["data"]["current"]["pollution"]
     return {
         "source": "IQAir",
         "name": city,
+        "nearest_station": data["data"]["city"],
         "aqi": pollution["aqius"],
         "category": get_aqi_category(pollution["aqius"]),
-        "timestamp": pollution["ts"]
+        "timestamp": pollution["ts"],
+        "main_pollutant": pollution["mainus"]
     }
 
 def fetch_all_iqair():
     results = []
     for c in IQAIR_CITIES:
-        data = get_realtime_aqi_iqair(c["city"], c["lat"], c["lon"])
-        data["lat"] = c["lat"]
-        data["lon"] = c["lon"]
-        append_hourly_aqi(
-            station_id=f"iqair_{c['city']}",
-            aqi=data["aqi"],
-            source="iqair",
-            timestamp=current_hour_timestamp()
-        )
-        results.append(data)
+        try:
+            data = get_realtime_aqi_iqair(c["city"], c["lat"], c["lon"])
+            data["lat"] = c["lat"]
+            data["lon"] = c["lon"]
+
+            # ✅ APPEND IQAIR HOURLY AQI TO HISTORY
+            append_hourly_aqi(
+                station_id=f"iqair_{c['city']}",
+                aqi=data["aqi"],
+                source="iqair",
+                timestamp=current_hour_timestamp()
+            )
+
+            results.append(data)
+        except Exception as e:
+            print(f"[ERROR] IQAir {c['city']}: {e}")
     return results
+
 
 # -------------------------------------------------------------
 # Fetch WAQI
