@@ -216,7 +216,11 @@ def get_realtime_aqi_iqair(city, lat, lon):
     if data.get("status") != "success":
         raise ValueError(f"IQAir API error: {data}")
     pollution = data["data"]["current"]["pollution"]
+
+    station_id = f"iqair_{city.lower().replace(' ', '_')}_{lat:.4f}_{lon:.4f}"
+
     return {
+        "stationId": station_id,
         "source": "IQAir",
         "name": city,
         "nearest_station": data["data"]["city"],
