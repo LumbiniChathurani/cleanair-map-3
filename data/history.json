@@ -4218,11 +4218,6 @@
   ],
   "iqair_Batticaloa": [
     {
-      "time": "2026-01-06T18:00:00Z",
-      "aqi": 170,
-      "source": "iqair"
-    },
-    {
       "time": "2026-01-06T20:00:00Z",
       "aqi": 181,
       "source": "iqair"
@@ -5055,6 +5050,11 @@
     {
       "time": "2026-01-20T06:00:00Z",
       "aqi": 145,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-01-21T07:00:00Z",
+      "aqi": 148,
       "source": "iqair"
     }
   ],
