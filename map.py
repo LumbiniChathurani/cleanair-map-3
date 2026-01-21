@@ -223,15 +223,27 @@ def fetch_all_iqair():
 # -------------------------------------------------------------
 # Fetch WAQI
 # -------------------------------------------------------------
-WAQI_STATIONS = [
-    {"idx": 9571, "name": "Colombo US Embassy", "lat": 6.913047, "lon": 79.84807},
-    {"idx": 14573, "name": "Galle – Karapitiya", "lat": 6.0535, "lon": 80.2210},
-    {"idx": 14479, "name": "Jaffna – Chunnakam", "lat": 9.6667, "lon": 80.0167},
-    {"idx": 15029, "name": "Anuradhapura", "lat": 8.3114, "lon": 80.4037},
-    {"idx": 562207, "name": "Colombo 07", "lat": 6.9271, "lon": 79.8612},
-    {"idx": 788896, "name": "Kandy – Peradeniya", "lat": 7.293, "lon": 80.635},
-    {"idx": 789012, "name": "Negombo", "lat": 7.208, "lon": 79.835},
-]
+def get_waqi_stations_in_bounds():
+    token = require_key("WAQI_TOKEN")
+    bounds = "9.866040,79.425659,5.845545,82.001953"  # Sri Lanka
+    url = f"https://api.waqi.info/map/bounds/?latlng={bounds}&networks=all&token={token}"
+
+    response = safe_request(url)
+    payload = response.json()
+
+    if payload.get("status") != "ok":
+        return []
+
+    stations = []
+    for s in payload["data"]:
+        stations.append({
+            "idx": s["uid"],
+            "name": s.get("station", {}).get("name", "Unknown"),
+            "lat": s["lat"],
+            "lon": s["lon"],
+        })
+
+    return stations
 
 
 def get_realtime_aqi_waqi(station):
@@ -246,12 +258,10 @@ def get_realtime_aqi_waqi(station):
     if payload.get("status") == "ok":
         data = payload.get("data", {})
 
-        # 1️⃣ Try WAQI AQI first
         raw_aqi = data.get("aqi")
         if isinstance(raw_aqi, int):
             aqi_value = raw_aqi
         else:
-            # 2️⃣ Fallback: compute from PM2.5
             pm25 = data.get("iaqi", {}).get("pm25", {}).get("v")
             if isinstance(pm25, (int, float)):
                 aqi_value = pm25_to_aqi(pm25)
@@ -271,19 +281,26 @@ def get_realtime_aqi_waqi(station):
     }
 
 
-
 def fetch_all_waqi():
     results = []
-    for s in WAQI_STATIONS:
+    stations = get_waqi_stations_in_bounds()
+
+    for s in stations:
         data = get_realtime_aqi_waqi(s)
-        append_hourly_aqi(
-            station_id=data["stationId"],
-            aqi=data["aqi"],
-            source="waqi",
-            timestamp=current_hour_timestamp()
-        )
-        results.append(data)
+
+        if data["aqi"] is not None:
+            append_hourly_aqi(
+                station_id=data["stationId"],
+                aqi=data["aqi"],
+                source="waqi",
+                timestamp=current_hour_timestamp()
+            )
+            results.append(data)
+
+        time.sleep(0.2)  # prevent WAQI rate limiting
+
     return results
+
 
 # -------------------------------------------------------------
 # Save to JSON
