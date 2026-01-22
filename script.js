@@ -193,12 +193,17 @@ async function focusStation(st) {
   // --------------------
   // Build stationId SAME as backend and load history
   // --------------------
-  const stationId =
-  st.source === "IQAir"
-    ? `iqair_${st.name}`
-    : st.source === "WAQI"
-      ? `waqi_${st.idx}`
-      : st.stationId;
+  let stationId;
+
+if (st.source === "IQAir") {
+  stationId = `iqair_${st.name}`;
+} else if (st.source === "WAQI") {
+  // MUST match Python exactly
+  stationId = st.stationId || `waqi_${st.idx}`;
+} else {
+  stationId = st.stationId;
+}
+
 
 
   const history = await loadStationHistory(stationId);
