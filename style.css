@@ -31,16 +31,39 @@ html, body {
     width: 100%;
 }
 
+.population-toggle-container {
+  position: fixed;
+  top: 32px;
+  right: 18px;
+  z-index: 2000;
+  margin-top: 5px;
+}
+
+.population-toggle-btn {
+  padding: 4px 8px;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: large;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.population-toggle-btn:hover {
+  background: #9aedf4;
+}
+
 /* Theme Toggle Button */
 .theme-toggle-container {
     position: fixed;
     top: 12px;
-    right: 12px;
+    right: 18px;
     z-index: 2000;
 }
 
 .theme-toggle-btn {
-    padding: 8px 14px;
+    padding: 4px 8px;
     background: transparent;
     color: white;
     border: none;
@@ -75,6 +98,16 @@ body.dark-mode .theme-toggle-btn {
 
 body.dark-mode .theme-toggle-btn:hover {
     background: #2e2c2c;
+}
+
+body.dark-mode .population-toggle-btn {
+  /* background: #ddd; */
+   color: #e6e6e6;
+   font-size: large;
+}
+
+body.dark-mode .population-toggle-btn:hover {
+   background: #2e2c2c;
 }
 
 @keyframes glowPulse {

@@ -15,6 +15,10 @@ const darkTiles = L.tileLayer(
   }
 );
 
+let populationLayer = null;
+
+
+
 // ---------------------------
 // CREATE MAP
 // ---------------------------
@@ -72,6 +76,17 @@ if (savedTheme === "dark") {
   lightTiles.addTo(map);
   document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
+
+document.getElementById("populationToggle").addEventListener("click", () => {
+  if (!populationLayer) return;
+
+  if (map.hasLayer(populationLayer)) {
+    map.removeLayer(populationLayer);
+  } else {
+    populationLayer.addTo(map);
+  }
+});
+
 
 // ---------------------------
 // THEME TOGGLE BUTTON LOGIC
@@ -392,7 +407,7 @@ fetch("data/population/population.json")
       topoData.objects.lka_admin4
     );
 
-    L.geoJSON(geojson, {
+    populationLayer = L.geoJSON(geojson, {
       style: feature => {
         const gn = feature.properties.adm4_name;
         const pop = populationData[gn] || 0;
@@ -412,5 +427,5 @@ fetch("data/population/population.json")
           `<b>${gn}</b><br>Population: ${pop}`
         );
       }
-    }).addTo(map);
+    })
   });
