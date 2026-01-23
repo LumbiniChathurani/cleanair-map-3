@@ -26,6 +26,14 @@ const map = L.map("map", {
   zoomControl: false
 }).setView([7.8731, 80.7718], 8);
 
+// ---------------------------
+// AQI SOURCE LAYERS
+// ---------------------------
+const purpleAirLayer = L.layerGroup().addTo(map);
+const iqAirLayer = L.layerGroup().addTo(map);
+const waqiLayer = L.layerGroup().addTo(map);
+
+
 L.control.zoom({
   position: "topright"
 }).addTo(map);
@@ -163,7 +171,19 @@ fetch("./aq_stations.json")
         {
           icon: createAQISvgIcon(getAQIColor(st.aqi)),
         }
-      ).addTo(map).bindPopup(popupContent);
+      ).bindPopup(popupContent);
+      
+      // ---------------------------
+      // Add marker to correct layer
+      // ---------------------------
+      if (st.source === "PurpleAir") {
+        marker.addTo(purpleAirLayer);
+      } else if (st.source === "IQAir") {
+        marker.addTo(iqAirLayer);
+      } else if (st.source === "WAQI") {
+        marker.addTo(waqiLayer);
+      }
+      
 
       st.marker = marker; 
 
@@ -429,3 +449,48 @@ fetch("data/population/population.json")
       }
     })
   });
+
+  // ---------------------------
+// SOURCE FILTER CHECKBOXES
+// ---------------------------
+const allCheckbox = document.getElementById("filter-all");
+const purpleCheckbox = document.getElementById("filter-purpleair");
+const iqairCheckbox = document.getElementById("filter-iqair");
+const waqiCheckbox = document.getElementById("filter-waqi");
+
+function updateSourceLayers() {
+  map.removeLayer(purpleAirLayer);
+  map.removeLayer(iqAirLayer);
+  map.removeLayer(waqiLayer);
+
+  if (allCheckbox.checked) {
+    purpleAirLayer.addTo(map);
+    iqAirLayer.addTo(map);
+    waqiLayer.addTo(map);
+    return;
+  }
+
+  if (purpleCheckbox.checked) purpleAirLayer.addTo(map);
+  if (iqairCheckbox.checked) iqAirLayer.addTo(map);
+  if (waqiCheckbox.checked) waqiLayer.addTo(map);
+}
+
+// ALL checkbox
+allCheckbox.addEventListener("change", () => {
+  const checked = allCheckbox.checked;
+  purpleCheckbox.checked = checked;
+  iqairCheckbox.checked = checked;
+  waqiCheckbox.checked = checked;
+  updateSourceLayers();
+});
+
+// Individual checkboxes
+[purpleCheckbox, iqairCheckbox, waqiCheckbox].forEach(cb => {
+  cb.addEventListener("change", () => {
+    allCheckbox.checked =
+      purpleCheckbox.checked &&
+      iqairCheckbox.checked &&
+      waqiCheckbox.checked;
+    updateSourceLayers();
+  });
+});
