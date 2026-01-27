@@ -33,7 +33,7 @@ html, body {
 
 .population-toggle-container {
   position: fixed;
-  top: 32px;
+  top: 200px;
   right: 18px;
   z-index: 2000;
   margin-top: 5px;
@@ -324,7 +324,7 @@ body.dark-mode .sidebar {
 
 .filter-box {
   position: absolute;
-  top: 180px;
+  top: 220px;
   right: 10px;
   background: transparent;
   padding: 8px 10px;
@@ -341,7 +341,7 @@ body.dark-mode .filter-box{
 
 .ds-toggle-container {
   position: absolute;
-  top: 140px; /* slightly below GN toggle */
+  top: 150px; /* slightly below GN toggle */
   right: 15px;
   z-index: 1000;
 }
@@ -360,4 +360,66 @@ body.dark-mode .filter-box{
 
 .ds-toggle-btn:hover {
   background: #1565c0;
+}
+
+.layer-toggle-panel {
+  position: absolute;
+  top: 150px;
+  right: 15px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.layer-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 6px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  background: rgba(40, 40, 40, 0.85);
+  color: #eee;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+  transition: all 0.2s ease;
+}
+
+.layer-pill .icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}
+
+.layer-pill:hover {
+  transform: translateX(2px);
+  background: rgba(55, 55, 55, 0.9);
+}
+
+.layer-pill.active {
+  background: rgba(30, 64, 175, 0.95);
+}
+
+.layer-pill.active .icon {
+  background: #60a5fa;
+}
+
+/* Light mode adjustment */
+body:not(.dark-mode) .layer-pill {
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+}
+
+body:not(.dark-mode) .layer-pill .icon {
+  background: #2563eb;
 }

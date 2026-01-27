@@ -88,7 +88,7 @@ if (savedTheme === "dark") {
   document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
 
-document.getElementById("populationToggle").addEventListener("click", () => {
+/*document.getElementById("populationToggle").addEventListener("click", () => {
   if (!populationLayer) return;
 
   if (map.hasLayer(populationLayer)) {
@@ -106,6 +106,37 @@ document.getElementById("dsToggle").addEventListener("click", () => {
     map.removeLayer(dsPopulationLayer);
   } else {
     dsPopulationLayer.addTo(map);
+  }
+});*/
+
+const gnToggle = document.getElementById("gnToggle");
+const dsToggle = document.getElementById("dsToggle");
+
+gnToggle.addEventListener("click", () => {
+  if (!populationLayer) return;
+
+  const active = map.hasLayer(populationLayer);
+
+  if (active) {
+    map.removeLayer(populationLayer);
+    gnToggle.classList.remove("active");
+  } else {
+    populationLayer.addTo(map);
+    gnToggle.classList.add("active");
+  }
+});
+
+dsToggle.addEventListener("click", () => {
+  if (!dsPopulationLayer) return;
+
+  const active = map.hasLayer(dsPopulationLayer);
+
+  if (active) {
+    map.removeLayer(dsPopulationLayer);
+    dsToggle.classList.remove("active");
+  } else {
+    dsPopulationLayer.addTo(map);
+    dsToggle.classList.add("active");
   }
 });
 
