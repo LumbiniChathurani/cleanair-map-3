@@ -27,7 +27,7 @@ let dsPopulationData = {};
 // ---------------------------
 const map = L.map("map", {
   zoomControl: false
-}).setView([7.8731, 80.7718], 8);
+}).setView([7.8731, 80.7718], 7);
 
 // ---------------------------
 // AQI SOURCE LAYERS
