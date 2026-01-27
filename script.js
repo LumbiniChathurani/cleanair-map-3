@@ -17,6 +17,9 @@ const darkTiles = L.tileLayer(
 
 let populationLayer = null;
 
+let dsPopulationLayer = null;
+let dsPopulationData = {};
+
 
 
 // ---------------------------
@@ -92,6 +95,17 @@ document.getElementById("populationToggle").addEventListener("click", () => {
     map.removeLayer(populationLayer);
   } else {
     populationLayer.addTo(map);
+  }
+}
+
+);
+document.getElementById("dsToggle").addEventListener("click", () => {
+  if (!dsPopulationLayer) return;
+
+  if (map.hasLayer(dsPopulationLayer)) {
+    map.removeLayer(dsPopulationLayer);
+  } else {
+    dsPopulationLayer.addTo(map);
   }
 });
 
@@ -411,12 +425,37 @@ fetch("data/population/population.json")
     populationData = data;
   });
 
+  fetch("data/population/DS_Division_Total_Population.json")
+  .then(r => r.json())
+  .then(data => {
+  data.forEach(row => {
+  const key = row["DS-Division"]
+  .trim()
+  .toLowerCase();
+  
+  
+  dsPopulationData[key] = Number(row["Total"]);
+  });
+  
+  
+  console.log("DS population lookup:", dsPopulationData);
+  });
+
   function getColor(pop) {
     if (pop > 3000) return "#800026";
     if (pop > 2000) return "#BD0026";
     if (pop > 1000) return "#E31A1C";
     return "#FED976";
   }
+
+  function getDSColor(pop) {
+    if (pop > 150000) return "#08306b";
+    if (pop > 100000) return "#2171b5";
+    if (pop > 50000)  return "#6baed6";
+    if (pop > 20000)  return "#bdd7e7";
+    return "#eff3ff";
+  }
+
   fetch("data/boundaries/lka_admin4.json")
   .then(r => r.json())
   .then(topoData => {
@@ -448,6 +487,45 @@ fetch("data/population/population.json")
         );
       }
     })
+  });
+
+  fetch("data/boundaries/lka_admin3.json")
+  .then(r => r.json())
+  .then(topoData => {
+
+    const geojson = topojson.feature(
+      topoData,
+      topoData.objects.lka_admin3
+    );
+
+    dsPopulationLayer = L.geoJSON(geojson, {
+      style: feature => {
+        const ds = feature.properties.adm3_name
+  .trim()
+  .toLowerCase();
+        const pop = dsPopulationData[ds] || 0;
+
+        return {
+          fillColor: getDSColor(pop),
+          weight: 1.5,
+          color: "#003366",
+          fillOpacity: 0.5
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const ds = feature.properties.adm3_name
+          .trim()
+          .toLowerCase();
+      
+        const pop = dsPopulationData[ds];
+      
+        layer.bindPopup(
+          `<b>${feature.properties.adm3_name} DS Division</b><br>
+           Population: ${pop ?? "No data"}`
+        );
+      }
+    });
+
   });
 
   // ---------------------------
