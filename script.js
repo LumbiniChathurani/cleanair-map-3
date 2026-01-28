@@ -603,3 +603,24 @@ allCheckbox.addEventListener("change", () => {
     updateSourceLayers();
   });
 });
+
+const DEFAULT_CENTER = [7.8731, 80.7718]; // same as your map init
+const DEFAULT_ZOOM = 7;
+
+document.getElementById("refreshBtn").addEventListener("click", () => {
+  // 1️⃣ Close sidebar
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.remove("open");
+
+  // 2️⃣ Reset map zoom and center
+  map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+
+  // 3️⃣ Optional: remove glow from any markers
+  document.querySelectorAll(".aqi-glow").forEach(el => {
+    el.classList.remove("aqi-glow");
+  });
+
+  // 4️⃣ Optional: refresh data if needed
+  // Uncomment if you want live reload:
+  // loadAllStations(); 
+});
