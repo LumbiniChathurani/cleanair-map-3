@@ -121,9 +121,9 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 52,
+        "aqi": 50,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 7.8574057,
         "lon": 80.64864,
         "stationId": "waqi_-562156"
@@ -141,7 +141,7 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 93,
+        "aqi": 97,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.0273466,
@@ -181,9 +181,9 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 21,
+        "aqi": 52,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 6.983344,
         "lon": 81.04643,
         "stationId": "waqi_-562138"
@@ -201,7 +201,7 @@
     {
         "source": "WAQI",
         "name": "Mannar",
-        "aqi": 69,
+        "aqi": 80,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.988006,
@@ -231,7 +231,7 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 114,
+        "aqi": 116,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 8.761628,
@@ -241,7 +241,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 73,
+        "aqi": 69,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.644081,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 71,
+        "aqi": 76,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.909444,
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 20,
+        "aqi": 1,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -351,7 +351,7 @@
     {
         "source": "WAQI",
         "name": "Kegalle",
-        "aqi": 52,
+        "aqi": 61,
         "pm25": null,
         "category": "Moderate",
         "lat": 7.2534904,
