@@ -125,6 +125,10 @@ body.dark-mode .population-toggle-btn:hover {
   .aqi-svg-marker {
     border-radius: 50%;
   }
+
+  .glow {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+  }
   
   .aqi-glow {
     animation: glowPulse 1.2s ease-out;

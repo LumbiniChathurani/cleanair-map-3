@@ -608,6 +608,8 @@ const DEFAULT_CENTER = [7.8731, 80.7718]; // same as your map init
 const DEFAULT_ZOOM = 7;
 
 document.getElementById("refreshBtn").addEventListener("click", () => {
+
+  map.closePopup();
   // 1️⃣ Close sidebar
   /*const sidebar = document.getElementById("sidebar");
   sidebar.classList.remove("open");*/
@@ -617,7 +619,8 @@ document.getElementById("refreshBtn").addEventListener("click", () => {
 
   // 3️⃣ Optional: remove glow from any markers
   document.querySelectorAll(".aqi-glow").forEach(el => {
-    el.classList.remove("aqi-glow");
+   // el.classList.remove("aqi-glow");
+   el.classList.add("glow");
   });
 
   
