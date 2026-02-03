@@ -609,7 +609,7 @@ const DEFAULT_ZOOM = 7;
 
 document.getElementById("refreshBtn").addEventListener("click", () => {
 
-  map.closePopup();
+  
   // 1️⃣ Close sidebar
   /*const sidebar = document.getElementById("sidebar");
   sidebar.classList.remove("open");*/
