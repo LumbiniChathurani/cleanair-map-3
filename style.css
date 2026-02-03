@@ -327,16 +327,22 @@ body.dark-mode .sidebar {
 }
 
 .filter-box {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 220px;
   right: 10px;
   background: transparent;
-  padding: 8px 10px;
+  padding: 70px 10px;
   border-radius: 6px;
   /*box-shadow: 0 2px 6px rgba(0,0,0,0.15);*/
   font-size: 13px;
   z-index: 1000;
   margin-top: 30px;
+}
+
+.filter-box label{
+ 
 }
 
 body.dark-mode .filter-box{
