@@ -439,12 +439,14 @@ body:not(.dark-mode) .layer-pill .icon {
   top: 10px;
   right: 70px;
   z-index: 1000;
-  padding: 6px 10px;
+  padding: 2px 4px;
   background: #6b46c1; /* purple */
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  margin-top: 10px;
+  
 }
 .refresh-btn:hover {
   background: #553c9a;
