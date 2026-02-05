@@ -715,7 +715,7 @@
         "nearest_station": "Colombo",
         "aqi": 61,
         "category": "Moderate",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.9271,
         "lon": 79.8612
@@ -725,9 +725,9 @@
         "source": "IQAir",
         "name": "Battaramulla",
         "nearest_station": "Battaramulla",
-        "aqi": 72,
+        "aqi": 85,
         "category": "Moderate",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.899,
         "lon": 79.923
@@ -737,9 +737,9 @@
         "source": "IQAir",
         "name": "Gampaha",
         "nearest_station": "Gampaha",
-        "aqi": 56,
+        "aqi": 58,
         "category": "Moderate",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.086,
         "lon": 79.999
@@ -749,9 +749,9 @@
         "source": "IQAir",
         "name": "Digana",
         "nearest_station": "Digana",
-        "aqi": 44,
+        "aqi": 38,
         "category": "Good",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.297,
         "lon": 80.76
@@ -763,7 +763,7 @@
         "nearest_station": "Anuradhapura",
         "aqi": 58,
         "category": "Moderate",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 8.3114,
         "lon": 80.4037
@@ -797,9 +797,9 @@
         "source": "IQAir",
         "name": "Kurunegala",
         "nearest_station": "Kurunegala",
-        "aqi": 53,
+        "aqi": 57,
         "category": "Moderate",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.4867,
         "lon": 80.3647
@@ -811,7 +811,7 @@
         "nearest_station": "Ratnapura",
         "aqi": 90,
         "category": "Moderate",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.6828,
         "lon": 80.3992
@@ -823,7 +823,7 @@
         "nearest_station": "Bandarawela",
         "aqi": 27,
         "category": "Good",
-        "timestamp": "2026-02-05T22:00:00.000Z",
+        "timestamp": "2026-02-05T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.8289,
         "lon": 80.987
