@@ -152,6 +152,35 @@ body.dark-mode .population-toggle-btn:hover {
     outline: none;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
+  body.dark-mode #searchInput {
+    background: #0f172a;
+    border: 1px solid #334155;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  
+  /* Keep dark background when typing / focusing */
+body.dark-mode #searchInput,
+body.dark-mode #searchInput:focus,
+body.dark-mode #searchInput:active {
+  background-color: #0f172a !important;
+  color: #ffffff;
+}
+
+  /* Chrome autofill override */
+body.dark-mode #searchInput:-webkit-autofill,
+body.dark-mode #searchInput:-webkit-autofill:hover,
+body.dark-mode #searchInput:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+body.dark-mode #searchInput:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.35);
+}
+
+
 
 
   .close-btn {
@@ -243,20 +272,13 @@ body.dark-mode .population-toggle-btn:hover {
   
 
 
-
-body.dark-mode .station-search input {
-  background: #1f1f1f;
-  color: #fff;
-  border: 1px solid #444;
-}
-
-body.dark-mode .search-results {
-  background: #1f1f1f;
+body.dark-mode .suggestions {
+  background: #0f172a;
   color: #fff;
 }
 
-body.dark-mode .search-results li:hover {
-  background: #333;
+body.dark-mode .suggestions li:hover {
+  background: #1b2237;
 }
 
 body.dark-mode #clearSearch {
@@ -341,9 +363,7 @@ body.dark-mode .sidebar {
   margin-top: 30px;
 }
 
-.filter-box label{
- 
-}
+
 
 body.dark-mode .filter-box{
  color: #e6e6e6;
@@ -450,4 +470,42 @@ body:not(.dark-mode) .layer-pill .icon {
 }
 .refresh-btn:hover {
   background: #553c9a;
+}
+
+/* ===================================== */
+/*     LEAFLET POPUPS – DARK MODE         */
+/* ===================================== */
+
+body.dark-mode .leaflet-popup-content-wrapper {
+  background: #121826 !important;
+  color: #e6e6e6 !important;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65);
+}
+
+body.dark-mode .leaflet-popup-content {
+  color: #e6e6e6 !important;
+  margin: 8px 10px;
+}
+
+body.dark-mode .leaflet-popup-tip {
+  background: #121826 !important;
+}
+
+/* Text elements inside popup */
+body.dark-mode .leaflet-popup-content b,
+body.dark-mode .leaflet-popup-content strong,
+body.dark-mode .leaflet-popup-content span,
+body.dark-mode .leaflet-popup-content div,
+body.dark-mode .leaflet-popup-content p {
+  color: #e6e6e6 !important;
+}
+
+/* Close button */
+body.dark-mode .leaflet-popup-close-button {
+  color: #cbd5f5 !important;
+}
+
+body.dark-mode .leaflet-popup-close-button:hover {
+  color: #ffffff !important;
 }

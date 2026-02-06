@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="./style.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
   </head>
 
@@ -50,19 +52,7 @@
       <button id="themeToggle"  title="Toggle dark-mode/light-mode" class="theme-toggle-btn">Dark Mode</button>
     </div>
     
-   <!--
-    <div class="population-toggle-container">
-      <button id="populationToggle" title="Toggle population layer" class="population-toggle-btn">
-       <i class="fa-solid fa-people-group"></i>
-      </button>
-    </div>
-
-    <div class="ds-toggle-container">
-      <button id="dsToggle" title="Toggle DS division population" class="ds-toggle-btn">
-        <i class="fa-solid fa-map"></i>
-      </button>
-    </div>
-   --> 
+   
    <div class="layer-toggle-panel">
     <button id="gnToggle" class="layer-pill active">
       <span class="label">GN Divisions</span>
@@ -81,17 +71,19 @@
     </button>
   </div>
 
-    <!--<h2 class="title">Sri Lanka Air Quality Map (Real-time)</h2>-->
-
-    <div id="map"></div>
-
-        <!-- SOURCE FILTERS -->
+  <!-- SOURCE FILTERS -->
 <div class="filter-box">
   <label><input type="checkbox" id="filter-all" checked> All</label><br>
   <label><input type="checkbox" id="filter-purpleair" checked> PurpleAir</label><br>
   <label><input type="checkbox" id="filter-iqair" checked> IQAir</label><br>
   <label><input type="checkbox" id="filter-waqi" checked> WAQI</label>
 </div>
+
+    <!--<h2 class="title">Sri Lanka Air Quality Map (Real-time)</h2>-->
+
+    <div id="map"></div>
+
+        
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

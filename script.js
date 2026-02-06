@@ -82,32 +82,12 @@ let savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   darkTiles.addTo(map);
   document.body.classList.add("dark-mode");
-  document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-sun"></i>';
+  document.getElementById("themeToggle").innerHTML = '🔆';
 } else {
   lightTiles.addTo(map);
-  document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
+  document.getElementById("themeToggle").innerHTML = '🌙';
 }
 
-/*document.getElementById("populationToggle").addEventListener("click", () => {
-  if (!populationLayer) return;
-
-  if (map.hasLayer(populationLayer)) {
-    map.removeLayer(populationLayer);
-  } else {
-    populationLayer.addTo(map);
-  }
-}
-
-);
-document.getElementById("dsToggle").addEventListener("click", () => {
-  if (!dsPopulationLayer) return;
-
-  if (map.hasLayer(dsPopulationLayer)) {
-    map.removeLayer(dsPopulationLayer);
-  } else {
-    dsPopulationLayer.addTo(map);
-  }
-});*/
 
 const gnToggle = document.getElementById("gnToggle");
 const dsToggle = document.getElementById("dsToggle");
@@ -152,7 +132,7 @@ document.getElementById("themeToggle").addEventListener("click", () => {
     map.removeLayer(darkTiles);
     lightTiles.addTo(map);
 
-    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
+    document.getElementById("themeToggle").innerHTML = '🌙';
     localStorage.setItem("theme", "light");
   } else {
     // Switch to dark
@@ -161,7 +141,7 @@ document.getElementById("themeToggle").addEventListener("click", () => {
     map.removeLayer(lightTiles);
     darkTiles.addTo(map);
 
-    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-sun"></i>';
+    document.getElementById("themeToggle").innerHTML = '🔆';
     localStorage.setItem("theme", "dark");
   }
 });
