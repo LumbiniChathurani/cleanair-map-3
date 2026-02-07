@@ -121,9 +121,9 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 101,
+        "aqi": 97,
         "pm25": null,
-        "category": "Unhealthy for Sensitive Groups",
+        "category": "Moderate",
         "lat": 7.8574057,
         "lon": 80.64864,
         "stationId": "waqi_-562156"
@@ -141,7 +141,7 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 69,
+        "aqi": 71,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.0273466,
@@ -181,7 +181,7 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 114,
+        "aqi": 116,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 6.983344,
@@ -201,7 +201,7 @@
     {
         "source": "WAQI",
         "name": "Mannar",
-        "aqi": 71,
+        "aqi": 90,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.988006,
@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 141,
+        "aqi": 126,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 8.028199,
@@ -231,9 +231,9 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 111,
+        "aqi": 99,
         "pm25": null,
-        "category": "Unhealthy for Sensitive Groups",
+        "category": "Moderate",
         "lat": 8.761628,
         "lon": 80.49619,
         "stationId": "waqi_-562240"
@@ -241,7 +241,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 109,
+        "aqi": 104,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 8.644081,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 84,
+        "aqi": 86,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.909444,
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 3,
+        "aqi": 0,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
