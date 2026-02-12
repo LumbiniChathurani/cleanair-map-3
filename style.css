@@ -141,7 +141,7 @@ body.dark-mode .population-toggle-btn:hover {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    width: 320px;
+    width: 300px;
   }
 
   #searchInput {
@@ -477,7 +477,7 @@ body:not(.dark-mode) .layer-pill .icon {
 /* ===================================== */
 
 body.dark-mode .leaflet-popup-content-wrapper {
-  background: #121826 !important;
+  background: #252f47 !important;
   color: #e6e6e6 !important;
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65);

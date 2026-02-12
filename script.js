@@ -197,6 +197,8 @@ fetch("./aq_stations.json")
           icon: createAQISvgIcon(getAQIColor(st.aqi)),
         }
       ).bindPopup(popupContent);
+
+      
       
       // ---------------------------
       // Add marker to correct layer
