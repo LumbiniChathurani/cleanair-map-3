@@ -144,6 +144,21 @@ body.dark-mode .population-toggle-btn:hover {
     width: 300px;
   }
 
+  @media (max-width: 660px) {
+    .search-container {
+      width: 200px;
+      left: 25%;
+    }
+  }
+
+  @media (max-width: 370px) {
+    .search-container {
+      width: 150px;
+      left: 25%;
+    }
+  }
+
+
   #searchInput {
     width: 100%;
     padding: 12px;
@@ -400,13 +415,14 @@ body.dark-mode .filter-box{
   display: flex;
   flex-direction: column;
   gap: 8px;
+  
 }
 
 .layer-pill {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 14px 6px 6px;
+  padding: 3px 10px 3px 4px;
   border-radius: 22px;
   border: none;
   cursor: pointer;
