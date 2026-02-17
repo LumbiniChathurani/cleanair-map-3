@@ -144,21 +144,6 @@ body.dark-mode .population-toggle-btn:hover {
     width: 300px;
   }
 
-  @media (max-width: 660px) {
-    .search-container {
-      width: 200px;
-      left: 25%;
-    }
-  }
-
-  @media (max-width: 370px) {
-    .search-container {
-      width: 150px;
-      left: 25%;
-    }
-  }
-
-
   #searchInput {
     width: 100%;
     padding: 12px;
@@ -524,4 +509,170 @@ body.dark-mode .leaflet-popup-close-button {
 
 body.dark-mode .leaflet-popup-close-button:hover {
   color: #ffffff !important;
+}
+
+
+/* Small popup for mobile */
+/* ============================= */
+/*        MOBILE FILTER POPUP    */
+/* ============================= */
+
+.filter-popup {
+  display: none;
+  position: absolute;
+  top: 120px;
+  right: 12px;
+  width: 220px;
+  background: #f4f6f8;
+  border-radius: 16px;
+  padding: 14px;
+  z-index: 3000;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  font-size: 14px;
+  height: 260px;
+}
+
+/* Dark mode */
+body.dark-mode .filter-popup {
+  background: #1e293b;
+  color: #e6e6e6;
+}
+
+/* Header */
+.filter-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.filter-popup-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filter-popup-header button {
+  background: #facc15;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Section titles */
+.filter-section-title {
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+
+/* Compact toggles */
+.mobile-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Toggle switch style */
+.mobile-switch {
+  width: 42px;
+  height: 22px;
+  background: #cbd5e1;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.mobile-switch::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: 0.2s;
+}
+
+.mobile-switch.active {
+  background: #6366f1;
+}
+
+.mobile-switch.active::after {
+  left: 22px;
+}
+
+/* Source checkboxes */
+.filter-box-popup label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* Close button */
+.filter-close {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  background: #475569;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+/* Filter button default (hidden on desktop) */
+#filterBtn {
+  display: none;      /* hidden on desktop */
+  border: none;
+  font-size: 13px;
+}
+
+
+/* Show filter button only on small screens */
+@media (max-width: 768px) {
+  .layer-toggle-panel,
+  .filter-box {
+    display: none !important;
+  }
+
+  #filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: 140px;   /* BELOW zoom controls */
+    right: 12px;
+    z-index: 2000;
+    padding: 6px 12px;
+    background: #6b46c1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  
+
+  #searchInput {
+    width: 80%;
+  }
+
+  .aqi-legend {
+    font-size: 11px;
+  }
+
+  .aqi-legend i {
+    width: 10px;
+    height: 10px;
+  }
 }

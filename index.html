@@ -81,7 +81,55 @@
 
     <!--<h2 class="title">Sri Lanka Air Quality Map (Real-time)</h2>-->
 
+    <button id="filterBtn" class="filter-btn">
+      <i class="fa-solid fa-sliders"></i> Filters
+    </button>
+    
+
     <div id="map"></div>
+
+
+  <!-- Small Filters Popup for mobile -->
+<div id="filterPopup" class="filter-popup">
+  <div class="filter-popup-header">
+    <h3>Filters</h3>
+    <button id="applyFilters">Apply</button>
+  </div>
+  
+  <div class="filter-section-title">Divisions</div>
+  
+  <div class="mobile-toggle-row">
+    <span>GN Divisions</span>
+    <div id="gnSwitch" class="mobile-switch"></div>
+  </div>
+  
+  <div class="mobile-toggle-row">
+    <span>DS Divisions</span>
+    <div id="dsSwitch" class="mobile-switch"></div>
+  </div>
+  
+  <div class="filter-section-title">Sources</div>
+  
+  <div class="filter-box-popup">
+    <label><input type="checkbox" id="filter-purpleair-mobile" checked> PurpleAir</label>
+    <label><input type="checkbox" id="filter-iqair-mobile" checked> IQAir</label>
+    <label><input type="checkbox" id="filter-waqi-mobile" checked> WAQI</label>
+  </div>
+  
+  <button id="closeFilterPopup" class="filter-close">Close</button>
+  
+  </div>
+  
+  <!-- Source filters -->
+  <div class="filter-box-popup">
+    <label><input type="checkbox" id="filter-all-mobile" checked> All</label>
+    <label><input type="checkbox" id="filter-purpleair-mobile" checked> PurpleAir</label>
+    <label><input type="checkbox" id="filter-iqair-mobile" checked> IQAir</label>
+    <label><input type="checkbox" id="filter-waqi-mobile" checked> WAQI</label>
+  </div>
+</div>
+
+
 
         
 

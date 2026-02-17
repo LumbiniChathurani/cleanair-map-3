@@ -607,3 +607,104 @@ document.getElementById("refreshBtn").addEventListener("click", () => {
 
   
 });
+
+
+
+const filterBtn = document.getElementById("filterBtn");
+const filterPopup = document.getElementById("filterPopup");
+const closeFilterPopup = document.getElementById("closeFilterPopup");
+
+// Open popup
+filterBtn.addEventListener("click", () => {
+  filterPopup.style.display = "block";
+});
+
+// Close popup
+closeFilterPopup.addEventListener("click", () => {
+  filterPopup.style.display = "none";
+});
+
+// ---------------------------
+// MOBILE FILTER POPUP LOGIC
+// ---------------------------
+
+const applyFiltersBtn = document.getElementById("applyFilters");
+
+
+// Division Switches
+const gnSwitch = document.getElementById("gnSwitch");
+const dsSwitch = document.getElementById("dsSwitch");
+
+// Sync initial state (SAFE)
+if (populationLayer && map.hasLayer(populationLayer)) {
+  gnSwitch.classList.add("active");
+}
+
+if (dsPopulationLayer && map.hasLayer(dsPopulationLayer)) {
+  dsSwitch.classList.add("active");
+}
+
+
+
+gnSwitch.addEventListener("click", () => {
+  gnSwitch.classList.toggle("active");
+});
+
+dsSwitch.addEventListener("click", () => {
+  dsSwitch.classList.toggle("active");
+});
+
+// Apply button
+applyFiltersBtn.addEventListener("click", () => {
+
+  // GN division
+if (populationLayer) {
+  if (gnSwitch.classList.contains("active")) {
+    if (!map.hasLayer(populationLayer)) {
+      populationLayer.addTo(map);
+    }
+    gnToggle.classList.add("active");
+  } else {
+    if (map.hasLayer(populationLayer)) {
+      map.removeLayer(populationLayer);
+    }
+    gnToggle.classList.remove("active");
+  }
+}
+
+// DS division
+if (dsPopulationLayer) {
+  if (dsSwitch.classList.contains("active")) {
+    if (!map.hasLayer(dsPopulationLayer)) {
+      dsPopulationLayer.addTo(map);
+    }
+    dsToggle.classList.add("active");
+  } else {
+    if (map.hasLayer(dsPopulationLayer)) {
+      map.removeLayer(dsPopulationLayer);
+    }
+    dsToggle.classList.remove("active");
+  }
+}
+
+
+  // Source filters
+  purpleCheckbox.checked =
+    document.getElementById("filter-purpleair-mobile").checked;
+
+  iqairCheckbox.checked =
+    document.getElementById("filter-iqair-mobile").checked;
+
+  waqiCheckbox.checked =
+    document.getElementById("filter-waqi-mobile").checked;
+
+  allCheckbox.checked =
+    purpleCheckbox.checked &&
+    iqairCheckbox.checked &&
+    waqiCheckbox.checked;
+
+  updateSourceLayers();
+
+  // Close popup after applying
+  filterPopup.style.display = "none";
+});
