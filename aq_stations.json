@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 38,
+        "aqi": 29,
         "pm25": null,
         "category": "Good",
         "lat": 7.8574057,
@@ -141,7 +141,7 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 106,
+        "aqi": 114,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 6.0273466,
@@ -181,9 +181,9 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 90,
+        "aqi": 111,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 6.983344,
         "lon": 81.04643,
         "stationId": "waqi_-562138"
@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 124,
+        "aqi": 129,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 8.028199,
@@ -301,9 +301,9 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 56,
+        "aqi": 37,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "waqi_-179053"
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 9,
+        "aqi": 1,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -28951,9 +28951,9 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 67,
+        "aqi": 46,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 7.9131675,
         "lon": 81.04998,
         "stationId": "waqi_-575551"
@@ -51347,5 +51347,15 @@
         "lat": 6.898,
         "lon": 79.9223,
         "stationId": "waqi_-1079350"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 46,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-1079815"
     }
 ]
