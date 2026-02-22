@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 42,
+        "aqi": 50,
         "pm25": null,
         "category": "Good",
         "lat": 7.8574057,
@@ -141,9 +141,9 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 54,
+        "aqi": 38,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.0273466,
         "lon": 80.21944,
         "stationId": "waqi_-562159"
@@ -181,9 +181,9 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 42,
+        "aqi": 93,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 6.983344,
         "lon": 81.04643,
         "stationId": "waqi_-562138"
@@ -201,7 +201,7 @@
     {
         "source": "WAQI",
         "name": "Mannar",
-        "aqi": 71,
+        "aqi": 99,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.988006,
@@ -221,9 +221,9 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 151,
+        "aqi": 129,
         "pm25": null,
-        "category": "Unhealthy",
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 8.028199,
         "lon": 79.84147,
         "stationId": "waqi_-562201"
@@ -241,7 +241,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 4,
+        "aqi": 8,
         "pm25": null,
         "category": "Good",
         "lat": 8.644081,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 15,
+        "aqi": 29,
         "pm25": null,
         "category": "Good",
         "lat": 6.909444,
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 2,
+        "aqi": 0,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -28951,7 +28951,7 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 25,
+        "aqi": 33,
         "pm25": null,
         "category": "Good",
         "lat": 7.9131675,
@@ -34641,7 +34641,7 @@
     {
         "source": "WAQI",
         "name": "Kohuwala",
-        "aqi": 33,
+        "aqi": 38,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
