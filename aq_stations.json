@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 50,
+        "aqi": 33,
         "pm25": null,
         "category": "Good",
         "lat": 7.8574057,
@@ -181,7 +181,7 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 67,
+        "aqi": 59,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.983344,
@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 136,
+        "aqi": 126,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 8.028199,
@@ -241,7 +241,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 4,
+        "aqi": 0,
         "pm25": null,
         "category": "Good",
         "lat": 8.644081,
@@ -301,9 +301,9 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 35,
+        "aqi": 99,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "waqi_-179053"
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 9,
+        "aqi": 13,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -28951,7 +28951,7 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 8,
+        "aqi": 21,
         "pm25": null,
         "category": "Good",
         "lat": 7.9131675,
@@ -34641,9 +34641,9 @@
     {
         "source": "WAQI",
         "name": "Kohuwala",
-        "aqi": 52,
+        "aqi": 46,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219"
