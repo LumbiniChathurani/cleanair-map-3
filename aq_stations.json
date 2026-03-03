@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 141,
+        "aqi": 149,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 7.8574057,
@@ -141,7 +141,7 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 160,
+        "aqi": 166,
         "pm25": null,
         "category": "Unhealthy",
         "lat": 6.0273466,
@@ -241,7 +241,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 121,
+        "aqi": 114,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 8.644081,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 160,
+        "aqi": 161,
         "pm25": null,
         "category": "Unhealthy",
         "lat": 6.909444,
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 4,
+        "aqi": 13,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -28951,7 +28951,7 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 141,
+        "aqi": 134,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 7.9131675,
