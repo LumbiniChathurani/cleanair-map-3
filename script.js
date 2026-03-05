@@ -298,12 +298,15 @@ if (st.source === "IQAir") {
 
       
 
-/* ================= SEARCH ================= */
+/* ================= FAST SEARCH ================= */
 const input = document.getElementById("searchInput");
 const suggestions = document.getElementById("suggestions");
 let activeIndex = -1;
 
-input.addEventListener("input", () => {
+// Precompute lowercase names to speed up search
+stations.forEach(s => s.lowerName = s.name.toLowerCase());
+
+function updateSuggestions() {
   const query = input.value.toLowerCase();
   suggestions.innerHTML = "";
   activeIndex = -1;
@@ -313,9 +316,10 @@ input.addEventListener("input", () => {
     return;
   }
 
-  const matches = stations.filter(s =>
-    s.name.toLowerCase().includes(query)
-  );
+  // Filter stations starting with query and limit to top 10
+  const matches = stations
+    .filter(s => s.lowerName.startsWith(query))
+    .slice(0, 10);
 
   matches.forEach(st => {
     const li = document.createElement("li");
@@ -328,6 +332,25 @@ input.addEventListener("input", () => {
   });
 
   suggestions.style.display = matches.length ? "block" : "none";
+}
+
+// Run instantly on every input
+input.addEventListener("input", updateSuggestions);
+
+// Keyboard navigation
+input.addEventListener("keydown", e => {
+  const items = suggestions.querySelectorAll("li");
+  if (!items.length) return;
+
+  if (e.key === "ArrowDown") {
+    activeIndex = (activeIndex + 1) % items.length;
+  } else if (e.key === "ArrowUp") {
+    activeIndex = (activeIndex - 1 + items.length) % items.length;
+  } else if (e.key === "Enter") {
+    items[activeIndex]?.click();
+  }
+
+  items.forEach((el, i) => el.classList.toggle("active", i === activeIndex));
 });
 
 input.addEventListener("keydown", e => {
