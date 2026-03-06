@@ -26,7 +26,8 @@ let dsPopulationData = {};
 // CREATE MAP
 // ---------------------------
 const map = L.map("map", {
-  zoomControl: false
+  zoomControl: false,
+  scrollWheelZoom: false
 }).setView([7.8731, 80.7718], 7);
 
 // ---------------------------
@@ -229,7 +230,8 @@ if (st.source === "WAQI" && !st.stationId && st.idx) {
         void el.offsetWidth; // restart animation
         el.classList.add("aqi-glow");
       });
-      marker.on("click", () => focusStation(st));
+      marker.on("click", () => 
+      focusStation(st));
 
       /* ================= FOCUS ================= */
 async function focusStation(st) {
