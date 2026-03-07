@@ -67,7 +67,7 @@ def append_hourly_aqi(station_id, aqi, source, timestamp):
             "aqi": aqi,
             "source": source
         })
-   history[station_id] = trim_old_entries(history[station_id], days=7)
+    history[station_id] = trim_old_entries(history[station_id], days=7)
     save_history(history)
 
 def current_hour_timestamp():
