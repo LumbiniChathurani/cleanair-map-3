@@ -41,8 +41,21 @@ def save_history(history):
     with open(HISTORY_FILE, "w") as f:
         json.dump(history, f, indent=2)
 
-def trim_old_entries(entries, max_hours=168):
-    return entries[-max_hours:] if len(entries) > max_hours else entries
+from datetime import datetime, timedelta
+
+def trim_old_entries(entries, days=7):
+    cutoff = datetime.utcnow() - timedelta(days=days)
+
+    filtered = []
+    for e in entries:
+        try:
+            entry_time = datetime.fromisoformat(e["time"].replace("Z", ""))
+            if entry_time >= cutoff:
+                filtered.append(e)
+        except Exception:
+            continue
+
+    return filtered
 
 def append_hourly_aqi(station_id, aqi, source, timestamp):
     history = load_history()
@@ -54,7 +67,7 @@ def append_hourly_aqi(station_id, aqi, source, timestamp):
             "aqi": aqi,
             "source": source
         })
-    history[station_id] = trim_old_entries(history[station_id])
+   history[station_id] = trim_old_entries(history[station_id], days=7)
     save_history(history)
 
 def current_hour_timestamp():

@@ -235,6 +235,8 @@ if (st.source === "WAQI" && !st.stationId && st.idx) {
 
       /* ================= FOCUS ================= */
 async function focusStation(st) {
+  console.log("Station name:", st.name);
+  console.log("Station ID:", st.stationId);
   map.setView([st.lat, st.lon], 13);
 
   const el = st.marker.getElement();
