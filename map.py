@@ -350,6 +350,32 @@ def fetch_all_waqi():
 # -------------------------------------------------------------
 # Save to JSON
 # -------------------------------------------------------------
+def remove_inactive_stations(stations, hours=12):
+    history = load_history()
+    cutoff = datetime.utcnow() - timedelta(hours=hours)
+
+    active = []
+
+    for s in stations:
+        sid = s.get("stationId")
+        if not sid:
+            continue
+
+        entries = history.get(sid, [])
+        if not entries:
+            continue
+
+        last_time = entries[-1]["time"]
+
+        try:
+            last_dt = datetime.fromisoformat(last_time.replace("Z",""))
+            if last_dt >= cutoff:
+                active.append(s)
+        except:
+            continue
+
+    return active
+
 def save_to_json(new_data, filename="aq_stations.json"):
     try:
         with open(filename, "r") as f:
@@ -389,4 +415,5 @@ if __name__ == "__main__":
     else:
         all_data = fetch_all_purpleair() + fetch_all_iqair() + fetch_all_waqi()
 
+    all_data = remove_inactive_stations(all_data, hours=12)
     save_to_json(all_data)
