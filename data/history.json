@@ -8,11 +8,6 @@
   ],
   "iqair_Colombo": [
     {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 143,
-      "source": "iqair"
-    },
-    {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 145,
       "source": "iqair"
@@ -681,14 +676,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 125,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 131,
+      "source": "iqair"
     }
   ],
   "iqair_Battaramulla": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 157,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 167,
@@ -1358,14 +1353,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 134,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 157,
+      "source": "iqair"
     }
   ],
   "iqair_Gampaha": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 154,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 165,
@@ -1995,14 +1990,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 150,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 145,
+      "source": "iqair"
     }
   ],
   "iqair_Digana": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 163,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 163,
@@ -2672,14 +2667,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 77,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 131,
+      "source": "iqair"
     }
   ],
   "iqair_Anuradhapura": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 163,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 189,
@@ -3349,19 +3344,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 127,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 150,
+      "source": "iqair"
     }
   ],
   "iqair_Batticaloa": [
-    {
-      "time": "2026-03-01T12:00:00Z",
-      "aqi": 145,
-      "source": "iqair"
-    },
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 156,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 165,
@@ -3811,14 +3801,14 @@
       "time": "2026-03-08T10:00:00Z",
       "aqi": 64,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 97,
+      "source": "iqair"
     }
   ],
   "iqair_Galle": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 145,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 133,
@@ -4488,14 +4478,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 101,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 104,
+      "source": "iqair"
     }
   ],
   "iqair_Kurunegala": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 132,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 174,
@@ -5165,14 +5155,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 61,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 80,
+      "source": "iqair"
     }
   ],
   "iqair_Ratnapura": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 160,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 162,
@@ -5842,14 +5832,14 @@
       "time": "2026-03-08T12:00:00Z",
       "aqi": 153,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 159,
+      "source": "iqair"
     }
   ],
   "iqair_Bandarawela": [
-    {
-      "time": "2026-03-01T13:00:00Z",
-      "aqi": 151,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-01T14:00:00Z",
       "aqi": 165,
@@ -6518,6 +6508,11 @@
     {
       "time": "2026-03-08T12:00:00Z",
       "aqi": 88,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-03-08T13:00:00Z",
+      "aqi": 121,
       "source": "iqair"
     }
   ],
