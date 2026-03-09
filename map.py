@@ -46,14 +46,26 @@ from datetime import datetime, timedelta
 def trim_old_entries(entries, days=7):
     cutoff = datetime.utcnow() - timedelta(days=days)
 
+    print(f"[TRIM] Checking entries older than {days} days")
+    print(f"[TRIM] Cutoff time: {cutoff}")
+
     filtered = []
+    removed = 0
+
     for e in entries:
         try:
             entry_time = datetime.fromisoformat(e["time"].replace("Z", ""))
+
             if entry_time >= cutoff:
                 filtered.append(e)
+            else:
+                removed += 1
+
         except Exception:
-            continue
+            print(f"[TRIM ERROR] Bad entry skipped: {e}")
+
+    print(f"[TRIM] Removed {removed} old entries")
+    print(f"[TRIM] Remaining entries: {len(filtered)}")
 
     return filtered
 
