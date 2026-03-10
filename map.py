@@ -362,7 +362,7 @@ def fetch_all_waqi():
 # -------------------------------------------------------------
 # Save to JSON
 # -------------------------------------------------------------
-def remove_inactive_stations(stations, hours=12):
+def remove_inactive_stations(stations, hours=48):
     history = load_history()
     cutoff = datetime.utcnow() - timedelta(hours=hours)
 
@@ -442,5 +442,5 @@ if __name__ == "__main__":
     else:
         all_data = fetch_all_purpleair() + fetch_all_iqair() + fetch_all_waqi()
 
-    all_data = remove_inactive_stations(all_data, hours=12)
+    all_data = remove_inactive_stations(all_data, hours=48)
     save_to_json(all_data)
