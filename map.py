@@ -366,7 +366,11 @@ def remove_inactive_stations(stations, hours=12):
     history = load_history()
     cutoff = datetime.utcnow() - timedelta(hours=hours)
 
+    print(f"[INACTIVE CHECK] Removing stations not updated in {hours} hours")
+    print(f"[INACTIVE CHECK] Cutoff time: {cutoff}")
+
     active = []
+    removed = 0
 
     for s in stations:
         sid = s.get("stationId")
@@ -375,16 +379,27 @@ def remove_inactive_stations(stations, hours=12):
 
         entries = history.get(sid, [])
         if not entries:
+            print(f"[INACTIVE] {sid} has no history → removed")
+            removed += 1
             continue
 
         last_time = entries[-1]["time"]
 
         try:
             last_dt = datetime.fromisoformat(last_time.replace("Z",""))
+
             if last_dt >= cutoff:
                 active.append(s)
-        except:
-            continue
+            else:
+                print(f"[INACTIVE] {sid} last update {last_dt} → removed")
+                removed += 1
+
+        except Exception as e:
+            print(f"[ERROR] Failed parsing time for {sid}: {e}")
+            removed += 1
+
+    print(f"[INACTIVE RESULT] Active stations: {len(active)}")
+    print(f"[INACTIVE RESULT] Removed stations: {removed}")
 
     return active
 
