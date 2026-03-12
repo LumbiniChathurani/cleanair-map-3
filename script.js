@@ -93,8 +93,9 @@ if (savedTheme === "dark") {
 const gnToggle = document.getElementById("gnToggle");
 const dsToggle = document.getElementById("dsToggle");
 
-gnToggle.addEventListener("click", () => {
-  if (!populationLayer) return;
+gnToggle.addEventListener("click", async () => {
+
+  await loadGNLayer(); // 🔥 load file only when button clicked
 
   const active = map.hasLayer(populationLayer);
 
@@ -105,10 +106,12 @@ gnToggle.addEventListener("click", () => {
     populationLayer.addTo(map);
     gnToggle.classList.add("active");
   }
+
 });
 
-dsToggle.addEventListener("click", () => {
-  if (!dsPopulationLayer) return;
+dsToggle.addEventListener("click", async () => {
+
+  await loadDSLayer(); // 🔥 load file only when button clicked
 
   const active = map.hasLayer(dsPopulationLayer);
 
@@ -119,6 +122,7 @@ dsToggle.addEventListener("click", () => {
     dsPopulationLayer.addTo(map);
     dsToggle.classList.add("active");
   }
+
 });
 
 
@@ -357,18 +361,6 @@ input.addEventListener("keydown", e => {
   items.forEach((el, i) => el.classList.toggle("active", i === activeIndex));
 });
 
-input.addEventListener("keydown", e => {
-  const items = suggestions.querySelectorAll("li");
-  if (!items.length) return;
-
-  if (e.key === "ArrowDown") activeIndex = (activeIndex + 1) % items.length;
-  if (e.key === "ArrowUp") activeIndex = (activeIndex - 1 + items.length) % items.length;
-  if (e.key === "Enter") items[activeIndex]?.click();
-
-  items.forEach((el, i) =>
-    el.classList.toggle("active", i === activeIndex)
-  );
-});
       
     });
   })
@@ -459,27 +451,7 @@ sidebar.addEventListener("click", (e) => {
 //Population data
 let populationData = {};
 
-fetch("data/population/population.json")
-  .then(r => r.json())
-  .then(data => {
-    populationData = data;
-  });
 
-  fetch("data/population/DS_Division_Total_Population.json")
-  .then(r => r.json())
-  .then(data => {
-  data.forEach(row => {
-  const key = row["DS-Division"]
-  .trim()
-  .toLowerCase();
-  
-  
-  dsPopulationData[key] = Number(row["Total"]);
-  });
-  
-  
-  console.log("DS population lookup:", dsPopulationData);
-  });
 
   function getColor(pop) {
     if (pop > 3000) return "#800026";
@@ -496,77 +468,110 @@ fetch("data/population/population.json")
     return "#eff3ff";
   }
 
-  fetch("data/boundaries/lka_admin4.json")
-  .then(r => r.json())
-  .then(topoData => {
+  // ---------------------------
+// LAZY LOAD GN LAYER
+// ---------------------------
+async function loadGNLayer() {
 
-    // 🔁 Convert TopoJSON → GeoJSON
-    const geojson = topojson.feature(
-      topoData,
-      topoData.objects.lka_admin4
-    );
+  if (populationLayer) return;
 
-    populationLayer = L.geoJSON(geojson, {
-      style: feature => {
-        const gn = feature.properties.adm4_name;
-        const pop = populationData[gn] || 0;
+  // 🔥 Load population data only now
+  if (Object.keys(populationData).length === 0) {
+    const popRes = await fetch("data/population/population.json");
+    populationData = await popRes.json();
+  }
 
-        return {
-          fillColor: getColor(pop),
-          weight: 1,
-          color: "#555",
-          fillOpacity: 0.6
-        };
-      },
-      onEachFeature: (feature, layer) => {
-        const gn = feature.properties.adm4_name;
-        const pop = populationData[gn] || "No data";
+  const topoData = await fetch("data/boundaries/lka_admin4.json")
+    .then(r => r.json());
 
-        layer.bindPopup(
-          `<b>${gn}</b><br>Population: ${pop}`
-        );
-      }
-    })
+  const geojson = topojson.feature(
+    topoData,
+    topoData.objects.lka_admin4
+  );
+
+  populationLayer = L.geoJSON(geojson, {
+    style: feature => {
+      const gn = feature.properties.adm4_name;
+      const pop = populationData[gn] || 0;
+
+      return {
+        fillColor: getColor(pop),
+        weight: 1,
+        color: "#555",
+        fillOpacity: 0.6
+      };
+    },
+    onEachFeature: (feature, layer) => {
+      const gn = feature.properties.adm4_name;
+      const pop = populationData[gn] || "No data";
+
+      layer.bindPopup(`<b>${gn}</b><br>Population: ${pop}`);
+    }
   });
 
-  fetch("data/boundaries/lka_admin3.json")
-  .then(r => r.json())
-  .then(topoData => {
+}
+// ---------------------------
+// LAZY LOAD DS LAYER
+// ---------------------------
+async function loadDSLayer() {
 
-    const geojson = topojson.feature(
-      topoData,
-      topoData.objects.lka_admin3
-    );
+  if (dsPopulationLayer) return;
 
-    dsPopulationLayer = L.geoJSON(geojson, {
-      style: feature => {
-        const ds = feature.properties.adm3_name
-  .trim()
-  .toLowerCase();
-        const pop = dsPopulationData[ds] || 0;
+  // 🔥 Load DS population only now
+  if (Object.keys(dsPopulationData).length === 0) {
 
-        return {
-          fillColor: getDSColor(pop),
-          weight: 1.5,
-          color: "#003366",
-          fillOpacity: 0.5
-        };
-      },
-      onEachFeature: (feature, layer) => {
-        const ds = feature.properties.adm3_name
-          .trim()
-          .toLowerCase();
-      
-        const pop = dsPopulationData[ds];
-      
-        layer.bindPopup(
-          `<b>${feature.properties.adm3_name} DS Division</b><br>
-           Population: ${pop ?? "No data"}`
-        );
-      }
+    const res = await fetch("data/population/DS_Division_Total_Population.json");
+    const data = await res.json();
+
+    data.forEach(row => {
+      const key = row["DS-Division"].trim().toLowerCase();
+      dsPopulationData[key] = Number(row["Total"]);
     });
 
+  }
+
+  const topoData = await fetch("data/boundaries/lka_admin3.json")
+    .then(r => r.json());
+
+  const geojson = topojson.feature(
+    topoData,
+    topoData.objects.lka_admin3
+  );
+
+  dsPopulationLayer = L.geoJSON(geojson, {
+    style: feature => {
+
+      const ds = feature.properties.adm3_name
+        .trim()
+        .toLowerCase();
+
+      const pop = dsPopulationData[ds] || 0;
+
+      return {
+        fillColor: getDSColor(pop),
+        weight: 1.5,
+        color: "#003366",
+        fillOpacity: 0.5
+      };
+
+    },
+    onEachFeature: (feature, layer) => {
+
+      const ds = feature.properties.adm3_name
+        .trim()
+        .toLowerCase();
+
+      const pop = dsPopulationData[ds];
+
+      layer.bindPopup(
+        `<b>${feature.properties.adm3_name} DS Division</b><br>
+        Population: ${pop ?? "No data"}`
+      );
+
+    }
   });
+
+}
 
   // ---------------------------
 // SOURCE FILTER CHECKBOXES
@@ -682,36 +687,48 @@ dsSwitch.addEventListener("click", () => {
 });
 
 // Apply button
-applyFiltersBtn.addEventListener("click", () => {
+applyFiltersBtn.addEventListener("click", async () => {
 
   // GN division
-if (populationLayer) {
-  if (gnSwitch.classList.contains("active")) {
-    if (!map.hasLayer(populationLayer)) {
-      populationLayer.addTo(map);
-    }
-    gnToggle.classList.add("active");
-  } else {
-    if (map.hasLayer(populationLayer)) {
-      map.removeLayer(populationLayer);
-    }
-    gnToggle.classList.remove("active");
+if (gnSwitch.classList.contains("active")) {
+
+  await loadGNLayer();
+
+  if (!map.hasLayer(populationLayer)) {
+    populationLayer.addTo(map);
   }
+
+  gnToggle.classList.add("active");
+
+} else {
+
+  if (populationLayer && map.hasLayer(populationLayer)) {
+    map.removeLayer(populationLayer);
+  }
+
+  gnToggle.classList.remove("active");
+
 }
 
 // DS division
-if (dsPopulationLayer) {
-  if (dsSwitch.classList.contains("active")) {
-    if (!map.hasLayer(dsPopulationLayer)) {
-      dsPopulationLayer.addTo(map);
-    }
-    dsToggle.classList.add("active");
-  } else {
-    if (map.hasLayer(dsPopulationLayer)) {
-      map.removeLayer(dsPopulationLayer);
-    }
-    dsToggle.classList.remove("active");
+if (dsSwitch.classList.contains("active")) {
+
+  await loadDSLayer();
+
+  if (!map.hasLayer(dsPopulationLayer)) {
+    dsPopulationLayer.addTo(map);
   }
+
+  dsToggle.classList.add("active");
+
+} else {
+
+  if (dsPopulationLayer && map.hasLayer(dsPopulationLayer)) {
+    map.removeLayer(dsPopulationLayer);
+  }
+
+  dsToggle.classList.remove("active");
+
 }
 
 
