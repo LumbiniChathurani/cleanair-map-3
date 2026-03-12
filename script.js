@@ -368,17 +368,24 @@ input.addEventListener("keydown", e => {
     alert("Failed to load AQI data.");
   });
 
+  let historyData = null;
+
   async function loadStationHistory(stationId) {
-    const res = await fetch("data/history.json");
-    const history = await res.json();
+
+    // 🔥 Load only once
+    if (!historyData) {
+      const res = await fetch("data/history.json");
+      historyData = await res.json();
+    }
   
-    const entries = history[stationId] || [];
+    const entries = historyData[stationId] || [];
   
     // sort by time
     entries.sort((a, b) => new Date(a.time) - new Date(b.time));
   
     // last 7 days (168 hours)
     return entries.slice(-168);
+  
   }
 
   let aqiChart = null;
