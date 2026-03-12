@@ -6,14 +6,19 @@
 
     <title>Sri Lanka Air Quality Map</title>
 
-    <script src="https://unpkg.com/topojson-client@3" defer></script>
+    
 
-
-    <!-- Leaflet CSS -->
-    <link
+      <!-- Leaflet CSS -->
+      <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
+
+    <link rel="preload" href="data/aq_stations.json" as="fetch" crossorigin="anonymous">
+
+    <link rel="dns-prefetch" href="https://tile.openstreetmap.org">
+<link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+
 
     <link rel="stylesheet" href="./style.css" />
 
@@ -121,17 +126,17 @@
   </div>
   
   <!-- Source filters -->
-  <div class="filter-box-popup">
+  <!-- <div class="filter-box-popup">
     <label><input type="checkbox" id="filter-all-mobile" checked> All</label>
     <label><input type="checkbox" id="filter-purpleair-mobile" checked> PurpleAir</label>
     <label><input type="checkbox" id="filter-iqair-mobile" checked> IQAir</label>
     <label><input type="checkbox" id="filter-waqi-mobile" checked> WAQI</label>
-  </div>
-</div>
+  </div> -->
 
 
 
-        
+
+<script src="https://unpkg.com/topojson-client@3" defer></script>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
