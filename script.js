@@ -27,7 +27,8 @@ let dsPopulationData = {};
 // ---------------------------
 const map = L.map("map", {
   zoomControl: false,
-  scrollWheelZoom: false
+  scrollWheelZoom: false,
+  preferCanvas: true
 }).setView([7.8731, 80.7718], 7);
 
 // ---------------------------
@@ -196,10 +197,14 @@ fetch("./aq_stations.json")
         Category: ${st.category}<br>
       `;
 
-      const marker = L.marker(
+      const marker = L.circleMarker(
         [st.lat, st.lon],
         {
-          icon: createAQISvgIcon(getAQIColor(st.aqi)),
+          radius: 7,
+          fillColor: getAQIColor(st.aqi),
+          color: "#222",
+          weight: 1,
+          fillOpacity: 0.9
         }
       ).bindPopup(popupContent);
 
