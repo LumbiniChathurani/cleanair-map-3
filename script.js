@@ -76,7 +76,9 @@ legend.onAdd = function () {
 
 legend.addTo(map);
 
-
+map.whenReady(() => {
+  loadAQIStations();
+});
 
 // Load tile based on saved theme
 let savedTheme = localStorage.getItem("theme");
@@ -186,6 +188,7 @@ function createAQISvgIcon(color) {
 // ---------------------------
 // LOAD AQI JSON FILE
 // ---------------------------
+async function loadAQIStations() {
 fetch("./aq_stations.json")
   .then((res) => res.json())
   .then((stations) => {
@@ -372,6 +375,8 @@ input.addEventListener("keydown", e => {
   .catch(() => {
     alert("Failed to load AQI data.");
   });
+
+}
 
   let historyData = null;
 
