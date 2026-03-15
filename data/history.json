@@ -8,11 +8,6 @@
   ],
   "iqair_Colombo": [
     {
-      "time": "2026-03-08T13:00:00Z",
-      "aqi": 131,
-      "source": "iqair"
-    },
-    {
       "time": "2026-03-08T14:00:00Z",
       "aqi": 132,
       "source": "iqair"
@@ -676,14 +671,14 @@
       "time": "2026-03-15T12:00:00Z",
       "aqi": 53,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-15T13:00:00Z",
+      "aqi": 64,
+      "source": "iqair"
     }
   ],
   "iqair_Battaramulla": [
-    {
-      "time": "2026-03-08T13:00:00Z",
-      "aqi": 157,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-08T14:00:00Z",
       "aqi": 157,
@@ -1348,14 +1343,14 @@
       "time": "2026-03-15T12:00:00Z",
       "aqi": 68,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-15T13:00:00Z",
+      "aqi": 80,
+      "source": "iqair"
     }
   ],
   "iqair_Gampaha": [
-    {
-      "time": "2026-03-08T13:00:00Z",
-      "aqi": 145,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-08T14:00:00Z",
       "aqi": 164,
@@ -2020,14 +2015,14 @@
       "time": "2026-03-15T12:00:00Z",
       "aqi": 58,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-15T13:00:00Z",
+      "aqi": 62,
+      "source": "iqair"
     }
   ],
   "iqair_Digana": [
-    {
-      "time": "2026-03-08T13:00:00Z",
-      "aqi": 131,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-08T14:00:00Z",
       "aqi": 166,
@@ -2692,14 +2687,14 @@
       "time": "2026-03-15T12:00:00Z",
       "aqi": 69,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-15T13:00:00Z",
+      "aqi": 101,
+      "source": "iqair"
     }
   ],
   "iqair_Anuradhapura": [
-    {
-      "time": "2026-03-08T13:00:00Z",
-      "aqi": 150,
-      "source": "iqair"
-    },
     {
       "time": "2026-03-08T14:00:00Z",
       "aqi": 163,
@@ -3363,6 +3358,11 @@
     {
       "time": "2026-03-15T12:00:00Z",
       "aqi": 53,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-03-15T13:00:00Z",
+      "aqi": 56,
       "source": "iqair"
     }
   ],
