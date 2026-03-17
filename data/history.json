@@ -81665,11 +81665,21 @@
       "time": "2026-03-17T09:00:00Z",
       "aqi": 68,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
+      "aqi": 68,
+      "source": "iqair"
     }
   ],
   "iqair_battaramulla_6.8990_79.9230": [
     {
       "time": "2026-03-17T09:00:00Z",
+      "aqi": 69,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
       "aqi": 69,
       "source": "iqair"
     }
@@ -81679,6 +81689,11 @@
       "time": "2026-03-17T09:00:00Z",
       "aqi": 60,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
+      "aqi": 60,
+      "source": "iqair"
     }
   ],
   "iqair_digana_7.2970_80.7600": [
@@ -81686,11 +81701,21 @@
       "time": "2026-03-17T09:00:00Z",
       "aqi": 53,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
+      "aqi": 51,
+      "source": "iqair"
     }
   ],
   "iqair_anuradhapura_8.3114_80.4037": [
     {
       "time": "2026-03-17T09:00:00Z",
+      "aqi": 60,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
       "aqi": 60,
       "source": "iqair"
     }
@@ -81700,11 +81725,21 @@
       "time": "2026-03-17T09:00:00Z",
       "aqi": 66,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
+      "aqi": 66,
+      "source": "iqair"
     }
   ],
   "iqair_galle_6.0535_80.2210": [
     {
       "time": "2026-03-17T09:00:00Z",
+      "aqi": 44,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
       "aqi": 44,
       "source": "iqair"
     }
@@ -81714,6 +81749,11 @@
       "time": "2026-03-17T09:00:00Z",
       "aqi": 56,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
+      "aqi": 56,
+      "source": "iqair"
     }
   ],
   "iqair_ratnapura_6.6828_80.3992": [
@@ -81721,11 +81761,21 @@
       "time": "2026-03-17T09:00:00Z",
       "aqi": 56,
       "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
+      "aqi": 56,
+      "source": "iqair"
     }
   ],
   "iqair_bandarawela_6.8289_80.9870": [
     {
       "time": "2026-03-17T09:00:00Z",
+      "aqi": 38,
+      "source": "iqair"
+    },
+    {
+      "time": "2026-03-17T10:00:00Z",
       "aqi": 38,
       "source": "iqair"
     }
