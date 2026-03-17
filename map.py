@@ -265,7 +265,7 @@ def fetch_all_iqair():
 
             # ✅ APPEND IQAIR HOURLY AQI TO HISTORY
             append_hourly_aqi(
-                station_id=f"iqair_{c['city']}",
+                station_id=data["stationId"],
                 aqi=data["aqi"],
                 source="iqair",
                 timestamp=current_hour_timestamp()
