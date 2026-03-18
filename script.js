@@ -340,7 +340,7 @@ input.addEventListener("keydown", e => {
       let stationId;
     
     if (st.source === "IQAir") {
-      stationId = `iqair_${st.name}`;
+      stationId = `iqair_${st.stationId}`;
     } else if (st.source === "WAQI") {
       // MUST match Python exactly
       stationId = st.stationId || `waqi_${st.idx}`;
