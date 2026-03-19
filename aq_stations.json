@@ -141,9 +141,9 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 88,
+        "aqi": 21,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.0273466,
         "lon": 80.21944,
         "stationId": "waqi_-562159"
@@ -191,7 +191,7 @@
     {
         "source": "WAQI",
         "name": "Monaragala",
-        "aqi": 76,
+        "aqi": 88,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.8387103,
@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 52,
+        "aqi": 59,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.028199,
@@ -271,9 +271,9 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 124,
+        "aqi": 61,
         "pm25": null,
-        "category": "Unhealthy for Sensitive Groups",
+        "category": "Moderate",
         "lat": 8.33356,
         "lon": 80.41497,
         "stationId": "waqi_-562216"
@@ -281,7 +281,7 @@
     {
         "source": "WAQI",
         "name": "Mullaitivu",
-        "aqi": 33,
+        "aqi": 13,
         "pm25": null,
         "category": "Good",
         "lat": 9.270798,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 59,
+        "aqi": 56,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.909444,
@@ -361,9 +361,9 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 63,
+        "aqi": 25,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 9.737238,
         "lon": 80.019455,
         "stationId": "waqi_-562165"
@@ -581,7 +581,7 @@
     {
         "source": "WAQI",
         "name": "Colombo 07",
-        "aqi": 88,
+        "aqi": 65,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.905964,
@@ -28951,9 +28951,9 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 56,
+        "aqi": 50,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 7.9131675,
         "lon": 81.04998,
         "stationId": "waqi_-575551"
