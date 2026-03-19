@@ -313,7 +313,7 @@ input.addEventListener("keydown", e => {
 
      /* ================= FOCUS ================= */
      async function focusStation(st) {
-      
+  
       map.setView([st.lat, st.lon], 13);
     
       const el = st.marker.getElement();
@@ -339,7 +339,7 @@ input.addEventListener("keydown", e => {
       let stationId;
     
     if (st.source === "IQAir") {
-      stationId = `iqair_${st.stationId}`;
+      stationId = st.stationId;
     } else if (st.source === "WAQI") {
       // MUST match Python exactly
       stationId = st.stationId || `waqi_${st.idx}`;
@@ -348,9 +348,9 @@ input.addEventListener("keydown", e => {
     }
     
     console.log("Station name:", st.name);
-      console.log("Station ID:", st.stationId);
-      console.log("Frontend stationId:", stationId);
-      console.log("Station object:", st);
+    console.log("Station ID:", st.stationId);
+    console.log("Frontend stationId:", stationId);
+    console.log("Station object:", st);
     
     let history = await loadStationHistory(stationId);
 
