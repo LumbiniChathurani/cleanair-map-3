@@ -340,7 +340,7 @@ input.addEventListener("keydown", e => {
       let stationId;
     
     if (st.source === "IQAir") {
-      stationId = `iqair_${st.name}`;
+      stationId = `iqair_${st.stationId}`;
     } else if (st.source === "WAQI") {
       // MUST match Python exactly
       stationId = st.stationId || `waqi_${st.idx}`;
@@ -353,11 +353,11 @@ input.addEventListener("keydown", e => {
     let history = await loadStationHistory(stationId);
 
     // 🔥 fallback to old ID format (temporary support)
-    if (history.length === 0 && st.source === "IQAir") {
+    /*if (history.length === 0 && st.source === "IQAir") {
       const fallbackId = `iqair_${st.name}`;
       console.log("Trying fallback ID:", fallbackId);
       history = await loadStationHistory(fallbackId);
-    }
+    }*/
     
       // --------------------
       // Last Updated
