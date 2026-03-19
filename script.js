@@ -313,10 +313,7 @@ input.addEventListener("keydown", e => {
 
      /* ================= FOCUS ================= */
      async function focusStation(st) {
-      console.log("Station name:", st.name);
-      console.log("Station ID:", st.stationId);
-      console.log("Frontend stationId:", stationId);
-      console.log("Station object:", st);
+      
       map.setView([st.lat, st.lon], 13);
     
       const el = st.marker.getElement();
@@ -350,7 +347,10 @@ input.addEventListener("keydown", e => {
       stationId = st.stationId;
     }
     
-    
+    console.log("Station name:", st.name);
+      console.log("Station ID:", st.stationId);
+      console.log("Frontend stationId:", stationId);
+      console.log("Station object:", st);
     
     let history = await loadStationHistory(stationId);
 
