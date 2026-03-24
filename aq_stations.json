@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 58,
+        "aqi": 52,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.909444,
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 17,
+        "aqi": 10,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -4351,7 +4351,7 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 55,
+        "aqi": 80,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.89273,
@@ -98587,5 +98587,25 @@
         "lat": 9.660709,
         "lon": 80.029483,
         "stationId": "waqi_-1349080"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kandy",
+        "aqi": 52,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.2906,
+        "lon": 80.6337,
+        "stationId": "waqi_-1350052"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 56,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-1350055"
     }
 ]
