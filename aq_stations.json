@@ -101,7 +101,7 @@
     {
         "source": "WAQI",
         "name": "Kotte",
-        "aqi": 119,
+        "aqi": 109,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 6.9060564,
@@ -141,9 +141,9 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 29,
+        "aqi": 78,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 6.0273466,
         "lon": 80.21944,
         "stationId": "waqi_-562159"
@@ -181,9 +181,9 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 93,
+        "aqi": 144,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 6.983344,
         "lon": 81.04643,
         "stationId": "waqi_-562138"
@@ -191,9 +191,9 @@
     {
         "source": "WAQI",
         "name": "Monaragala",
-        "aqi": 46,
+        "aqi": 124,
         "pm25": null,
-        "category": "Good",
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 6.8387103,
         "lon": 81.315315,
         "stationId": "waqi_-562246"
@@ -211,9 +211,9 @@
     {
         "source": "WAQI",
         "name": "Galle",
-        "aqi": 101,
+        "aqi": 0,
         "pm25": null,
-        "category": "Unhealthy for Sensitive Groups",
+        "category": "Good",
         "lat": 6.0679593,
         "lon": 80.22556,
         "stationId": "waqi_-562177"
@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 46,
+        "aqi": 50,
         "pm25": null,
         "category": "Good",
         "lat": 8.028199,
@@ -271,7 +271,7 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 65,
+        "aqi": 80,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.33356,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 83,
+        "aqi": 80,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.909444,
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 5,
+        "aqi": 8,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -351,7 +351,7 @@
     {
         "source": "WAQI",
         "name": "Kegalle",
-        "aqi": 136,
+        "aqi": 121,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 7.2534904,
@@ -361,7 +361,7 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 63,
+        "aqi": 84,
         "pm25": null,
         "category": "Moderate",
         "lat": 9.737238,
@@ -581,7 +581,7 @@
     {
         "source": "WAQI",
         "name": "Colombo 07",
-        "aqi": 52,
+        "aqi": 84,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.905964,
@@ -4351,7 +4351,7 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 67,
+        "aqi": 64,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.89273,
