@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 57,
+        "aqi": 72,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.909444,
@@ -4351,9 +4351,9 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 57,
+        "aqi": 43,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169"
@@ -105997,5 +105997,75 @@
         "lat": 7.2906,
         "lon": 80.6337,
         "stationId": "waqi_-1400737"
+    },
+    {
+        "source": "WAQI",
+        "name": "Akkaraipattu",
+        "aqi": 64,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.2314,
+        "lon": 81.8517,
+        "stationId": "waqi_-1401412"
+    },
+    {
+        "source": "WAQI",
+        "name": "Ella",
+        "aqi": 74,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.8751,
+        "lon": 81.0475,
+        "stationId": "waqi_-1401409"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kandy",
+        "aqi": 101,
+        "pm25": null,
+        "category": "Unhealthy for Sensitive Groups",
+        "lat": 7.2906,
+        "lon": 80.6337,
+        "stationId": "waqi_-1401445"
+    },
+    {
+        "source": "WAQI",
+        "name": "Anuradhapura",
+        "aqi": 84,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 8.334085,
+        "lon": 80.41487,
+        "stationId": "waqi_-1401415"
+    },
+    {
+        "source": "WAQI",
+        "name": "Chilaw",
+        "aqi": 81,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.572222,
+        "lon": 79.801601,
+        "stationId": "waqi_-1401421"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mullaitivu",
+        "aqi": 67,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.270252,
+        "lon": 80.814306,
+        "stationId": "waqi_-1401424"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 76,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-1401448"
     }
 ]
