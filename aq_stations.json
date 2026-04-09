@@ -121,11 +121,11 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 93,
+        "aqi": 104,
         "pm25": null,
-        "category": "Moderate",
-        "lat": 7.8574057,
-        "lon": 80.64864,
+        "category": "Unhealthy for Sensitive Groups",
+        "lat": 7.862204,
+        "lon": 80.64585,
         "stationId": "waqi_-562156"
     },
     {
@@ -181,11 +181,11 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 144,
+        "aqi": 106,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
-        "lat": 6.983344,
-        "lon": 81.04643,
+        "lat": 6.990113,
+        "lon": 81.05676,
         "stationId": "waqi_-562138"
     },
     {
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 32,
+        "aqi": 35,
         "pm25": null,
         "category": "Good",
         "lat": 6.909444,
@@ -4351,7 +4351,7 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 28,
+        "aqi": 29,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
@@ -34640,10 +34640,10 @@
     },
     {
         "source": "WAQI",
-        "name": "Kohuwala",
-        "aqi": 59,
+        "name": "Kohuwla",
+        "aqi": 34,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219"
@@ -52250,12 +52250,12 @@
     },
     {
         "source": "WAQI",
-        "name": "NALLUR",
-        "aqi": 152,
+        "name": "Nallur",
+        "aqi": 74,
         "pm25": null,
-        "category": "Unhealthy",
-        "lat": 9.676017,
-        "lon": 80.02935,
+        "category": "Moderate",
+        "lat": 9.674958,
+        "lon": 80.02924,
         "stationId": "waqi_-1084759"
     },
     {
@@ -107447,5 +107447,15 @@
         "lat": 7.572222,
         "lon": 79.801601,
         "stationId": "waqi_-1410847"
+    },
+    {
+        "source": "WAQI",
+        "name": "Rathanapura",
+        "aqi": 103,
+        "pm25": null,
+        "category": "Unhealthy for Sensitive Groups",
+        "lat": 6.7137103,
+        "lon": 80.38062,
+        "stationId": "waqi_-1410994"
     }
 ]
