@@ -6901,6 +6901,11 @@
       "time": "2026-04-13T17:00:00Z",
       "aqi": 109,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-04-13T18:00:00Z",
+      "aqi": 141,
+      "source": "purpleair"
     }
   ],
   "purpleair_157599": [
@@ -7556,6 +7561,11 @@
     },
     {
       "time": "2026-04-13T17:00:00Z",
+      "aqi": 43,
+      "source": "purpleair"
+    },
+    {
+      "time": "2026-04-13T18:00:00Z",
       "aqi": 43,
       "source": "purpleair"
     }
