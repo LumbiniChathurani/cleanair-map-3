@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 42,
+        "aqi": 38,
         "pm25": null,
         "category": "Good",
         "lat": 7.862204,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 15,
+        "aqi": 17,
         "pm25": null,
         "category": "Good",
         "lat": 6.909444,
@@ -52251,7 +52251,7 @@
     {
         "source": "WAQI",
         "name": "Nallur",
-        "aqi": 25,
+        "aqi": 30,
         "pm25": null,
         "category": "Good",
         "lat": 9.674958,
@@ -112787,5 +112787,65 @@
         "lat": 6.682721,
         "lon": 80.398273,
         "stationId": "waqi_-1448476"
+    },
+    {
+        "source": "WAQI",
+        "name": "Chilaw",
+        "aqi": 125,
+        "pm25": null,
+        "category": "Unhealthy for Sensitive Groups",
+        "lat": 7.572222,
+        "lon": 79.801601,
+        "stationId": "waqi_-1448830"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mannar",
+        "aqi": 24,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.988006,
+        "lon": 79.907524,
+        "stationId": "waqi_-1448836"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 29,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-1448815"
+    },
+    {
+        "source": "WAQI",
+        "name": "Anuradhapura",
+        "aqi": 161,
+        "pm25": null,
+        "category": "Unhealthy",
+        "lat": 8.334085,
+        "lon": 80.41487,
+        "stationId": "waqi_-1448824"
+    },
+    {
+        "source": "WAQI",
+        "name": "Rathnapura",
+        "aqi": 52,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.682721,
+        "lon": 80.398273,
+        "stationId": "waqi_-1448842"
+    },
+    {
+        "source": "WAQI",
+        "name": "Ella",
+        "aqi": 15,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.8751,
+        "lon": 81.0475,
+        "stationId": "waqi_-1448818"
     }
 ]
