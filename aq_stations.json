@@ -121,9 +121,9 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 67,
+        "aqi": 129,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 7.862204,
         "lon": 80.64585,
         "stationId": "waqi_-562156"
@@ -181,7 +181,7 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 58,
+        "aqi": 78,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.990113,
@@ -34641,7 +34641,7 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 20,
+        "aqi": 6,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
@@ -52251,9 +52251,9 @@
     {
         "source": "WAQI",
         "name": "Nallur",
-        "aqi": 109,
+        "aqi": 51,
         "pm25": null,
-        "category": "Unhealthy for Sensitive Groups",
+        "category": "Moderate",
         "lat": 9.674958,
         "lon": 80.02924,
         "stationId": "waqi_-1084759"
