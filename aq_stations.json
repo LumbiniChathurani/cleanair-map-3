@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 35,
+        "aqi": 38,
         "pm25": null,
         "category": "Good",
         "lat": 7.862204,
@@ -181,7 +181,7 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 52,
+        "aqi": 54,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.990113,
@@ -301,9 +301,9 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 86,
+        "aqi": 25,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "waqi_-179053"
@@ -311,7 +311,7 @@
     {
         "source": "WAQI",
         "name": "FECT Akurana",
-        "aqi": 5,
+        "aqi": 1,
         "pm25": null,
         "category": "Good",
         "lat": 7.366384,
@@ -4351,7 +4351,7 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 2,
+        "aqi": 3,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
@@ -34641,7 +34641,7 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 31,
+        "aqi": 28,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
@@ -107451,9 +107451,9 @@
     {
         "source": "WAQI",
         "name": "Rathnapura",
-        "aqi": 106,
+        "aqi": 16,
         "pm25": null,
-        "category": "Unhealthy for Sensitive Groups",
+        "category": "Good",
         "lat": 6.7137103,
         "lon": 80.38062,
         "stationId": "waqi_-1410994"
@@ -107461,7 +107461,7 @@
     {
         "source": "WAQI",
         "name": "Nuwaraeliya",
-        "aqi": 21,
+        "aqi": 12,
         "pm25": null,
         "category": "Good",
         "lat": 6.9681544,
