@@ -181,7 +181,7 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 88,
+        "aqi": 94,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.990113,
@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 70,
+        "aqi": 56,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.028199,
@@ -231,9 +231,9 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 56,
+        "aqi": 32,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 8.761628,
         "lon": 80.49619,
         "stationId": "waqi_-562240"
@@ -271,7 +271,7 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 13,
+        "aqi": 18,
         "pm25": null,
         "category": "Good",
         "lat": 8.33356,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 50,
+        "aqi": 47,
         "pm25": null,
         "category": "Good",
         "lat": 6.909444,
@@ -4351,7 +4351,7 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 6,
+        "aqi": 4,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
@@ -107451,7 +107451,7 @@
     {
         "source": "WAQI",
         "name": "Rathnapura",
-        "aqi": 18,
+        "aqi": 26,
         "pm25": null,
         "category": "Good",
         "lat": 6.7137103,
@@ -107461,7 +107461,7 @@
     {
         "source": "WAQI",
         "name": "Nuwaraeliya",
-        "aqi": 29,
+        "aqi": 22,
         "pm25": null,
         "category": "Good",
         "lat": 6.9681544,
@@ -115907,5 +115907,15 @@
         "lat": 9.660709,
         "lon": 80.029483,
         "stationId": "waqi_-1473643"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 56,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-1474069"
     }
 ]
