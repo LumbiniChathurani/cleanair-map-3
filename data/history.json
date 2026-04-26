@@ -6248,11 +6248,6 @@
   ],
   "purpleair_12451": [
     {
-      "time": "2026-04-19T23:00:00Z",
-      "aqi": 12,
-      "source": "purpleair"
-    },
-    {
       "time": "2026-04-20T00:00:00Z",
       "aqi": 8,
       "source": "purpleair"
@@ -6871,14 +6866,14 @@
       "time": "2026-04-26T22:00:00Z",
       "aqi": 4,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-04-26T23:00:00Z",
+      "aqi": 4,
+      "source": "purpleair"
     }
   ],
   "purpleair_157599": [
-    {
-      "time": "2026-04-19T23:00:00Z",
-      "aqi": 43,
-      "source": "purpleair"
-    },
     {
       "time": "2026-04-20T00:00:00Z",
       "aqi": 43,
@@ -7496,6 +7491,11 @@
     },
     {
       "time": "2026-04-26T22:00:00Z",
+      "aqi": 43,
+      "source": "purpleair"
+    },
+    {
+      "time": "2026-04-26T23:00:00Z",
       "aqi": 43,
       "source": "purpleair"
     }
