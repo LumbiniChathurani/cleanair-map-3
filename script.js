@@ -31,6 +31,12 @@ const map = L.map("map", {
   preferCanvas: true
 }).setView([7.8731, 80.7718], 7);
 
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 200);
+});
+
 // ---------------------------
 // AQI SOURCE LAYERS
 // ---------------------------
