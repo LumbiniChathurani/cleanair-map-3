@@ -34,8 +34,13 @@ const map = L.map("map", {
 window.addEventListener("load", () => {
   setTimeout(() => {
     map.invalidateSize();
-  }, 200);
+  }, 300);
 });
+
+window.addEventListener("resize", () => {
+  map.invalidateSize();
+});
+console.log("Map height:", document.getElementById("map").offsetHeight);
 
 // ---------------------------
 // AQI SOURCE LAYERS

@@ -3,9 +3,8 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
-  overflow-x: hidden;   /* allow vertical layout */
 }
+
 
 
 /* Title */
@@ -27,9 +26,11 @@ html, body {
 
 /* Map */
 #map {
-  height: 100dvh;   /* 🔥 fixes Safari/iMac viewport bug */
-  width: 100%;
-  min-height: 300px; /* fallback safety */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .population-toggle-container {
