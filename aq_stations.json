@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 87,
+        "aqi": 60,
         "pm25": null,
         "category": "Moderate",
         "lat": 7.862204,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 54,
+        "aqi": 53,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.909444,
@@ -4351,7 +4351,7 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 57,
+        "aqi": 84,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.89273,
@@ -34641,9 +34641,9 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 50,
+        "aqi": 52,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219"
@@ -107461,7 +107461,7 @@
     {
         "source": "WAQI",
         "name": "Nuwaraeliya",
-        "aqi": 56,
+        "aqi": 57,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.9681544,
@@ -131767,5 +131767,25 @@
         "lat": 6.8751,
         "lon": 81.0475,
         "stationId": "waqi_-1609378"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mullaitivu",
+        "aqi": 13,
+        "pm25": null,
+        "category": "Good",
+        "lat": 9.270252,
+        "lon": 80.814306,
+        "stationId": "waqi_-1610323"
+    },
+    {
+        "source": "WAQI",
+        "name": "Polonnaruwa",
+        "aqi": 52,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.9132895,
+        "lon": 81.04993,
+        "stationId": "waqi_-1610338"
     }
 ]
