@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 76,
+        "aqi": 59,
         "pm25": null,
         "category": "Moderate",
         "lat": 7.862204,
@@ -231,7 +231,7 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 79,
+        "aqi": 77,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.761628,
@@ -271,7 +271,7 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 77,
+        "aqi": 64,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.33356,
@@ -361,7 +361,7 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 30,
+        "aqi": 26,
         "pm25": null,
         "category": "Good",
         "lat": 9.737238,
@@ -89451,7 +89451,7 @@
     {
         "source": "WAQI",
         "name": "Hambantota",
-        "aqi": 80,
+        "aqi": 83,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.1242557,
@@ -107461,7 +107461,7 @@
     {
         "source": "WAQI",
         "name": "Nuwaraeliya",
-        "aqi": 19,
+        "aqi": 34,
         "pm25": null,
         "category": "Good",
         "lat": 6.9681544,
@@ -116361,9 +116361,9 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 51,
+        "aqi": 30,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 8.639678,
         "lon": 81.2028,
         "stationId": "waqi_-1476889"
@@ -131781,7 +131781,7 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 84,
+        "aqi": 80,
         "pm25": null,
         "category": "Moderate",
         "lat": 7.9132895,
@@ -136841,7 +136841,7 @@
     {
         "source": "WAQI",
         "name": "Batticaloa",
-        "aqi": 49,
+        "aqi": 50,
         "pm25": null,
         "category": "Good",
         "lat": 7.7124324,
@@ -139777,5 +139777,115 @@
         "lat": 8.334085,
         "lon": 80.41487,
         "stationId": "waqi_-1689655"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kilinochchi",
+        "aqi": 28,
+        "pm25": null,
+        "category": "Good",
+        "lat": 9.391753,
+        "lon": 80.405712,
+        "stationId": "waqi_-1690684"
+    },
+    {
+        "source": "WAQI",
+        "name": "Akkaraipattu",
+        "aqi": 60,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.2314,
+        "lon": 81.8517,
+        "stationId": "waqi_-1690666"
+    },
+    {
+        "source": "WAQI",
+        "name": "Anuradhapura",
+        "aqi": 53,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 8.334085,
+        "lon": 80.41487,
+        "stationId": "waqi_-1690669"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mullaitivu",
+        "aqi": 34,
+        "pm25": null,
+        "category": "Good",
+        "lat": 9.270252,
+        "lon": 80.814306,
+        "stationId": "waqi_-1690678"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mannar",
+        "aqi": 28,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.988006,
+        "lon": 79.907524,
+        "stationId": "waqi_-1690681"
+    },
+    {
+        "source": "WAQI",
+        "name": "Jaffna",
+        "aqi": 61,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.660709,
+        "lon": 80.029483,
+        "stationId": "waqi_-1690672"
+    },
+    {
+        "source": "WAQI",
+        "name": "Rathnapura",
+        "aqi": 64,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.682721,
+        "lon": 80.398273,
+        "stationId": "waqi_-1690687"
+    },
+    {
+        "source": "WAQI",
+        "name": "Ella",
+        "aqi": 62,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.8751,
+        "lon": 81.0475,
+        "stationId": "waqi_-1690663"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 54,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-1690696"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kandy",
+        "aqi": 500,
+        "pm25": null,
+        "category": "Hazardous",
+        "lat": 7.2906,
+        "lon": 80.6337,
+        "stationId": "waqi_-1690693"
+    },
+    {
+        "source": "WAQI",
+        "name": "Chilaw",
+        "aqi": 43,
+        "pm25": null,
+        "category": "Good",
+        "lat": 7.572222,
+        "lon": 79.801601,
+        "stationId": "waqi_-1690675"
     }
 ]
