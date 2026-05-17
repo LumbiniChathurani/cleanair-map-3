@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 56,
+        "aqi": 57,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.028199,
@@ -271,7 +271,7 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 74,
+        "aqi": 89,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.33356,
@@ -34641,9 +34641,9 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 50,
+        "aqi": 66,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219"
@@ -107461,7 +107461,7 @@
     {
         "source": "WAQI",
         "name": "Nuwaraeliya",
-        "aqi": 38,
+        "aqi": 33,
         "pm25": null,
         "category": "Good",
         "lat": 6.9681544,
@@ -116361,7 +116361,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 77,
+        "aqi": 79,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.639678,
@@ -131781,7 +131781,7 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 59,
+        "aqi": 62,
         "pm25": null,
         "category": "Moderate",
         "lat": 7.9132895,
@@ -136841,7 +136841,7 @@
     {
         "source": "WAQI",
         "name": "Batticaloa",
-        "aqi": 56,
+        "aqi": 52,
         "pm25": null,
         "category": "Moderate",
         "lat": 7.7124324,
