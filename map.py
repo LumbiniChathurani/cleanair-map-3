@@ -128,10 +128,10 @@ def safe_request(url, headers=None, max_attempts=5):
 # -------------------------------------------------------------
 # PurpleAir Stations
 # -------------------------------------------------------------
-PURPLEAIR_STATIONS = [
-    {"id": 12451, "name": "FECT Akurana", "lat": 7.718, "lon": 80.633},
-    {"id": 157599, "name": "Gregory's Road", "lat": 6.927, "lon": 79.861},
-]
+#PURPLEAIR_STATIONS = [
+#   {"id": 12451, "name": "FECT Akurana", "lat": 7.718, "lon": 80.633},
+#    {"id": 157599, "name": "Gregory's Road", "lat": 6.927, "lon": 79.861},
+#]
 
 # -------------------------------------------------------------
 # IQAir Cities
@@ -214,20 +214,89 @@ def get_realtime_aqi_purpleair(sensorid):
         "category": get_aqi_category(aqi)
     }
 
+    # -------------------------------------------------------------
+# Fetch PurpleAir Stations in Sri Lanka
+# -------------------------------------------------------------
+def get_purpleair_stations_srilanka():
+    api_key = require_key("PURPLEAIR_API_KEY")
+
+    # Sri Lanka bounding box
+    nwlat = 9.9
+    selat = 5.8
+    nwlng = 79.4
+    selng = 82.1
+
+    url = (
+        "https://api.purpleair.com/v1/sensors?"
+        f"fields=name,latitude,longitude"
+        f"&nwlat={nwlat}"
+        f"&selat={selat}"
+        f"&nwlng={nwlng}"
+        f"&selng={selng}"
+    )
+
+    headers = {"X-API-Key": api_key}
+
+    response = safe_request(url, headers=headers)
+    data = response.json()
+
+    stations = []
+
+    for row in data.get("data", []):
+        try:
+            sensor_id = row[0]
+            name = row[1]
+            lat = row[2]
+            lon = row[3]
+
+            stations.append({
+                "id": sensor_id,
+                "name": name,
+                "lat": lat,
+                "lon": lon
+            })
+
+        except Exception as e:
+            print("[PurpleAir Parse Error]", e)
+
+    print(f"[PurpleAir] Found {len(stations)} stations")
+
+    return stations
+
 def fetch_all_purpleair():
     results = []
     buffer = load_buffer()
-    for s in PURPLEAIR_STATIONS:
-        data = get_realtime_aqi_purpleair(s["id"])
-        data["lat"] = s["lat"]
-        data["lon"] = s["lon"]
-        hour = current_hour_timestamp()
-        station_id = f"purpleair_{s['id']}"
-        buffer.setdefault(station_id, {}).setdefault(hour, []).append(data["aqi"])
-        data["stationId"] = station_id
-        results.append(data)
+
+    stations = get_purpleair_stations_srilanka()
+
+    for s in stations:
+        try:
+            data = get_realtime_aqi_purpleair(s["id"])
+
+            data["lat"] = s["lat"]
+            data["lon"] = s["lon"]
+
+            hour = current_hour_timestamp()
+
+            station_id = f"purpleair_{s['id']}"
+
+            buffer.setdefault(station_id, {}).setdefault(hour, []).append(data["aqi"])
+
+            data["stationId"] = station_id
+
+            results.append(data)
+
+            print(f"[PurpleAir] Added: {data['name']}")
+
+            time.sleep(0.2)
+
+        except Exception as e:
+            print(f"[PurpleAir ERROR] {s['id']}: {e}")
+
     save_buffer(buffer)
+
     flush_purpleair_hourly()
+
     return results
 
 # -------------------------------------------------------------
