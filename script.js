@@ -468,6 +468,9 @@ function drawAQIChart(entries) {
   });
 }
 
+const DEFAULT_CENTER = [7.8731, 80.7718];
+const DEFAULT_ZOOM = 7;
+
 // ---------------------------
 // SIDEBAR CLOSE HANDLING
 // ---------------------------
@@ -475,13 +478,16 @@ const sidebar = document.getElementById("sidebar");
 const closeBtn = document.getElementById("closeSidebar");
 
 closeBtn.addEventListener("click", (e) => {
-  e.stopPropagation();            // 🔥 prevents map click
-  sidebar.classList.remove("open");
-});
-
-// Prevent sidebar clicks from touching map
-sidebar.addEventListener("click", (e) => {
   e.stopPropagation();
+
+  // Close sidebar
+  sidebar.classList.remove("open");
+
+  // Smooth zoom out
+  map.flyTo(DEFAULT_CENTER, DEFAULT_ZOOM, {
+    animate: true,
+    duration: 1.5 // seconds (adjust as you like)
+  });
 });
 
 
@@ -655,8 +661,8 @@ allCheckbox.addEventListener("change", () => {
   });
 });
 
-const DEFAULT_CENTER = [7.8731, 80.7718]; // same as your map init
-const DEFAULT_ZOOM = 7;
+//const DEFAULT_CENTER = [7.8731, 80.7718]; // same as your map init
+//const DEFAULT_ZOOM = 7;
 
 document.getElementById("refreshBtn").addEventListener("click", () => {
 
