@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 17,
+        "aqi": 18,
         "pm25": null,
         "category": "Good",
         "lat": 7.862204,
@@ -181,7 +181,7 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 64,
+        "aqi": 77,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.990113,
@@ -231,9 +231,9 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 54,
+        "aqi": 36,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 8.761628,
         "lon": 80.49619,
         "stationId": "waqi_-562240"
@@ -361,7 +361,7 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 27,
+        "aqi": 24,
         "pm25": null,
         "category": "Good",
         "lat": 9.737238,
@@ -4351,9 +4351,9 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 54,
+        "aqi": 1,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169"
@@ -34641,7 +34641,7 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 37,
+        "aqi": 29,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
@@ -89451,7 +89451,7 @@
     {
         "source": "WAQI",
         "name": "Hambantota",
-        "aqi": 39,
+        "aqi": 31,
         "pm25": null,
         "category": "Good",
         "lat": 6.1242557,
@@ -107461,7 +107461,7 @@
     {
         "source": "WAQI",
         "name": "Nuwaraeliya",
-        "aqi": 26,
+        "aqi": 12,
         "pm25": null,
         "category": "Good",
         "lat": 6.9681544,
@@ -116361,7 +116361,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 9,
+        "aqi": 20,
         "pm25": null,
         "category": "Good",
         "lat": 8.639678,
@@ -131781,7 +131781,7 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 4,
+        "aqi": 3,
         "pm25": null,
         "category": "Good",
         "lat": 7.9132895,
@@ -136841,7 +136841,7 @@
     {
         "source": "WAQI",
         "name": "Batticaloa",
-        "aqi": 11,
+        "aqi": 15,
         "pm25": null,
         "category": "Good",
         "lat": 7.7124324,
@@ -145297,5 +145297,25 @@
         "lat": 6.898,
         "lon": 79.9223,
         "stationId": "waqi_-1753234"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mullaitivu",
+        "aqi": 21,
+        "pm25": null,
+        "category": "Good",
+        "lat": 9.270252,
+        "lon": 80.814306,
+        "stationId": "waqi_-1753795"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kandy",
+        "aqi": 500,
+        "pm25": null,
+        "category": "Hazardous",
+        "lat": 7.2906,
+        "lon": 80.6337,
+        "stationId": "waqi_-1754206"
     }
 ]
