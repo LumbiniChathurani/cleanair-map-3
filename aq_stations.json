@@ -121,7 +121,7 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 25,
+        "aqi": 24,
         "pm25": null,
         "category": "Good",
         "lat": 7.862204,
@@ -231,9 +231,9 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 36,
+        "aqi": 59,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 8.761628,
         "lon": 80.49619,
         "stationId": "waqi_-562240"
@@ -361,7 +361,7 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 16,
+        "aqi": 17,
         "pm25": null,
         "category": "Good",
         "lat": 9.737238,
@@ -4351,7 +4351,7 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 9,
+        "aqi": 3,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
@@ -34641,7 +34641,7 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 20,
+        "aqi": 12,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
@@ -89451,7 +89451,7 @@
     {
         "source": "WAQI",
         "name": "Hambantota",
-        "aqi": 33,
+        "aqi": 31,
         "pm25": null,
         "category": "Good",
         "lat": 6.1242557,
@@ -116361,7 +116361,7 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 23,
+        "aqi": 30,
         "pm25": null,
         "category": "Good",
         "lat": 8.639678,
@@ -136841,7 +136841,7 @@
     {
         "source": "WAQI",
         "name": "Batticaloa",
-        "aqi": 15,
+        "aqi": 19,
         "pm25": null,
         "category": "Good",
         "lat": 7.7124324,
