@@ -142611,8 +142611,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT- Pawandanavi Wind PP",
-        "pm25_10min": 2.5,
-        "aqi": 10,
+        "pm25_10min": 3.7,
+        "aqi": 15,
         "category": "Good",
         "lat": 8.032439,
         "lon": 79.71909,
@@ -142621,9 +142621,9 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 13.5,
-        "aqi": 54,
-        "category": "Moderate",
+        "pm25_10min": 4.6,
+        "aqi": 19,
+        "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935"
@@ -142641,8 +142641,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 23.3,
-        "aqi": 75,
+        "pm25_10min": 27.1,
+        "aqi": 83,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
@@ -142651,7 +142651,7 @@
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 0.3,
+        "pm25_10min": 0.2,
         "aqi": 1,
         "category": "Good",
         "lat": 6.89273,
