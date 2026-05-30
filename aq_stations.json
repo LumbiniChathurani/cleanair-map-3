@@ -142621,8 +142621,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 2.6,
-        "aqi": 11,
+        "pm25_10min": 2.9,
+        "aqi": 12,
         "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
@@ -142641,9 +142641,9 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 16.1,
-        "aqi": 59,
-        "category": "Moderate",
+        "pm25_10min": 11.8,
+        "aqi": 49,
+        "category": "Good",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495"
