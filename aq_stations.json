@@ -142611,8 +142611,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT- Pawandanavi Wind PP",
-        "pm25_10min": 3.4,
-        "aqi": 14,
+        "pm25_10min": 2.7,
+        "aqi": 11,
         "category": "Good",
         "lat": 8.032439,
         "lon": 79.71909,
@@ -142641,8 +142641,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 30.0,
-        "aqi": 89,
+        "pm25_10min": 22.1,
+        "aqi": 72,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
