@@ -142611,8 +142611,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT- Pawandanavi Wind PP",
-        "pm25_10min": 0.2,
-        "aqi": 1,
+        "pm25_10min": 0.1,
+        "aqi": 0,
         "category": "Good",
         "lat": 8.032439,
         "lon": 79.71909,
@@ -142621,7 +142621,7 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 1.0,
+        "pm25_10min": 0.9,
         "aqi": 4,
         "category": "Good",
         "lat": 8.033402,
