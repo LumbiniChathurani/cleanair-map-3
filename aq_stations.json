@@ -142631,8 +142631,8 @@
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 1.9,
-        "aqi": 8,
+        "pm25_10min": 1.1,
+        "aqi": 5,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
@@ -142641,7 +142641,7 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 0.5,
+        "pm25_10min": 0.6,
         "aqi": 2,
         "category": "Good",
         "lat": 7.356376,
