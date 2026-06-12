@@ -221,7 +221,7 @@
     {
         "source": "WAQI",
         "name": "Puttalam",
-        "aqi": 19,
+        "aqi": 16,
         "pm25": null,
         "category": "Good",
         "lat": 8.028199,
@@ -271,7 +271,7 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 64,
+        "aqi": 87,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.33356,
@@ -301,7 +301,7 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 3,
+        "aqi": 8,
         "pm25": null,
         "category": "Good",
         "lat": 6.909444,
@@ -361,7 +361,7 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 22,
+        "aqi": 23,
         "pm25": null,
         "category": "Good",
         "lat": 9.737238,
@@ -89451,7 +89451,7 @@
     {
         "source": "WAQI",
         "name": "Hambantota",
-        "aqi": 54,
+        "aqi": 53,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.1242557,
@@ -107451,7 +107451,7 @@
     {
         "source": "WAQI",
         "name": "Rathnapura",
-        "aqi": 19,
+        "aqi": 33,
         "pm25": null,
         "category": "Good",
         "lat": 6.7137103,
@@ -116361,8 +116361,8 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 0,
-        "pm25": 0,
+        "aqi": 26,
+        "pm25": null,
         "category": "Good",
         "lat": 8.639678,
         "lon": 81.2028,
@@ -131781,7 +131781,7 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 5,
+        "aqi": 6,
         "pm25": null,
         "category": "Good",
         "lat": 7.9132895,
@@ -135291,7 +135291,7 @@
     {
         "source": "WAQI",
         "name": "Monaragala",
-        "aqi": 17,
+        "aqi": 10,
         "pm25": null,
         "category": "Good",
         "lat": 6.835715,
@@ -136841,7 +136841,7 @@
     {
         "source": "WAQI",
         "name": "Batticaloa",
-        "aqi": 8,
+        "aqi": 25,
         "pm25": null,
         "category": "Good",
         "lat": 7.7124324,
