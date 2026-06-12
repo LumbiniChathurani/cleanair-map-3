@@ -286,14 +286,12 @@ body.dark-mode .suggestions li:hover {
 body.dark-mode #clearSearch {
   color: #aaa;
 }
-
+/*-----------------------------AQI Legend-----------------------------*/
 .aqi-legend {
   background: transparent;
   padding: 10px 12px;
-  /*border-radius: 8px;*/
   font-size: 13px;
   line-height: 18px;
-  /*box-shadow: 0 2px 10px rgba(0,0,0,0.3);*/
 }
 
 .aqi-legend h4 {
@@ -308,6 +306,32 @@ body.dark-mode #clearSearch {
   margin-right: 8px;
   border-radius: 3px;
   opacity: 0.9;
+}
+/*------------------------------------------------------------------------*/
+
+/* Dark mode */
+body.dark-mode .aqi-legend {
+  background: rgba(30, 30, 30, 0.88);
+}
+
+body.dark-mode .aqi-legend-labels {
+  color: #ccc;
+}
+
+@media (max-width: 480px) {
+  .aqi-legend {
+    width: clamp(140px, 70vw, 260px);
+    font-size: 9px;
+    padding: 5px 8px;
+  }
+
+  .aqi-legend-bar {
+    height: 11px;
+  }
+
+  .aqi-legend-labels {
+    font-size: 8px;
+  }
 }
 
 /* Dark mode */
