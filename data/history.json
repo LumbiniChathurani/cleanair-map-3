@@ -118103,11 +118103,6 @@
   ],
   "purpleair_12453": [
     {
-      "time": "2026-06-07T06:00:00Z",
-      "aqi": 1,
-      "source": "purpleair"
-    },
-    {
       "time": "2026-06-07T09:00:00Z",
       "aqi": 0,
       "source": "purpleair"
@@ -118446,14 +118441,14 @@
       "time": "2026-06-14T02:00:00Z",
       "aqi": 30,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-06-14T06:00:00Z",
+      "aqi": 22,
+      "source": "purpleair"
     }
   ],
   "purpleair_21935": [
-    {
-      "time": "2026-06-07T06:00:00Z",
-      "aqi": 0,
-      "source": "purpleair"
-    },
     {
       "time": "2026-06-07T09:00:00Z",
       "aqi": 10,
@@ -118793,14 +118788,14 @@
       "time": "2026-06-14T02:00:00Z",
       "aqi": 0,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-06-14T06:00:00Z",
+      "aqi": 0,
+      "source": "purpleair"
     }
   ],
   "purpleair_29677": [
-    {
-      "time": "2026-06-07T06:00:00Z",
-      "aqi": 9,
-      "source": "purpleair"
-    },
     {
       "time": "2026-06-07T09:00:00Z",
       "aqi": 8,
@@ -119140,14 +119135,14 @@
       "time": "2026-06-14T02:00:00Z",
       "aqi": 35,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-06-14T06:00:00Z",
+      "aqi": 32,
+      "source": "purpleair"
     }
   ],
   "purpleair_33495": [
-    {
-      "time": "2026-06-07T06:00:00Z",
-      "aqi": 20,
-      "source": "purpleair"
-    },
     {
       "time": "2026-06-07T09:00:00Z",
       "aqi": 39,
@@ -119487,14 +119482,14 @@
       "time": "2026-06-14T02:00:00Z",
       "aqi": 82,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-06-14T06:00:00Z",
+      "aqi": 60,
+      "source": "purpleair"
     }
   ],
   "purpleair_173211": [
-    {
-      "time": "2026-06-07T06:00:00Z",
-      "aqi": 0,
-      "source": "purpleair"
-    },
     {
       "time": "2026-06-07T09:00:00Z",
       "aqi": 0,
@@ -119833,6 +119828,11 @@
     {
       "time": "2026-06-14T02:00:00Z",
       "aqi": 3,
+      "source": "purpleair"
+    },
+    {
+      "time": "2026-06-14T06:00:00Z",
+      "aqi": 2,
       "source": "purpleair"
     }
   ],
