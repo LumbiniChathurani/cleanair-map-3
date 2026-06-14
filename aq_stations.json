@@ -142611,8 +142611,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT- Pawandanavi Wind PP",
-        "pm25_10min": 5.3,
-        "aqi": 22,
+        "pm25_10min": 4.4,
+        "aqi": 18,
         "category": "Good",
         "lat": 8.032439,
         "lon": 79.71909,
@@ -142621,8 +142621,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.1,
-        "aqi": 0,
+        "pm25_10min": 0.2,
+        "aqi": 1,
         "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
@@ -142631,8 +142631,8 @@
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 7.7,
-        "aqi": 32,
+        "pm25_10min": 8.0,
+        "aqi": 33,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
@@ -142641,8 +142641,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 16.2,
-        "aqi": 60,
+        "pm25_10min": 12.7,
+        "aqi": 52,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
