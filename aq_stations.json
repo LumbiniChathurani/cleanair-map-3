@@ -142611,8 +142611,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT- Pawandanavi Wind PP",
-        "pm25_10min": 9.9,
-        "aqi": 41,
+        "pm25_10min": 8.9,
+        "aqi": 37,
         "category": "Good",
         "lat": 8.032439,
         "lon": 79.71909,
@@ -142631,8 +142631,8 @@
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 11.2,
-        "aqi": 47,
+        "pm25_10min": 11.8,
+        "aqi": 49,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
@@ -142641,8 +142641,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 19.0,
-        "aqi": 66,
+        "pm25_10min": 22.8,
+        "aqi": 74,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
@@ -142651,8 +142651,8 @@
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 1.7,
-        "aqi": 7,
+        "pm25_10min": 0.5,
+        "aqi": 2,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
