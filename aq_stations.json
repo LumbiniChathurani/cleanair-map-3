@@ -142611,8 +142611,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT- Pawandanavi Wind PP",
-        "pm25_10min": 7.1,
-        "aqi": 30,
+        "pm25_10min": 6.0,
+        "aqi": 25,
         "category": "Good",
         "lat": 8.032439,
         "lon": 79.71909,
@@ -142621,7 +142621,7 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.0,
+        "pm25_10min": 0.1,
         "aqi": 0,
         "category": "Good",
         "lat": 8.033402,
@@ -142631,9 +142631,9 @@
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 21.6,
-        "aqi": 71,
-        "category": "Moderate",
+        "pm25_10min": 10.1,
+        "aqi": 42,
+        "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "purpleair_29677"
@@ -142641,9 +142641,9 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 35.7,
-        "aqi": 101,
-        "category": "Unhealthy for Sensitive Groups",
+        "pm25_10min": 15.3,
+        "aqi": 58,
+        "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495"
@@ -142651,9 +142651,9 @@
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 21.1,
-        "aqi": 70,
-        "category": "Moderate",
+        "pm25_10min": 0.0,
+        "aqi": 0,
+        "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211"
