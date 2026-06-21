@@ -142621,7 +142621,7 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.1,
+        "pm25_10min": 0.0,
         "aqi": 0,
         "category": "Good",
         "lat": 8.033402,
@@ -142631,8 +142631,8 @@
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 1.1,
-        "aqi": 5,
+        "pm25_10min": 2.6,
+        "aqi": 11,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
@@ -142641,8 +142641,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 11.8,
-        "aqi": 49,
+        "pm25_10min": 6.7,
+        "aqi": 28,
         "category": "Good",
         "lat": 7.356376,
         "lon": 80.63145,
