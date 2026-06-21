@@ -142631,8 +142631,8 @@
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 3.7,
-        "aqi": 15,
+        "pm25_10min": 4.5,
+        "aqi": 19,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
@@ -142641,8 +142641,8 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 21.9,
-        "aqi": 72,
+        "pm25_10min": 28.0,
+        "aqi": 84,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
@@ -142651,9 +142651,9 @@
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 15.8,
-        "aqi": 59,
-        "category": "Moderate",
+        "pm25_10min": 1.0,
+        "aqi": 4,
+        "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211"
