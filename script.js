@@ -49,6 +49,35 @@ const purpleAirLayer = L.layerGroup().addTo(map);
 const iqAirLayer = L.layerGroup().addTo(map);
 const waqiLayer = L.layerGroup().addTo(map);
 
+// ---------------------------
+// STALE DATA HANDLING
+// ---------------------------
+// A station is considered "stale" (greyed out) if its own fetchedAt
+// timestamp (stamped server-side, stored right in aq_stations.json) is
+// older than this many hours. This intentionally does NOT depend on
+// history.json — history can be thin/missing for a station (new station,
+// trimmed window, etc.) even when it's reporting fine right now, and
+// loading history.json eagerly for every station is too slow for initial
+// map load. history.json stays lazy-loaded (only on station click).
+const STALE_THRESHOLD_HOURS = 24;
+const STALE_COLOR = "#9e9e9e";
+
+function isStationStale(st) {
+  if (st.aqi === null || st.aqi === undefined) return true; // no valid reading
+
+  if (!st.fetchedAt) return true; // unknown freshness, treat as stale
+
+  const fetchedTime = new Date(st.fetchedAt);
+  if (isNaN(fetchedTime.getTime())) return true;
+
+  const ageHours = (Date.now() - fetchedTime.getTime()) / (1000 * 60 * 60);
+  return ageHours > STALE_THRESHOLD_HOURS;
+}
+
+function getMarkerColor(st) {
+  return st.isStale ? STALE_COLOR : getAQIColor(st.aqi);
+}
+
 
 L.control.zoom({
   position: "topright"
@@ -81,6 +110,12 @@ legend.onAdd = function () {
         ${labels[i]}
       </div>`;
   }
+
+  div.innerHTML +=
+    `<div>
+      <i style="background:${STALE_COLOR}"></i>
+      No recent data
+    </div>`;
 
   return div;
 };
@@ -204,18 +239,35 @@ fetch("./aq_stations.json")
   .then((res) => res.json())
   .then((stations) => {
     stations.forEach((st) => {
+
+      // 🔧 Ensure stationId exists for WAQI
+      if (st.source === "WAQI" && !st.stationId && st.idx) {
+        st.stationId = `waqi_${st.idx}`;
+      }
+
+      // --------------------
+      // Staleness, computed purely from this station's own record —
+      // no extra fetch needed, so initial load stays fast.
+      // --------------------
+      st.isStale = isStationStale(st);
+
+      const statusLine = st.isStale
+        ? `<br><span style="color:${STALE_COLOR};"><b>⚠ No recent data</b></span>`
+        : "";
+
       const popupContent = `
         <b>${st.name}</b><br>
         Source: ${st.source}<br>
         AQI: <b>${st.aqi}</b><br>
         Category: ${st.category}<br>
+        ${statusLine}
       `;
 
       const marker = L.circleMarker(
         [st.lat, st.lon],
         {
           radius: 7,
-          fillColor: getAQIColor(st.aqi),
+          fillColor: getMarkerColor(st),
           color: "#222",
           weight: 1,
           fillOpacity: 0.9
@@ -237,11 +289,6 @@ fetch("./aq_stations.json")
       
 
       st.marker = marker; 
-
-      // 🔧 Ensure stationId exists for WAQI
-if (st.source === "WAQI" && !st.stationId && st.idx) {
-  st.stationId = `waqi_${st.idx}`;
-}
 
       
       // Glow pulse on click
@@ -339,7 +386,16 @@ input.addEventListener("keydown", e => {
       // --------------------
       document.getElementById("stationName").textContent = st.name;
       document.getElementById("stationAqi").textContent = st.aqi;
-      document.getElementById("stationCategory").textContent = st.category;
+
+      const categoryEl = document.getElementById("stationCategory");
+      if (st.isStale) {
+        categoryEl.textContent = `${st.category} (no recent data)`;
+        categoryEl.style.color = STALE_COLOR;
+      } else {
+        categoryEl.textContent = st.category;
+        categoryEl.style.color = "";
+      }
+
       document.getElementById("stationSource").textContent = st.source;
     
       document.getElementById("sidebar").classList.add("open");
@@ -379,6 +435,10 @@ input.addEventListener("keydown", e => {
       if (history.length > 0) {
         const lastTime = history[history.length - 1].time;
         lastUpdatedEl.textContent = new Date(lastTime).toLocaleString(); // shows local date & time
+      } else if (st.fetchedAt) {
+        // No history entries yet, but we do know when this station was
+        // last fetched — show that instead of a bare "N/A".
+        lastUpdatedEl.textContent = new Date(st.fetchedAt).toLocaleString();
       } else {
         lastUpdatedEl.textContent = "N/A";
       }
@@ -402,7 +462,7 @@ input.addEventListener("keydown", e => {
 
   async function loadStationHistory(stationId) {
 
-    // 🔥 Load only once
+    // 🔥 Load only once, only when a station is actually clicked
     if (!historyData) {
       const res = await fetch("data/history.json");
       historyData = await res.json();

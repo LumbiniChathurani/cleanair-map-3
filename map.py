@@ -69,6 +69,12 @@ def trim_old_entries(entries, days=7):
 
     return filtered
 
+def now_iso():
+    """Precise fetch-time timestamp, stamped onto every station record so the
+    frontend can check freshness without needing to load history.json.
+    (Separate from current_hour_timestamp(), which buckets to the hour.)"""
+    return datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+
 def append_hourly_aqi(station_id, aqi, source, timestamp):
     history = load_history()
     if station_id not in history:
@@ -284,6 +290,10 @@ def fetch_all_purpleair():
 
             data["stationId"] = station_id
 
+            # 🕒 Stamp the exact moment this reading was fetched, so the
+            # frontend can flag stale stations without needing history.json
+            data["fetchedAt"] = now_iso()
+
             results.append(data)
 
             print(f"[PurpleAir] Added: {data['name']}")
@@ -331,6 +341,10 @@ def fetch_all_iqair():
             data = get_realtime_aqi_iqair(c["city"], c["lat"], c["lon"])
             data["lat"] = c["lat"]
             data["lon"] = c["lon"]
+
+            # 🕒 Stamp fetch time for freshness checks (independent of the
+            # "timestamp" field above, which is IQAir's own reported time)
+            data["fetchedAt"] = now_iso()
 
             # ✅ APPEND IQAIR HOURLY AQI TO HISTORY
             append_hourly_aqi(
@@ -414,6 +428,11 @@ def fetch_all_waqi():
     for s in stations:
         data = get_realtime_aqi_waqi(s)
 
+        # 🕒 Stamp fetch time regardless of whether this run produced a
+        # usable AQI — only entries with a valid AQI get kept below, but
+        # the timestamp belongs with the fetch attempt itself.
+        data["fetchedAt"] = now_iso()
+
         if data["aqi"] is not None:
             append_hourly_aqi(
                 station_id=data["stationId"],
@@ -446,13 +465,20 @@ def remove_inactive_stations(stations, hours=48):
         if not sid:
             continue
 
-        entries = history.get(sid, [])
-        if not entries:
-            print(f"[INACTIVE] {sid} has no history → removed")
-            removed += 1
-            continue
+        # Prefer the station's own fetchedAt timestamp — it's always set
+        # for anything fetched this run, regardless of whether history.json
+        # happens to have an entry for it yet (e.g. brand-new WAQI stations,
+        # or ones whose history got trimmed). Only fall back to history.json
+        # for legacy entries that predate the fetchedAt field.
+        last_time = s.get("fetchedAt")
 
-        last_time = entries[-1]["time"]
+        if not last_time:
+            entries = history.get(sid, [])
+            if not entries:
+                print(f"[INACTIVE] {sid} has no fetchedAt or history → removed")
+                removed += 1
+                continue
+            last_time = entries[-1]["time"]
 
         try:
             last_dt = datetime.fromisoformat(last_time.replace("Z",""))
