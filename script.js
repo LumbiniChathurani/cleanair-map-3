@@ -268,8 +268,8 @@ fetch("./aq_stations.json")
         {
           radius: 7,
           fillColor: getMarkerColor(st),
-          color: "#222",
-          weight: 1,
+          color: st.isStale ? "transparent" : "#222", // no border for stale dots
+          weight: st.isStale ? 0 : 1,
           fillOpacity: 0.9
         }
       ).bindPopup(popupContent);
