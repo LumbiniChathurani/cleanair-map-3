@@ -142648,46 +142648,46 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.1,
+        "pm25_10min": 0.0,
         "aqi": 0,
         "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-06-27T18:52:41Z"
+        "fetchedAt": "2026-06-27T20:03:14Z"
     },
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 7.7,
-        "aqi": 32,
+        "pm25_10min": 7.1,
+        "aqi": 30,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "purpleair_29677",
-        "fetchedAt": "2026-06-27T18:52:42Z"
+        "fetchedAt": "2026-06-27T20:03:14Z"
     },
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 35.8,
-        "aqi": 102,
-        "category": "Unhealthy for Sensitive Groups",
+        "pm25_10min": 30.1,
+        "aqi": 89,
+        "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-06-27T18:52:42Z"
+        "fetchedAt": "2026-06-27T20:03:15Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 1.5,
+        "pm25_10min": 1.4,
         "aqi": 6,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-06-27T18:52:42Z"
+        "fetchedAt": "2026-06-27T20:03:15Z"
     },
     {
         "source": "WAQI",
