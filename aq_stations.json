@@ -121,13 +121,13 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 35,
+        "aqi": 29,
         "pm25": null,
         "category": "Good",
         "lat": 7.862204,
         "lon": 80.64585,
         "stationId": "waqi_-562156",
-        "fetchedAt": "2026-06-28T09:22:42Z"
+        "fetchedAt": "2026-06-28T11:51:39Z"
     },
     {
         "source": "WAQI",
@@ -182,13 +182,13 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 174,
+        "aqi": 171,
         "pm25": null,
         "category": "Unhealthy",
         "lat": 6.990113,
         "lon": 81.05676,
         "stationId": "waqi_-562138",
-        "fetchedAt": "2026-06-28T09:22:40Z"
+        "fetchedAt": "2026-06-28T11:51:32Z"
     },
     {
         "source": "WAQI",
@@ -229,18 +229,18 @@
         "lat": 8.028199,
         "lon": 79.84147,
         "stationId": "waqi_-562201",
-        "fetchedAt": "2026-06-28T09:22:43Z"
+        "fetchedAt": "2026-06-28T11:51:34Z"
     },
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 33,
+        "aqi": 27,
         "pm25": null,
         "category": "Good",
         "lat": 8.761628,
         "lon": 80.49619,
         "stationId": "waqi_-562240",
-        "fetchedAt": "2026-06-28T09:22:45Z"
+        "fetchedAt": "2026-06-28T11:51:48Z"
     },
     {
         "source": "WAQI",
@@ -275,13 +275,13 @@
     {
         "source": "WAQI",
         "name": "Anuradhapura",
-        "aqi": 97,
+        "aqi": 72,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.33356,
         "lon": 80.41497,
         "stationId": "waqi_-562216",
-        "fetchedAt": "2026-06-28T09:22:30Z"
+        "fetchedAt": "2026-06-28T11:51:40Z"
     },
     {
         "source": "WAQI",
@@ -306,13 +306,13 @@
     {
         "source": "WAQI",
         "name": "FECT Colombo",
-        "aqi": 29,
+        "aqi": 31,
         "pm25": null,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "waqi_-179053",
-        "fetchedAt": "2026-06-28T09:22:29Z"
+        "fetchedAt": "2026-06-28T11:51:47Z"
     },
     {
         "source": "WAQI",
@@ -367,13 +367,13 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 27,
+        "aqi": 25,
         "pm25": null,
         "category": "Good",
         "lat": 9.737238,
         "lon": 80.019455,
         "stationId": "waqi_-562165",
-        "fetchedAt": "2026-06-28T09:22:46Z"
+        "fetchedAt": "2026-06-28T11:51:41Z"
     },
     {
         "source": "WAQI",
@@ -4368,13 +4368,13 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 0,
+        "aqi": 2,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169",
-        "fetchedAt": "2026-06-28T09:22:41Z"
+        "fetchedAt": "2026-06-28T11:51:46Z"
     },
     {
         "source": "WAQI",
@@ -34659,13 +34659,13 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 11,
+        "aqi": 4,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219",
-        "fetchedAt": "2026-06-28T09:22:49Z"
+        "fetchedAt": "2026-06-28T11:51:44Z"
     },
     {
         "source": "WAQI",
@@ -89476,7 +89476,7 @@
         "lat": 6.1242557,
         "lon": 81.12618,
         "stationId": "waqi_-562249",
-        "fetchedAt": "2026-06-28T09:22:37Z"
+        "fetchedAt": "2026-06-28T11:51:42Z"
     },
     {
         "source": "WAQI",
@@ -107477,7 +107477,7 @@
         "lat": 6.7137103,
         "lon": 80.38062,
         "stationId": "waqi_-1410994",
-        "fetchedAt": "2026-06-28T09:22:38Z"
+        "fetchedAt": "2026-06-28T11:51:38Z"
     },
     {
         "source": "WAQI",
@@ -116383,13 +116383,13 @@
     {
         "source": "WAQI",
         "name": "Trincomalee",
-        "aqi": 50,
+        "aqi": 47,
         "pm25": null,
         "category": "Good",
         "lat": 8.639678,
         "lon": 81.2028,
         "stationId": "waqi_-1476889",
-        "fetchedAt": "2026-06-28T09:22:44Z"
+        "fetchedAt": "2026-06-28T11:51:36Z"
     },
     {
         "source": "WAQI",
@@ -131804,13 +131804,13 @@
     {
         "source": "WAQI",
         "name": "Polonnaruwa",
-        "aqi": 16,
+        "aqi": 21,
         "pm25": null,
         "category": "Good",
         "lat": 7.9132895,
         "lon": 81.04993,
         "stationId": "waqi_-1610338",
-        "fetchedAt": "2026-06-28T09:22:50Z"
+        "fetchedAt": "2026-06-28T11:51:45Z"
     },
     {
         "source": "WAQI",
@@ -135315,13 +135315,13 @@
     {
         "source": "WAQI",
         "name": "Monaragala",
-        "aqi": 140,
+        "aqi": 61,
         "pm25": null,
-        "category": "Unhealthy for Sensitive Groups",
+        "category": "Moderate",
         "lat": 6.835715,
         "lon": 81.31581,
         "stationId": "waqi_-1641241",
-        "fetchedAt": "2026-06-28T09:22:39Z"
+        "fetchedAt": "2026-06-28T11:51:43Z"
     },
     {
         "source": "WAQI",
@@ -136866,13 +136866,13 @@
     {
         "source": "WAQI",
         "name": "Batticaloa",
-        "aqi": 42,
+        "aqi": 39,
         "pm25": null,
         "category": "Good",
         "lat": 7.7124324,
         "lon": 81.7014,
         "stationId": "waqi_-1640812",
-        "fetchedAt": "2026-06-28T09:22:28Z"
+        "fetchedAt": "2026-06-28T11:51:36Z"
     },
     {
         "source": "WAQI",
@@ -172633,7 +172633,7 @@
         "lat": 9.660709,
         "lon": 80.029483,
         "stationId": "waqi_-2106778",
-        "fetchedAt": "2026-06-28T09:22:47Z"
+        "fetchedAt": "2026-06-28T11:51:45Z"
     },
     {
         "source": "WAQI",
