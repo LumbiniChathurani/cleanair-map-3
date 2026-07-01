@@ -142654,40 +142654,40 @@
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-07-01T16:18:01Z"
+        "fetchedAt": "2026-07-01T18:17:57Z"
     },
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 8.0,
-        "aqi": 33,
+        "pm25_10min": 7.0,
+        "aqi": 29,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "purpleair_29677",
-        "fetchedAt": "2026-07-01T16:18:01Z"
+        "fetchedAt": "2026-07-01T18:17:57Z"
     },
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 21.6,
-        "aqi": 71,
+        "pm25_10min": 20.8,
+        "aqi": 69,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-07-01T16:18:01Z"
+        "fetchedAt": "2026-07-01T18:17:57Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 0.6,
+        "pm25_10min": 0.4,
         "aqi": 2,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-07-01T16:18:02Z"
+        "fetchedAt": "2026-07-01T18:17:58Z"
     },
     {
         "source": "WAQI",
