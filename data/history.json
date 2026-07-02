@@ -119575,11 +119575,6 @@
   ],
   "purpleair_21935": [
     {
-      "time": "2026-06-25T05:00:00Z",
-      "aqi": 0,
-      "source": "purpleair"
-    },
-    {
       "time": "2026-06-25T08:00:00Z",
       "aqi": 2,
       "source": "purpleair"
@@ -119968,14 +119963,14 @@
       "time": "2026-07-02T04:00:00Z",
       "aqi": 0,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-07-02T07:00:00Z",
+      "aqi": 0,
+      "source": "purpleair"
     }
   ],
   "purpleair_29677": [
-    {
-      "time": "2026-06-25T05:00:00Z",
-      "aqi": 39,
-      "source": "purpleair"
-    },
     {
       "time": "2026-06-25T08:00:00Z",
       "aqi": 28,
@@ -120365,14 +120360,14 @@
       "time": "2026-07-02T04:00:00Z",
       "aqi": 29,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-07-02T07:00:00Z",
+      "aqi": 48,
+      "source": "purpleair"
     }
   ],
   "purpleair_33495": [
-    {
-      "time": "2026-06-25T05:00:00Z",
-      "aqi": 50,
-      "source": "purpleair"
-    },
     {
       "time": "2026-06-25T08:00:00Z",
       "aqi": 65,
@@ -120762,14 +120757,14 @@
       "time": "2026-07-02T04:00:00Z",
       "aqi": 57,
       "source": "purpleair"
+    },
+    {
+      "time": "2026-07-02T07:00:00Z",
+      "aqi": 61,
+      "source": "purpleair"
     }
   ],
   "purpleair_173211": [
-    {
-      "time": "2026-06-25T05:00:00Z",
-      "aqi": 0,
-      "source": "purpleair"
-    },
     {
       "time": "2026-06-25T08:00:00Z",
       "aqi": 0,
@@ -121158,6 +121153,11 @@
     {
       "time": "2026-07-02T04:00:00Z",
       "aqi": 2,
+      "source": "purpleair"
+    },
+    {
+      "time": "2026-07-02T07:00:00Z",
+      "aqi": 0,
       "source": "purpleair"
     }
   ],
@@ -144238,6 +144238,20 @@
       "time": "2026-07-02T05:00:00Z",
       "aqi": 58,
       "source": "waqi"
+    }
+  ],
+  "purpleair_21923": [
+    {
+      "time": "2026-07-02T07:00:00Z",
+      "aqi": 51,
+      "source": "purpleair"
+    }
+  ],
+  "purpleair_126417": [
+    {
+      "time": "2026-07-02T07:00:00Z",
+      "aqi": 21,
+      "source": "purpleair"
     }
   ]
 }
