@@ -8,7 +8,7 @@
         "lat": 7.366384,
         "lon": 80.61755,
         "stationId": "purpleair_12451",
-        "fetchedAt": "2026-07-02T16:22:22Z"
+        "fetchedAt": "2026-07-02T18:09:35Z"
     },
     {
         "source": "PurpleAir",
@@ -142655,40 +142655,40 @@
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-07-02T16:22:23Z"
+        "fetchedAt": "2026-07-02T18:09:35Z"
     },
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 7.9,
-        "aqi": 33,
+        "pm25_10min": 6.9,
+        "aqi": 29,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "purpleair_29677",
-        "fetchedAt": "2026-07-02T16:22:23Z"
+        "fetchedAt": "2026-07-02T18:09:36Z"
     },
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 38.4,
-        "aqi": 108,
-        "category": "Unhealthy for Sensitive Groups",
+        "pm25_10min": 26.3,
+        "aqi": 81,
+        "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-07-02T16:22:23Z"
+        "fetchedAt": "2026-07-02T18:09:36Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 0.7,
-        "aqi": 3,
+        "pm25_10min": 0.6,
+        "aqi": 2,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-07-02T16:22:24Z"
+        "fetchedAt": "2026-07-02T18:09:37Z"
     },
     {
         "source": "WAQI",
@@ -176066,7 +176066,7 @@
         "lat": 7.33083,
         "lon": 80.63082,
         "stationId": "purpleair_21923",
-        "fetchedAt": "2026-07-02T16:22:22Z"
+        "fetchedAt": "2026-07-02T18:09:35Z"
     },
     {
         "source": "PurpleAir",
@@ -176077,7 +176077,7 @@
         "lat": 8.031741,
         "lon": 79.71905,
         "stationId": "purpleair_126417",
-        "fetchedAt": "2026-07-02T16:22:23Z"
+        "fetchedAt": "2026-07-02T18:09:36Z"
     },
     {
         "source": "WAQI",
