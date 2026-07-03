@@ -8,7 +8,7 @@
         "lat": 7.366384,
         "lon": 80.61755,
         "stationId": "purpleair_12451",
-        "fetchedAt": "2026-07-03T18:07:34Z"
+        "fetchedAt": "2026-07-03T19:44:26Z"
     },
     {
         "source": "PurpleAir",
@@ -142649,35 +142649,35 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.0,
+        "pm25_10min": 0.1,
         "aqi": 0,
         "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-07-03T18:07:35Z"
+        "fetchedAt": "2026-07-03T19:44:26Z"
     },
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 8.5,
-        "aqi": 35,
+        "pm25_10min": 7.9,
+        "aqi": 33,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "purpleair_29677",
-        "fetchedAt": "2026-07-03T18:07:35Z"
+        "fetchedAt": "2026-07-03T19:44:27Z"
     },
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 9.9,
-        "aqi": 41,
+        "pm25_10min": 8.6,
+        "aqi": 36,
         "category": "Good",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-07-03T18:07:35Z"
+        "fetchedAt": "2026-07-03T19:44:27Z"
     },
     {
         "source": "PurpleAir",
@@ -142688,7 +142688,7 @@
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-07-03T18:07:36Z"
+        "fetchedAt": "2026-07-03T19:44:27Z"
     },
     {
         "source": "WAQI",
@@ -176067,7 +176067,7 @@
         "lat": 7.33083,
         "lon": 80.63082,
         "stationId": "purpleair_21923",
-        "fetchedAt": "2026-07-03T18:07:34Z"
+        "fetchedAt": "2026-07-03T19:44:26Z"
     },
     {
         "source": "PurpleAir",
@@ -176078,7 +176078,7 @@
         "lat": 8.031741,
         "lon": 79.71905,
         "stationId": "purpleair_126417",
-        "fetchedAt": "2026-07-03T18:07:36Z"
+        "fetchedAt": "2026-07-03T19:44:27Z"
     },
     {
         "source": "WAQI",
