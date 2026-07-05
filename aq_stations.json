@@ -8,7 +8,7 @@
         "lat": 7.366384,
         "lon": 80.61755,
         "stationId": "purpleair_12451",
-        "fetchedAt": "2026-07-05T11:58:58Z"
+        "fetchedAt": "2026-07-05T13:43:05Z"
     },
     {
         "source": "PurpleAir",
@@ -142655,40 +142655,40 @@
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-07-05T11:58:59Z"
+        "fetchedAt": "2026-07-05T13:43:05Z"
     },
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 9.8,
-        "aqi": 41,
+        "pm25_10min": 11.7,
+        "aqi": 49,
         "category": "Good",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "purpleair_29677",
-        "fetchedAt": "2026-07-05T11:58:59Z"
+        "fetchedAt": "2026-07-05T13:43:06Z"
     },
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 15.1,
-        "aqi": 57,
+        "pm25_10min": 23.5,
+        "aqi": 75,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-07-05T11:59:00Z"
+        "fetchedAt": "2026-07-05T13:43:06Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 1.1,
-        "aqi": 5,
+        "pm25_10min": 2.1,
+        "aqi": 9,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-07-05T11:59:00Z"
+        "fetchedAt": "2026-07-05T13:43:07Z"
     },
     {
         "source": "WAQI",
@@ -176067,7 +176067,7 @@
         "lat": 7.33083,
         "lon": 80.63082,
         "stationId": "purpleair_21923",
-        "fetchedAt": "2026-07-05T11:58:59Z"
+        "fetchedAt": "2026-07-05T13:43:05Z"
     },
     {
         "source": "PurpleAir",
@@ -176078,7 +176078,7 @@
         "lat": 8.031741,
         "lon": 79.71905,
         "stationId": "purpleair_126417",
-        "fetchedAt": "2026-07-05T11:59:00Z"
+        "fetchedAt": "2026-07-05T13:43:06Z"
     },
     {
         "source": "WAQI",
