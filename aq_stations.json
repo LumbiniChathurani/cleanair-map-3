@@ -8,7 +8,7 @@
         "lat": 7.366384,
         "lon": 80.61755,
         "stationId": "purpleair_12451",
-        "fetchedAt": "2026-07-06T08:51:26Z"
+        "fetchedAt": "2026-07-06T12:37:04Z"
     },
     {
         "source": "PurpleAir",
@@ -142649,46 +142649,46 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.2,
-        "aqi": 1,
+        "pm25_10min": 0.1,
+        "aqi": 0,
         "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-07-06T08:51:27Z"
+        "fetchedAt": "2026-07-06T12:37:05Z"
     },
     {
         "source": "PurpleAir",
         "name": "Gregory's Road",
-        "pm25_10min": 11.1,
-        "aqi": 46,
-        "category": "Good",
+        "pm25_10min": 14.5,
+        "aqi": 56,
+        "category": "Moderate",
         "lat": 6.909444,
         "lon": 79.87531,
         "stationId": "purpleair_29677",
-        "fetchedAt": "2026-07-06T08:51:27Z"
+        "fetchedAt": "2026-07-06T12:37:05Z"
     },
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 14.6,
-        "aqi": 56,
+        "pm25_10min": 19.6,
+        "aqi": 67,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-07-06T08:51:28Z"
+        "fetchedAt": "2026-07-06T12:37:06Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 0.4,
-        "aqi": 2,
+        "pm25_10min": 1.6,
+        "aqi": 7,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-07-06T08:51:28Z"
+        "fetchedAt": "2026-07-06T12:37:06Z"
     },
     {
         "source": "WAQI",
@@ -176067,7 +176067,7 @@
         "lat": 7.33083,
         "lon": 80.63082,
         "stationId": "purpleair_21923",
-        "fetchedAt": "2026-07-06T08:51:27Z"
+        "fetchedAt": "2026-07-06T12:37:05Z"
     },
     {
         "source": "PurpleAir",
@@ -176078,7 +176078,7 @@
         "lat": 8.031741,
         "lon": 79.71905,
         "stationId": "purpleair_126417",
-        "fetchedAt": "2026-07-06T08:51:28Z"
+        "fetchedAt": "2026-07-06T12:37:06Z"
     },
     {
         "source": "WAQI",
