@@ -5,124 +5,235 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Colombo Air Quality Widget</title>
   <style>
+    :root {
+      --ink: #12232B;
+      --muted: #62757D;
+      --faint: #93A3AA;
+      --border: #E3E9EC;
+      --card-bg: #FCFDFD;
+      --brand: #1C6E8C;
+      --brand-hover: #155A73;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: system-ui, -apple-system, sans-serif;
       background: transparent;
+      font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
     }
 
-    .widget-stripe {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      height: 100%;
-      min-height: 68px;
-      padding: 8px 16px;
-      box-sizing: border-box;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
-      cursor: pointer;
-      transition: box-shadow 0.15s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .widget-stripe:hover {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    }
-
-    .widget-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-    }
-
-    .aqi-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      background: #9e9e9e;
-    }
-
-    .widget-text {
+    .widget-card {
+      position: relative;
       display: flex;
       flex-direction: column;
-      min-width: 0;
-    }
-
-    .widget-city {
-      font-size: 13px;
-      font-weight: 600;
-      color: #222;
-      white-space: nowrap;
-    }
-
-    .widget-category {
-      font-size: 12px;
-      color: #666;
-      white-space: nowrap;
+      justify-content: center;
+      gap: 6px;
+      height: 100%;
+      min-height: 148px;
+      padding: 14px 18px 14px 22px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(18, 35, 43, 0.04), 0 4px 14px rgba(18, 35, 43, 0.06);
+      text-decoration: none;
+      color: inherit;
       overflow: hidden;
-      text-overflow: ellipsis;
+      transition: box-shadow 0.18s ease, transform 0.18s ease;
     }
 
-    .widget-updated {
-      font-size: 11px;
-      color: #999;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .widget-card:hover {
+      box-shadow: 0 2px 4px rgba(18, 35, 43, 0.06), 0 10px 24px rgba(18, 35, 43, 0.10);
+      transform: translateY(-1px);
     }
 
-    .widget-right {
+    /* Left edge indicator — tinted to the current severity color.
+       This is the widget's one accent: a single line of meaning
+       rather than a loud colored block. */
+    .edge-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--faint);
+      transition: background 0.25s ease;
+    }
+
+    .eyebrow {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand);
       flex-shrink: 0;
     }
 
-    .aqi-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      background: #9e9e9e;
-      padding: 2px 12px;
-      border-radius: 8px;
-      min-width: 34px;
-      text-align: center;
+    @media (prefers-reduced-motion: no-preference) {
+      .live-dot {
+        animation: pulse 2.4s ease-in-out infinite;
+      }
     }
 
-    .view-more {
-      font-size: 12px;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    .category-chip {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      font-size: 12.5px;
       font-weight: 600;
-      color: #2171b5;
+      padding: 2px 9px;
+      border-radius: 6px;
       white-space: nowrap;
+      background: rgba(147, 163, 170, 0.14);
+      color: var(--muted);
     }
 
-    .widget-stripe.loading .widget-city {
-      color: #999;
+    .updated-caption {
+      font-size: 11px;
+      color: var(--faint);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .reading-block {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      margin: 2px 0;
+    }
+
+    .aqi-number {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+
+    .aqi-unit {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--faint);
+      text-transform: uppercase;
+    }
+
+    .bottom-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* --------------------------------------------------------
+       GAUGE — the AQI scale rendered as a real instrument:
+       a fixed 0–500 track with the EPA breakpoint bands baked
+       in as proportional segments, and a marker showing exactly
+       where the current reading falls.
+       -------------------------------------------------------- */
+    .gauge-track {
+      position: relative;
+      flex: 1;
+      height: 5px;
+      border-radius: 3px;
+      min-width: 90px;
+      background: linear-gradient(
+        to right,
+        #009966 0%, #009966 10%,
+        #ffde33 10%, #ffde33 20%,
+        #ff9933 20%, #ff9933 30%,
+        #cc0033 30%, #cc0033 40%,
+        #660099 40%, #660099 60%,
+        #7e0023 60%, #7e0023 100%
+      );
+      opacity: 0.85;
+    }
+
+    .gauge-marker {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2.5px solid var(--ink);
+      transform: translate(-50%, -50%);
+      transition: left 0.4s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--brand);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cta-arrow {
+      transition: transform 0.18s ease;
+    }
+
+    .widget-card:hover .cta-arrow {
+      transform: translateX(2px);
+    }
+
+    .widget-card:hover .cta-button {
+      color: var(--brand-hover);
+    }
+
+    .widget-card.is-loading .aqi-number {
+      color: var(--faint);
     }
   </style>
 </head>
 <body>
 
-  <a id="widgetStripe" class="widget-stripe loading" href="dashboard.html" target="_top">
-    <div class="widget-left">
-      <span id="aqiDot" class="aqi-dot"></span>
-      <div class="widget-text">
-        <span class="widget-city">Colombo</span>
-        <span id="widgetCategory" class="widget-category">Loading...</span>
-        <span id="widgetUpdated" class="widget-updated"></span>
-      </div>
+  <a id="widgetCard" class="widget-card is-loading" href="dashboard.html" target="_top">
+    <span id="edgeBar" class="edge-bar"></span>
+
+    <div class="eyebrow"><span class="live-dot"></span>Colombo · Live</div>
+
+    <div class="reading-block">
+      <span id="aqiValue" class="aqi-number">&ndash;&ndash;</span>
+      <span class="aqi-unit">US&nbsp;AQI</span>
     </div>
-    <div class="widget-right">
-      <span id="aqiValue" class="aqi-value">--</span>
-      <span class="view-more">View Dashboard ›</span>
+
+    <span id="categoryChip" class="category-chip">Loading&hellip;</span>
+    <span id="updatedCaption" class="updated-caption"></span>
+
+    <div class="bottom-row">
+      <div class="gauge-track">
+        <div id="gaugeMarker" class="gauge-marker"></div>
+      </div>
+      <span class="cta-button">
+        View dashboard <span class="cta-arrow">&rarr;</span>
+      </span>
     </div>
   </a>
 
@@ -131,6 +242,24 @@
     // f"iqair_{city.lower().replace(' ', '_')}_{lat:.4f}_{lon:.4f}"
     // for city="Colombo", lat=6.9271, lon=79.8612
     const COLOMBO_STATION_ID = "iqair_colombo_6.9271_79.8612";
+    const GAUGE_MAX = 500; // EPA AQI scale ceiling
+
+    function getAQIColor(aqi) {
+      if (aqi === null || aqi === undefined) return "#93A3AA";
+      if (aqi <= 50) return "#009966";
+      if (aqi <= 100) return "#ffde33";
+      if (aqi <= 150) return "#ff9933";
+      if (aqi <= 200) return "#cc0033";
+      if (aqi <= 300) return "#660099";
+      return "#7e0023";
+    }
+
+    function hexToRgba(hex, alpha) {
+      const r = parseInt(hex.slice(1, 3), 16);
+      const g = parseInt(hex.slice(3, 5), 16);
+      const b = parseInt(hex.slice(5, 7), 16);
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
 
     function formatLastUpdated(fetchedAt) {
       if (!fetchedAt) return "";
@@ -144,23 +273,42 @@
       });
     }
 
-    function getAQIColor(aqi) {
-      if (aqi === null || aqi === undefined) return "#9e9e9e";
-      if (aqi <= 50) return "#009966";
-      if (aqi <= 100) return "#ffde33";
-      if (aqi <= 150) return "#ff9933";
-      if (aqi <= 200) return "#cc0033";
-      if (aqi <= 300) return "#660099";
-      return "#7e0023";
+    function setState({ aqi, category, fetchedAt, unavailable, failed }) {
+      const card = document.getElementById("widgetCard");
+      const edge = document.getElementById("edgeBar");
+      const value = document.getElementById("aqiValue");
+      const chip = document.getElementById("categoryChip");
+      const updated = document.getElementById("updatedCaption");
+      const marker = document.getElementById("gaugeMarker");
+
+      card.classList.remove("is-loading");
+
+      if (unavailable || failed) {
+        value.textContent = "--";
+        chip.textContent = failed ? "Failed to load" : "Data unavailable";
+        chip.style.background = "rgba(147, 163, 170, 0.14)";
+        chip.style.color = "var(--muted)";
+        updated.textContent = "";
+        edge.style.background = "#93A3AA";
+        marker.style.left = "0%";
+        return;
+      }
+
+      const color = getAQIColor(aqi);
+      value.textContent = aqi ?? "N/A";
+      chip.textContent = category ?? "Unknown";
+      chip.style.background = hexToRgba(color, 0.14);
+      chip.style.color = color;
+      updated.textContent = formatLastUpdated(fetchedAt);
+      edge.style.background = color;
+
+      const pct = aqi === null || aqi === undefined
+        ? 0
+        : Math.max(0, Math.min(100, (aqi / GAUGE_MAX) * 100));
+      marker.style.left = pct + "%";
     }
 
     async function loadColomboWidget() {
-      const stripe = document.getElementById("widgetStripe");
-      const dot = document.getElementById("aqiDot");
-      const value = document.getElementById("aqiValue");
-      const category = document.getElementById("widgetCategory");
-      const updated = document.getElementById("widgetUpdated");
-
       try {
         const res = await fetch("./aq_stations.json", { cache: "no-store" });
         const data = await res.json();
@@ -175,24 +323,18 @@
         }
 
         if (!station) {
-          category.textContent = "Data unavailable";
-          updated.textContent = "";
-          stripe.classList.remove("loading");
+          setState({ unavailable: true });
           return;
         }
 
-        const color = getAQIColor(station.aqi);
-        dot.style.background = color;
-        value.style.background = color;
-        value.textContent = station.aqi ?? "N/A";
-        category.textContent = station.category ?? "Unknown";
-        updated.textContent = formatLastUpdated(station.fetchedAt);
-        stripe.classList.remove("loading");
+        setState({
+          aqi: station.aqi,
+          category: station.category,
+          fetchedAt: station.fetchedAt
+        });
       } catch (err) {
-        category.textContent = "Failed to load";
-        updated.textContent = "";
-        stripe.classList.remove("loading");
         console.error("[Widget] Failed to load AQI data:", err);
+        setState({ failed: true });
       }
     }
 
