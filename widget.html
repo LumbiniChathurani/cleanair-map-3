@@ -513,8 +513,11 @@
         }));
 
         const active = dedupeStations(mapped).filter(st => !st.isStale);
+        // Some stations report aqi: 0, which is a sensor/data error rather
+        // than an actual "perfect air quality" reading — exclude those so
+        // they don't wrongly win the "cleanest" spot.
         const withReadings = active.filter(
-          st => st.aqi !== null && st.aqi !== undefined
+          st => st.aqi !== null && st.aqi !== undefined && st.aqi !== 0
         );
 
         card.classList.remove("is-loading");
