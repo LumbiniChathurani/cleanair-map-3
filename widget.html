@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colombo Air Quality Widget</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: transparent;
+    }
+
+    .widget-stripe {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      height: 100%;
+      min-height: 68px;
+      padding: 8px 16px;
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: box-shadow 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .widget-stripe:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+
+    .widget-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .aqi-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #9e9e9e;
+    }
+
+    .widget-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .widget-city {
+      font-size: 13px;
+      font-weight: 600;
+      color: #222;
+      white-space: nowrap;
+    }
+
+    .widget-category {
+      font-size: 12px;
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .widget-updated {
+      font-size: 11px;
+      color: #999;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .widget-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .aqi-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      background: #9e9e9e;
+      padding: 2px 12px;
+      border-radius: 8px;
+      min-width: 34px;
+      text-align: center;
+    }
+
+    .view-more {
+      font-size: 12px;
+      font-weight: 600;
+      color: #2171b5;
+      white-space: nowrap;
+    }
+
+    .widget-stripe.loading .widget-city {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <a id="widgetStripe" class="widget-stripe loading" href="dashboard.html" target="_top">
+    <div class="widget-left">
+      <span id="aqiDot" class="aqi-dot"></span>
+      <div class="widget-text">
+        <span class="widget-city">Colombo</span>
+        <span id="widgetCategory" class="widget-category">Loading...</span>
+        <span id="widgetUpdated" class="widget-updated"></span>
+      </div>
+    </div>
+    <div class="widget-right">
+      <span id="aqiValue" class="aqi-value">--</span>
+      <span class="view-more">View Dashboard ›</span>
+    </div>
+  </a>
+
+  <script>
+    // Must match the backend's stationId format exactly:
+    // f"iqair_{city.lower().replace(' ', '_')}_{lat:.4f}_{lon:.4f}"
+    // for city="Colombo", lat=6.9271, lon=79.8612
+    const COLOMBO_STATION_ID = "iqair_colombo_6.9271_79.8612";
+
+    function formatLastUpdated(fetchedAt) {
+      if (!fetchedAt) return "";
+      const d = new Date(fetchedAt);
+      if (isNaN(d.getTime())) return "";
+      return "Updated " + d.toLocaleString([], {
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+
+    function getAQIColor(aqi) {
+      if (aqi === null || aqi === undefined) return "#9e9e9e";
+      if (aqi <= 50) return "#009966";
+      if (aqi <= 100) return "#ffde33";
+      if (aqi <= 150) return "#ff9933";
+      if (aqi <= 200) return "#cc0033";
+      if (aqi <= 300) return "#660099";
+      return "#7e0023";
+    }
+
+    async function loadColomboWidget() {
+      const stripe = document.getElementById("widgetStripe");
+      const dot = document.getElementById("aqiDot");
+      const value = document.getElementById("aqiValue");
+      const category = document.getElementById("widgetCategory");
+      const updated = document.getElementById("widgetUpdated");
+
+      try {
+        const res = await fetch("./aq_stations.json", { cache: "no-store" });
+        const data = await res.json();
+
+        // Prefer exact stationId match; fall back to name+source match
+        // in case lat/lon precision ever shifts the generated ID.
+        let station = data.find(st => st.stationId === COLOMBO_STATION_ID);
+        if (!station) {
+          station = data.find(
+            st => st.source === "IQAir" && st.name === "Colombo"
+          );
+        }
+
+        if (!station) {
+          category.textContent = "Data unavailable";
+          updated.textContent = "";
+          stripe.classList.remove("loading");
+          return;
+        }
+
+        const color = getAQIColor(station.aqi);
+        dot.style.background = color;
+        value.style.background = color;
+        value.textContent = station.aqi ?? "N/A";
+        category.textContent = station.category ?? "Unknown";
+        updated.textContent = formatLastUpdated(station.fetchedAt);
+        stripe.classList.remove("loading");
+      } catch (err) {
+        category.textContent = "Failed to load";
+        updated.textContent = "";
+        stripe.classList.remove("loading");
+        console.error("[Widget] Failed to load AQI data:", err);
+      }
+    }
+
+    loadColomboWidget();
+
+    // Refresh every 10 minutes so an embedded widget doesn't go stale
+    // while sitting on a page the visitor keeps open.
+    setInterval(loadColomboWidget, 10 * 60 * 1000);
+  </script>
+
+</body>
+</html>
