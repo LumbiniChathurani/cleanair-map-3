@@ -87,7 +87,7 @@
 </head>
 <body>
 
-  <h1>Sri Lanka Real-Time Air Quality Dashboard</h1>
+  <h1>Sri Lanka Air Quality Dashboard</h1>
   <div class="subtitle">Current AQI, category, and last update time — active stations only</div>
 
   <div class="controls">
@@ -148,16 +148,60 @@
       return d.toLocaleString();
     }
 
+    // WAQI's bounding-box API often returns several distinct physical
+    // stations sharing the same generic label (e.g. multiple monitors
+    // all just called "Colombo"). Each has a unique stationId/coords
+    // even though the name collides, so when duplicates are visible,
+    // tag each with its coordinates to tell them apart.
+    function getDisplayName(st, rows) {
+      const duplicateCount = rows.filter(r => r.name === st.name).length;
+      if (duplicateCount <= 1) return st.name;
+
+      if (st.lat === undefined || st.lon === undefined) return st.name;
+      return `${st.name} (${st.lat.toFixed(2)}, ${st.lon.toFixed(2)})`;
+    }
+
+    // WAQI's idx can be unstable across scraper runs for the same physical
+    // station, which causes duplicate entries with identical name+coords
+    // to pile up in aq_stations.json over time. Collapse those down to a
+    // single row — the one with the most recent fetchedAt — so the same
+    // station doesn't appear multiple times in the table.
+    function dedupeStations(stations) {
+      const groups = new Map();
+
+      stations.forEach(st => {
+        const hasCoords = st.lat !== undefined && st.lon !== undefined;
+        const key = hasCoords
+          ? `${st.name}_${st.lat.toFixed(3)}_${st.lon.toFixed(3)}`
+          : (st.stationId || `${st.name}_${st.source}`);
+
+        const existing = groups.get(key);
+        if (!existing) {
+          groups.set(key, st);
+          return;
+        }
+
+        const existingTime = existing.fetchedAt ? new Date(existing.fetchedAt).getTime() : 0;
+        const currentTime = st.fetchedAt ? new Date(st.fetchedAt).getTime() : 0;
+        if (currentTime > existingTime) {
+          groups.set(key, st);
+        }
+      });
+
+      return Array.from(groups.values());
+    }
+
     async function loadStations() {
       const statusEl = document.getElementById("status");
       statusEl.textContent = "Loading...";
       try {
         const res = await fetch("./aq_stations.json", { cache: "no-store" });
         const data = await res.json();
-        allStations = data.map(st => ({
+        const mapped = data.map(st => ({
           ...st,
           isStale: isStationStale(st)
         }));
+        allStations = dedupeStations(mapped);
         render();
       } catch (err) {
         statusEl.textContent = "Failed to load AQI data.";
@@ -204,7 +248,7 @@
         const tr = document.createElement("tr");
 
         tr.innerHTML = `
-          <td>${st.name}</td>
+          <td>${getDisplayName(st, rows)}</td>
           <td>${st.source}</td>
           <td><span class="aqi-badge" style="background:${getAQIColor(st.aqi)}">${st.aqi ?? "N/A"}</span></td>
           <td>${st.category ?? "N/A"}</td>
