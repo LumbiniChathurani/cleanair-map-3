@@ -50,18 +50,18 @@
     }
 
     .widget-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(
-        to right,
-        #009966, #ffde33, #ff9933, #cc0033, #660099
-      );
-      opacity: 0.9;
-    }
+  content: "";
+  position: absolute;
+  bottom: 0;        /* was: top: 0; */
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    #009966, #ffde33, #ff9933, #cc0033, #660099
+  );
+  opacity: 0.9;
+}
 
     .widget-card:hover {
       box-shadow: 0 3px 8px rgba(16, 31, 38, 0.08), 0 16px 34px rgba(16, 31, 38, 0.12);
