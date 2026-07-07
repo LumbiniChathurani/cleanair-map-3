@@ -9,9 +9,10 @@
       --ink: #101F26;
       --muted: #5C6E75;
       --faint: #9AA8AE;
-      --hairline: #E7ECEF;
-      --card-bg: #FFFFFF;
-      --card-bg-alt: #FAFCFD;
+      --hairline: #E1E7EA;
+      --card-bg: #EDF1F2;
+      --card-bg-alt: #E4E9EB;
+      --box-bg: #FFFFFF;
       --brand: #17677F;
       --brand-soft: #E4EEF1;
       --brand-hover: #114F62;
@@ -50,18 +51,18 @@
     }
 
     .widget-card::before {
-  content: "";
-  position: absolute;
-  bottom: 0;        /* was: top: 0; */
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    #009966, #ffde33, #ff9933, #cc0033, #660099
-  );
-  opacity: 0.9;
-}
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(
+        to right,
+        #009966, #ffde33, #ff9933, #cc0033, #660099
+      );
+      opacity: 0.9;
+    }
 
     .widget-card:hover {
       box-shadow: 0 3px 8px rgba(16, 31, 38, 0.08), 0 16px 34px rgba(16, 31, 38, 0.12);
@@ -150,12 +151,14 @@
     }
 
     /* --------------------------------------------------------
-       STATS GRID
+       STATS GRID — each stat is now its own lighter (white)
+       box sitting on the slightly darker card background, so
+       the three readings read as distinct panels.
        -------------------------------------------------------- */
     .stats-grid {
       display: flex;
       align-items: stretch;
-      gap: 0;
+      gap: 10px;
     }
 
     .stat-block {
@@ -164,22 +167,11 @@
       flex-direction: column;
       gap: 5px;
       min-width: 0;
-      padding: 0 16px;
-    }
-
-    .stat-block:first-child {
-      padding-left: 0;
-    }
-
-    .stat-block:last-child {
-      padding-right: 0;
-    }
-
-    .stat-divider {
-      width: 1px;
-      background: var(--hairline);
-      flex-shrink: 0;
-      margin: 2px 0;
+      padding: 12px 14px;
+      background: var(--box-bg);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(16, 31, 38, 0.04);
     }
 
     .stat-label-row {
@@ -302,13 +294,7 @@
     @media (max-width: 380px) {
       .stats-grid {
         flex-direction: column;
-        gap: 14px;
-      }
-      .stat-divider {
-        display: none;
-      }
-      .stat-block {
-        padding: 0;
+        gap: 10px;
       }
     }
   </style>
@@ -352,8 +338,6 @@
         <span id="cleanUpdated" class="stat-updated"></span>
       </div>
 
-      <div class="stat-divider"></div>
-
       <div class="stat-block">
         <div class="stat-label-row">
           <svg class="stat-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -369,8 +353,6 @@
         <span id="highStation" class="stat-station faded">Loading&hellip;</span>
         <span id="highUpdated" class="stat-updated"></span>
       </div>
-
-      <div class="stat-divider"></div>
 
       <div class="stat-block">
         <div class="stat-label-row">
