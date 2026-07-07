@@ -1,12 +1,247 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="dashboard.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air Quality Dashboard</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+    h1 {
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .controls input, .controls select {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+    th {
+      background: #fafafa;
+      cursor: pointer;
+      user-select: none;
+      position: sticky;
+      top: 0;
+    }
+    th:hover {
+      background: #f0f0f0;
+    }
+    .aqi-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      color: #fff;
+      font-weight: 600;
+      min-width: 36px;
+      text-align: center;
+    }
+    .stale {
+      opacity: 0.55;
+    }
+    .stale-tag {
+      color: #9e9e9e;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    #status {
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #666;
+    }
+    #refreshBtn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      background: #2171b5;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #refreshBtn:hover {
+      background: #185a91;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello world</h1>
-    <script src="dashboard.js"></script>
+
+  <h1>Sri Lanka Air Quality Dashboard</h1>
+  <div class="subtitle">Current AQI, category, and last update time across all stations</div>
+
+  <div class="controls">
+    <input id="searchInput" placeholder="Search station..." />
+    <select id="sourceFilter">
+      <option value="all">All sources</option>
+      <option value="PurpleAir">PurpleAir</option>
+      <option value="IQAir">IQAir</option>
+      <option value="WAQI">WAQI</option>
+    </select>
+    <button id="refreshBtn">Refresh</button>
+    <span id="status"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th data-key="name">Station</th>
+        <th data-key="source">Source</th>
+        <th data-key="aqi">AQI</th>
+        <th data-key="category">Category</th>
+        <th data-key="fetchedAt">Last Updated</th>
+      </tr>
+    </thead>
+    <tbody id="stationTableBody"></tbody>
+  </table>
+
+  <script>
+    const STALE_THRESHOLD_HOURS = 24;
+
+    let allStations = [];
+    let sortKey = "name";
+    let sortAsc = true;
+
+    function getAQIColor(aqi) {
+      if (aqi === null || aqi === undefined) return "#9e9e9e";
+      if (aqi <= 50) return "#009966";
+      if (aqi <= 100) return "#ffde33";
+      if (aqi <= 150) return "#ff9933";
+      if (aqi <= 200) return "#cc0033";
+      if (aqi <= 300) return "#660099";
+      return "#7e0023";
+    }
+
+    function isStationStale(st) {
+      if (st.aqi === null || st.aqi === undefined) return true;
+      if (!st.fetchedAt) return true;
+      const fetchedTime = new Date(st.fetchedAt);
+      if (isNaN(fetchedTime.getTime())) return true;
+      const ageHours = (Date.now() - fetchedTime.getTime()) / (1000 * 60 * 60);
+      return ageHours > STALE_THRESHOLD_HOURS;
+    }
+
+    function formatLastUpdated(st) {
+      if (!st.fetchedAt) return "N/A";
+      const d = new Date(st.fetchedAt);
+      if (isNaN(d.getTime())) return "N/A";
+      return d.toLocaleString();
+    }
+
+    async function loadStations() {
+      const statusEl = document.getElementById("status");
+      statusEl.textContent = "Loading...";
+      try {
+        const res = await fetch("./aq_stations.json", { cache: "no-store" });
+        const data = await res.json();
+        allStations = data.map(st => ({
+          ...st,
+          isStale: isStationStale(st)
+        }));
+        statusEl.textContent = `Loaded ${allStations.length} stations · ${new Date().toLocaleTimeString()}`;
+        render();
+      } catch (err) {
+        statusEl.textContent = "Failed to load AQI data.";
+        console.error(err);
+      }
+    }
+
+    function render() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const sourceFilter = document.getElementById("sourceFilter").value;
+
+      let rows = allStations.filter(st => {
+        const matchesQuery = !query || st.name.toLowerCase().includes(query);
+        const matchesSource = sourceFilter === "all" || st.source === sourceFilter;
+        return matchesQuery && matchesSource;
+      });
+
+      rows.sort((a, b) => {
+        let av = a[sortKey];
+        let bv = b[sortKey];
+
+        if (sortKey === "aqi") {
+          av = av ?? -1;
+          bv = bv ?? -1;
+        } else if (sortKey === "fetchedAt") {
+          av = av ? new Date(av).getTime() : 0;
+          bv = bv ? new Date(bv).getTime() : 0;
+        } else {
+          av = (av || "").toString().toLowerCase();
+          bv = (bv || "").toString().toLowerCase();
+        }
+
+        if (av < bv) return sortAsc ? -1 : 1;
+        if (av > bv) return sortAsc ? 1 : -1;
+        return 0;
+      });
+
+      const tbody = document.getElementById("stationTableBody");
+      tbody.innerHTML = "";
+
+      rows.forEach(st => {
+        const tr = document.createElement("tr");
+        if (st.isStale) tr.classList.add("stale");
+
+        tr.innerHTML = `
+          <td>${st.name}</td>
+          <td>${st.source}</td>
+          <td><span class="aqi-badge" style="background:${getAQIColor(st.aqi)}">${st.aqi ?? "N/A"}</span></td>
+          <td>${st.category ?? "N/A"}${st.isStale ? '<span class="stale-tag">⚠ stale</span>' : ""}</td>
+          <td>${formatLastUpdated(st)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.getElementById("searchInput").addEventListener("input", render);
+    document.getElementById("sourceFilter").addEventListener("change", render);
+    document.getElementById("refreshBtn").addEventListener("click", loadStations);
+
+    document.querySelectorAll("th[data-key]").forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.dataset.key;
+        if (sortKey === key) {
+          sortAsc = !sortAsc;
+        } else {
+          sortKey = key;
+          sortAsc = true;
+        }
+        render();
+      });
+    });
+
+    loadStations();
+  </script>
+
 </body>
 </html>
