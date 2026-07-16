@@ -40,7 +40,17 @@
       height: 100%;
       min-height: 180px;
       padding: 18px 22px 16px;
-      background: linear-gradient(178deg, var(--card-bg) 0%, var(--card-bg-alt) 100%);
+
+      /* Forest watercolor background image, with a soft translucent
+         wash on top (same tones as the old gradient) so the text and
+         stat cards stay readable over the artwork. */
+      background-image:
+        linear-gradient(178deg, rgba(241, 245, 249, 0.88) 0%, rgba(222, 218, 226, 0.88) 100%),
+        url('forest-bg.png');
+      background-size: cover, cover;
+      background-position: center, center bottom;
+      background-repeat: no-repeat, no-repeat;
+
       border: 1px solid var(--hairline);
       border-radius: 16px;
       box-shadow: 0 1px 2px rgba(16, 31, 38, 0.05), 0 8px 24px rgba(16, 31, 38, 0.07);
@@ -62,6 +72,7 @@
         #009966, #ffde33, #ff9933, #cc0033, #660099
       );
       opacity: 0.9;
+      z-index: 2;
     }
 
     .widget-card:hover {
@@ -74,6 +85,8 @@
       align-items: center;
       justify-content: space-between;
       margin-top: 2px;
+      position: relative;
+      z-index: 1;
     }
 
     .brand-mark {
@@ -111,6 +124,8 @@
       letter-spacing: 0.04em;
       color: var(--ink);
       white-space: nowrap;
+      position: relative;
+      z-index: 1;
     }
     .live-tag {
       display: inline-flex;
@@ -159,6 +174,8 @@
       display: flex;
       align-items: stretch;
       gap: 10px;
+      position: relative;
+      z-index: 1;
     }
 
     .stat-block {
@@ -168,10 +185,11 @@
       gap: 5px;
       min-width: 0;
       padding: 12px 14px;
-      background: var(--box-bg);
+      background: rgba(255, 255, 255, 0.92);
       border: 1px solid var(--hairline);
       border-radius: 12px;
       box-shadow: 0 1px 2px rgba(16, 31, 38, 0.04);
+      backdrop-filter: blur(2px);
     }
 
     .stat-label-row {
@@ -261,6 +279,8 @@
       justify-content: flex-end;
       /*border-top: 1px solid var(--hairline);*/
       padding-top: 5px;
+      position: relative;
+      z-index: 1;
     }
 
     .cta-button {
