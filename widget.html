@@ -485,7 +485,7 @@
       gap: 5px;
       font-size: 12.5px;
       font-weight: 700;
-      color: var(--brand-soft);
+      color: var(--brand);
       white-space: nowrap;
     }
 
@@ -1028,6 +1028,26 @@
           console.error("[Weather] Geolocation denied/failed:", err);
           btn.disabled = false;
           btn.title = originalTitle;
+
+          const locationNameEl = document.getElementById("weatherLocationName");
+          // code 1 = PERMISSION_DENIED. When this widget is embedded in a
+          // cross-origin iframe (e.g. on cleanair.lk), browsers block
+          // geolocation by default unless the embedding page's <iframe>
+          // tag includes allow="geolocation" — in that case the browser
+          // never even shows a permission prompt, it just rejects
+          // instantly, which otherwise looks like the button "does
+          // nothing." Surface that here instead of failing silently.
+          const message = err.code === 1
+            ? "Location blocked by this page"
+            : "Location unavailable";
+          locationNameEl.textContent = message;
+          setTimeout(() => {
+            // Restore whatever location name was showing before, once
+            // the user has had a chance to see the message.
+            if (locationNameEl.textContent === message) {
+              locationNameEl.textContent = DEFAULT_WEATHER_LOCATION.name;
+            }
+          }, 4000);
         },
         { enableHighAccuracy: true, timeout: 10000 }
       );
