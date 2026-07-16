@@ -41,11 +41,14 @@
       min-height: 180px;
       padding: 18px 22px 16px;
 
-      /* Forest watercolor background image. */
-      background-image: url('forest-bg.png');
-      background-size: cover;
-      background-position: center bottom;
-      background-repeat: no-repeat;
+      /* Forest watercolor background image with a very light lemon
+         yellow translucent filter on top. */
+      background-image:
+        linear-gradient(178deg, rgba(255, 250, 205, 0.35) 0%, rgba(255, 245, 170, 0.35) 100%),
+        url('forest-bg.png');
+      background-size: cover, cover;
+      background-position: center, center bottom;
+      background-repeat: no-repeat, no-repeat;
 
       border: 1px solid var(--hairline);
       border-radius: 16px;
