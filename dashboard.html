@@ -7,10 +7,20 @@
   <style>
     body {
       font-family: system-ui, sans-serif;
-      background: #f4f6f8;
       margin: 0;
       padding: 20px;
       color: #222;
+      min-height: 100vh;
+
+      /* Forest watercolor background image with a very light lemon
+         yellow translucent filter on top, matching the widget card. */
+      background-image:
+        linear-gradient(178deg, rgba(255, 250, 205, 0.35) 0%, rgba(255, 245, 170, 0.35) 100%),
+        url('forest-bg.png');
+      background-size: cover, cover;
+      background-position: center, center bottom;
+      background-repeat: no-repeat, no-repeat;
+      background-attachment: fixed, fixed;
     }
     h1 {
       margin-bottom: 4px;
