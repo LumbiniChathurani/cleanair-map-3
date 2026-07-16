@@ -225,6 +225,152 @@
       flex-shrink: 0;
     }
 
+    /* --------------------------------------------------------
+       WEATHER CARD — current-location weather (temp, precip,
+       humidity, wind) with a "use precise location" opt-in.
+       -------------------------------------------------------- */
+    /* Now a 4th column inside .stats-grid, sized like a .stat-block
+       (flex: 1, same padding/bg/border), just with weather-specific
+       internals swapped in below. */
+    .weather-card {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(16, 31, 38, 0.04);
+      backdrop-filter: blur(2px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .weather-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .weather-location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-width: 0;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .weather-location span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .weather-location svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      color: var(--muted);
+    }
+
+    .precise-location-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--brand);
+      background: var(--brand-soft);
+      border: 1px solid var(--brand);
+      border-radius: 999px;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .precise-location-btn svg {
+      width: 11px;
+      height: 11px;
+      flex-shrink: 0;
+    }
+
+    .precise-location-btn:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .precise-location-btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .weather-main-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .weather-icon {
+      font-size: 22px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .weather-temp-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .weather-temp {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .unit-toggle {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 10.5px;
+      color: var(--faint);
+    }
+
+    .unit-option {
+      cursor: pointer;
+    }
+
+    .unit-option.active {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .weather-details {
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .weather-details span {
+      display: inline-block;
+      margin-right: 6px;
+    }
+
     .stat-label-row {
       display: flex;
       align-items: center;
@@ -453,6 +599,38 @@
         </div>
         <span class="stat-station">Stations reporting</span>
         <span id="onlineUpdated" class="stat-updated"></span>
+      </div>
+
+      <div class="weather-card">
+        <div class="weather-top-row">
+          <div class="weather-location">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="9" r="2.3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span id="weatherLocationName">Loading&hellip;</span>
+          </div>
+          <button id="preciseLocationBtn" class="precise-location-btn" type="button" title="Use precise location">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="2.4" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+        <div class="weather-main-row">
+          <span id="weatherIcon" class="weather-icon">&#9925;</span>
+          <div class="weather-temp-row">
+            <span id="weatherTemp" class="weather-temp">&ndash;&ndash;</span>
+            <span class="unit-toggle">
+              <span id="unitC" class="unit-option active">&deg;C</span>|<span id="unitF" class="unit-option">&deg;F</span>
+            </span>
+          </div>
+        </div>
+        <div class="weather-details">
+          <span><span id="weatherHumidity">&ndash;&ndash;</span>% hum</span>
+          <span><span id="weatherWind">&ndash;&ndash;</span>km/h</span>
+          <span><span id="weatherPrecip">&ndash;&ndash;</span>% rain</span>
+        </div>
       </div>
     </div>
 
@@ -712,6 +890,163 @@
     // Refresh every 10 minutes so an embedded widget doesn't go stale
     // while sitting on a page the visitor keeps open.
     setInterval(loadWidget, 10 * 60 * 1000);
+
+    // --------------------------------------------------------
+    // CURRENT-LOCATION WEATHER
+    // Data: Open-Meteo (free, no key) for temperature / humidity /
+    // wind / precipitation probability. Location name: BigDataCloud's
+    // free client-side reverse geocoder (no key). Falls back to a
+    // default city until the user opts in via "Use precise location",
+    // which triggers the browser's geolocation permission prompt.
+    // --------------------------------------------------------
+    const DEFAULT_WEATHER_LOCATION = { lat: 6.9271, lon: 79.8612, name: "Colombo" };
+    let weatherUnit = "C";
+    let lastTempC = null;
+
+    const WEATHER_ICONS = {
+      0: "\u2600\uFE0F",   // clear sky
+      1: "\uD83C\uDF24\uFE0F", // mainly clear
+      2: "\u26C5",         // partly cloudy
+      3: "\u2601\uFE0F",   // overcast
+      45: "\uD83C\uDF2B\uFE0F", 48: "\uD83C\uDF2B\uFE0F", // fog
+      51: "\uD83C\uDF26\uFE0F", 53: "\uD83C\uDF26\uFE0F", 55: "\uD83C\uDF26\uFE0F", // drizzle
+      61: "\uD83C\uDF27\uFE0F", 63: "\uD83C\uDF27\uFE0F", 65: "\uD83C\uDF27\uFE0F", // rain
+      66: "\uD83C\uDF27\uFE0F", 67: "\uD83C\uDF27\uFE0F",
+      71: "\uD83C\uDF28\uFE0F", 73: "\uD83C\uDF28\uFE0F", 75: "\uD83C\uDF28\uFE0F", 77: "\uD83C\uDF28\uFE0F", // snow
+      80: "\uD83C\uDF26\uFE0F", 81: "\uD83C\uDF26\uFE0F", 82: "\uD83C\uDF27\uFE0F", // showers
+      85: "\uD83C\uDF28\uFE0F", 86: "\uD83C\uDF28\uFE0F", // snow showers
+      95: "\u26C8\uFE0F", 96: "\u26C8\uFE0F", 99: "\u26C8\uFE0F" // thunderstorm
+    };
+
+    function getWeatherIcon(code) {
+      return WEATHER_ICONS[code] || "\u26C5";
+    }
+
+    function renderTemp() {
+      const tempEl = document.getElementById("weatherTemp");
+      if (lastTempC === null) {
+        tempEl.textContent = "--";
+        return;
+      }
+      const value = weatherUnit === "C" ? lastTempC : (lastTempC * 9) / 5 + 32;
+      tempEl.textContent = Math.round(value) + "\u00B0";
+    }
+
+    function setUnit(unit) {
+      weatherUnit = unit;
+      document.getElementById("unitC").classList.toggle("active", unit === "C");
+      document.getElementById("unitF").classList.toggle("active", unit === "F");
+      renderTemp();
+    }
+
+    async function reverseGeocodeLocation(lat, lon) {
+      try {
+        const res = await fetch(
+          `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+        );
+        const data = await res.json();
+        return data.city || data.locality || data.principalSubdivision || "Your area";
+      } catch (err) {
+        console.error("[Weather] Reverse geocoding failed:", err);
+        return "Your area";
+      }
+    }
+
+    async function fetchWeather(lat, lon) {
+      const url =
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+        `&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m` +
+        `&hourly=precipitation_probability&timezone=auto`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Weather fetch failed: " + res.status);
+      return res.json();
+    }
+
+    async function loadWeatherFor(lat, lon, knownName) {
+      const locationNameEl = document.getElementById("weatherLocationName");
+      const iconEl = document.getElementById("weatherIcon");
+      const humidityEl = document.getElementById("weatherHumidity");
+      const windEl = document.getElementById("weatherWind");
+      const precipEl = document.getElementById("weatherPrecip");
+
+      locationNameEl.textContent = knownName || "Loading\u2026";
+
+      try {
+        const [weatherData, resolvedName] = await Promise.all([
+          fetchWeather(lat, lon),
+          knownName ? Promise.resolve(knownName) : reverseGeocodeLocation(lat, lon)
+        ]);
+
+        locationNameEl.textContent = resolvedName;
+
+        const current = weatherData.current;
+        lastTempC = current.temperature_2m;
+        renderTemp();
+
+        iconEl.textContent = getWeatherIcon(current.weather_code);
+        humidityEl.textContent = Math.round(current.relative_humidity_2m);
+        windEl.textContent = Math.round(current.wind_speed_10m);
+
+        // Match the current hour against the hourly precipitation
+        // probability series to show a "right now" percentage.
+        let precipValue = "--";
+        if (weatherData.hourly && weatherData.hourly.time) {
+          const idx = weatherData.hourly.time.indexOf(current.time);
+          if (idx !== -1) {
+            precipValue = weatherData.hourly.precipitation_probability[idx];
+          }
+        }
+        precipEl.textContent = precipValue;
+      } catch (err) {
+        console.error("[Weather] Failed to load weather:", err);
+        locationNameEl.textContent = resolvedNameFallback(knownName);
+      }
+    }
+
+    function resolvedNameFallback(knownName) {
+      return knownName || "Unavailable";
+    }
+
+    function usePreciseLocation() {
+      const btn = document.getElementById("preciseLocationBtn");
+      if (!navigator.geolocation) {
+        alert("Precise location isn't supported in this browser.");
+        return;
+      }
+      btn.disabled = true;
+      const originalTitle = btn.title;
+      btn.title = "Locating\u2026";
+
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          await loadWeatherFor(latitude, longitude);
+          btn.disabled = false;
+          btn.title = originalTitle;
+        },
+        (err) => {
+          console.error("[Weather] Geolocation denied/failed:", err);
+          btn.disabled = false;
+          btn.title = originalTitle;
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    }
+
+    document.getElementById("unitC").addEventListener("click", () => setUnit("C"));
+    document.getElementById("unitF").addEventListener("click", () => setUnit("F"));
+
+    // The whole card is an <a href="dashboard.html">, so stop this
+    // button from also triggering navigation when clicked.
+    document.getElementById("preciseLocationBtn").addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      usePreciseLocation();
+    });
+
+    // Initial load uses the default location; the user can upgrade to
+    // GPS precision any time via the button above.
+    loadWeatherFor(DEFAULT_WEATHER_LOCATION.lat, DEFAULT_WEATHER_LOCATION.lon, DEFAULT_WEATHER_LOCATION.name);
   </script>
 
 </body>
