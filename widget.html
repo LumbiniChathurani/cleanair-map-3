@@ -35,6 +35,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
+      width: 100%;
       height: 100%;
       min-height: 180px;
       padding: 0;
@@ -53,8 +54,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 15px;
-      padding: 14px 22px 16px;
+      gap: clamp(10px, 3vw, 15px);
+      padding: clamp(10px, 3vw, 14px) clamp(12px, 4vw, 22px) clamp(12px, 3vw, 16px);
 
       /* Forest watercolor background image with a very light lemon
          yellow translucent filter on top. */
@@ -91,7 +92,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 22px;
+      flex-wrap: wrap;
+      row-gap: 4px;
+      column-gap: 10px;
+      padding: clamp(8px, 2.5vw, 10px) clamp(12px, 4vw, 22px);
       border-radius: 16px 16px 0 0;
       position: sticky;
       top: 0;
@@ -122,18 +126,18 @@
     }
 
     .eyebrow {
-      font-size: 18px;
+      font-size: clamp(13px, 3.6vw, 18px);
       font-weight: 700;
       letter-spacing: 0.04em;
       color: var(--ink);
       white-space: nowrap;
     }
     .eyebrow1 {
-      font-size: 30px;
+      font-size: clamp(18px, 5.5vw, 30px);
       font-weight: 700;
       letter-spacing: 0.04em;
       color: var(--ink);
-      white-space: nowrap;
+      white-space: normal;
       position: relative;
       z-index: 1;
     }
@@ -175,13 +179,9 @@
       white-space: nowrap;
     }
 
-    /* --------------------------------------------------------
-       STATS GRID — each stat is now its own lighter (white)
-       box sitting on the slightly darker card background, so
-       the three readings read as distinct panels.
-       -------------------------------------------------------- */
     .stats-grid {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       align-items: stretch;
       gap: 10px;
       position: relative;
@@ -189,12 +189,11 @@
     }
 
     .stat-block {
-      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 5px;
       min-width: 0;
-      padding: 12px 14px;
+      padding: clamp(9px, 2.5vw, 12px) clamp(10px, 3vw, 14px);
       background: rgba(255, 255, 255, 0.92);
       border: 1px solid var(--hairline);
       border-radius: 12px;
@@ -225,20 +224,12 @@
       flex-shrink: 0;
     }
 
-    /* --------------------------------------------------------
-       WEATHER CARD — current-location weather (temp, precip,
-       humidity, wind) with a "use precise location" opt-in.
-       -------------------------------------------------------- */
-    /* Now a 4th column inside .stats-grid, sized like a .stat-block
-       (flex: 1, same padding/bg/border), just with weather-specific
-       internals swapped in below. */
     .weather-card {
-      flex: 1;
       min-width: 0;
       display: flex;
       flex-direction: column;
       gap: 5px;
-      padding: 12px 14px;
+      padding: clamp(9px, 2.5vw, 12px) clamp(10px, 3vw, 14px);
       background: rgba(255, 255, 255, 0.92);
       border: 1px solid var(--hairline);
       border-radius: 12px;
@@ -320,7 +311,7 @@
     }
 
     .weather-icon {
-      font-size: 22px;
+      font-size: clamp(17px, 4vw, 22px);
       line-height: 1;
       flex-shrink: 0;
     }
@@ -332,7 +323,7 @@
     }
 
     .weather-temp {
-      font-size: 26px;
+      font-size: clamp(19px, 5vw, 26px);
       font-weight: 800;
       color: var(--ink);
       letter-spacing: -0.02em;
@@ -400,8 +391,8 @@
     }
 
     .stat-face {
-      width: 40px;
-      height: 40px;
+      width: clamp(28px, 8vw, 40px);
+      height: clamp(28px, 8vw, 40px);
       flex-shrink: 0;
       border-radius: 50%;
       overflow: hidden;
@@ -417,7 +408,7 @@
     }
 
     .stat-value {
-      font-size: 30px;
+      font-size: clamp(19px, 6vw, 30px);
       font-weight: 800;
       line-height: 1.05;
       color: var(--ink);
@@ -473,7 +464,6 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      /*border-top: 1px solid var(--hairline);*/
       padding-top: 5px;
       position: relative;
       z-index: 1;
@@ -507,10 +497,66 @@
       color: var(--faint);
     }
 
-    @media (max-width: 380px) {
+    /* Tablet / narrow embeds: drop to a 2x2 grid, weather card
+       spans the full width beneath so it stays legible. */
+    @media (max-width: 640px) {
+      .widget-card {
+        min-height: 0;
+      }
+
       .stats-grid {
-        flex-direction: column;
-        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .weather-card {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* Small phones: stack everything into a single column and
+       let the cleanest/highest rows keep their face icon beside
+       the numbers rather than wrapping awkwardly. */
+    @media (max-width: 460px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .weather-card {
+        grid-column: auto;
+      }
+
+      .header-row {
+        justify-content: flex-start;
+      }
+
+      .eyebrow {
+        white-space: normal;
+      }
+
+      .refresh-caption {
+        margin-left: auto;
+      }
+
+      .bottom-row {
+        justify-content: center;
+      }
+    }
+
+    /* Very small phones / tight iframes: trim spacing further and
+       shrink the face icons so numbers never get clipped. */
+    @media (max-width: 340px) {
+      .card-body {
+        gap: 8px;
+      }
+
+      .stat-face {
+        width: 26px;
+        height: 26px;
+      }
+
+      .stat-unit {
+        font-size: 9px;
       }
     }
   </style>
@@ -665,19 +711,13 @@
       return "#7e0023";
     }
 
-    // --------------------------------------------------------
-    // AQI FACE ICONS — a small round face indicator next to the
-    // Cleanest / Highest AQI numbers, matching the standard AQI
-    // scale (Good -> Hazardous) with an expression + mask that
-    // gets progressively more protective as AQI worsens.
-    // --------------------------------------------------------
     const AQI_FACE_CONFIG = [
-      { bg: "#009966", stroke: "#101F26", mouth: "smile" },     // 0-50 Good
-      { bg: "#ffde33", stroke: "#101F26", mouth: "neutral" },   // 51-100 Moderate
-      { bg: "#ff9933", stroke: "#101F26", mouth: "worried" },   // 101-150 Unhealthy for sensitive groups
-      { bg: "#cc0033", stroke: "#ffffff", mouth: "mask" },      // 151-200 Unhealthy
-      { bg: "#660099", stroke: "#ffffff", mouth: "gasmask" },   // 201-300 Very Unhealthy
-      { bg: "#7e0023", stroke: "#ffffff", mouth: "respirator" } // 301+ Hazardous
+      { bg: "#009966", stroke: "#101F26", mouth: "smile" },
+      { bg: "#ffde33", stroke: "#101F26", mouth: "neutral" },
+      { bg: "#ff9933", stroke: "#101F26", mouth: "worried" },
+      { bg: "#cc0033", stroke: "#ffffff", mouth: "mask" },
+      { bg: "#660099", stroke: "#ffffff", mouth: "gasmask" },
+      { bg: "#7e0023", stroke: "#ffffff", mouth: "respirator" }
     ];
 
     function buildAQIFace(bg, stroke, mouth) {
@@ -757,10 +797,6 @@
       return ageHours > STALE_THRESHOLD_HOURS;
     }
 
-    // Same dedup logic as dashboard.html — collapses duplicate entries
-    // for the same physical station (identical name+coords, different
-    // fetchedAt) down to just the freshest reading, so the "online"
-    // count here matches what the dashboard reports.
     function dedupeStations(stations) {
       const groups = new Map();
 
@@ -847,9 +883,6 @@
         }));
 
         const active = dedupeStations(mapped).filter(st => !st.isStale);
-        // Some stations report aqi: 0, which is a sensor/data error rather
-        // than an actual "perfect air quality" reading — exclude those so
-        // they don't wrongly win the "cleanest" spot.
         const withReadings = active.filter(
           st => st.aqi !== null && st.aqi !== undefined && st.aqi !== 0
         );
@@ -887,35 +920,25 @@
 
     loadWidget();
 
-    // Refresh every 10 minutes so an embedded widget doesn't go stale
-    // while sitting on a page the visitor keeps open.
     setInterval(loadWidget, 10 * 60 * 1000);
 
-    // --------------------------------------------------------
-    // CURRENT-LOCATION WEATHER
-    // Data: Open-Meteo (free, no key) for temperature / humidity /
-    // wind / precipitation probability. Location name: BigDataCloud's
-    // free client-side reverse geocoder (no key). Falls back to a
-    // default city until the user opts in via "Use precise location",
-    // which triggers the browser's geolocation permission prompt.
-    // --------------------------------------------------------
     const DEFAULT_WEATHER_LOCATION = { lat: 6.9271, lon: 79.8612, name: "Colombo" };
     let weatherUnit = "C";
     let lastTempC = null;
 
     const WEATHER_ICONS = {
-      0: "\u2600\uFE0F",   // clear sky
-      1: "\uD83C\uDF24\uFE0F", // mainly clear
-      2: "\u26C5",         // partly cloudy
-      3: "\u2601\uFE0F",   // overcast
-      45: "\uD83C\uDF2B\uFE0F", 48: "\uD83C\uDF2B\uFE0F", // fog
-      51: "\uD83C\uDF26\uFE0F", 53: "\uD83C\uDF26\uFE0F", 55: "\uD83C\uDF26\uFE0F", // drizzle
-      61: "\uD83C\uDF27\uFE0F", 63: "\uD83C\uDF27\uFE0F", 65: "\uD83C\uDF27\uFE0F", // rain
+      0: "\u2600\uFE0F",
+      1: "\uD83C\uDF24\uFE0F",
+      2: "\u26C5",
+      3: "\u2601\uFE0F",
+      45: "\uD83C\uDF2B\uFE0F", 48: "\uD83C\uDF2B\uFE0F",
+      51: "\uD83C\uDF26\uFE0F", 53: "\uD83C\uDF26\uFE0F", 55: "\uD83C\uDF26\uFE0F",
+      61: "\uD83C\uDF27\uFE0F", 63: "\uD83C\uDF27\uFE0F", 65: "\uD83C\uDF27\uFE0F",
       66: "\uD83C\uDF27\uFE0F", 67: "\uD83C\uDF27\uFE0F",
-      71: "\uD83C\uDF28\uFE0F", 73: "\uD83C\uDF28\uFE0F", 75: "\uD83C\uDF28\uFE0F", 77: "\uD83C\uDF28\uFE0F", // snow
-      80: "\uD83C\uDF26\uFE0F", 81: "\uD83C\uDF26\uFE0F", 82: "\uD83C\uDF27\uFE0F", // showers
-      85: "\uD83C\uDF28\uFE0F", 86: "\uD83C\uDF28\uFE0F", // snow showers
-      95: "\u26C8\uFE0F", 96: "\u26C8\uFE0F", 99: "\u26C8\uFE0F" // thunderstorm
+      71: "\uD83C\uDF28\uFE0F", 73: "\uD83C\uDF28\uFE0F", 75: "\uD83C\uDF28\uFE0F", 77: "\uD83C\uDF28\uFE0F",
+      80: "\uD83C\uDF26\uFE0F", 81: "\uD83C\uDF26\uFE0F", 82: "\uD83C\uDF27\uFE0F",
+      85: "\uD83C\uDF28\uFE0F", 86: "\uD83C\uDF28\uFE0F",
+      95: "\u26C8\uFE0F", 96: "\u26C8\uFE0F", 99: "\u26C8\uFE0F"
     };
 
     function getWeatherIcon(code) {
@@ -987,8 +1010,6 @@
         humidityEl.textContent = Math.round(current.relative_humidity_2m);
         windEl.textContent = Math.round(current.wind_speed_10m);
 
-        // Match the current hour against the hourly precipitation
-        // probability series to show a "right now" percentage.
         let precipValue = "--";
         if (weatherData.hourly && weatherData.hourly.time) {
           const idx = weatherData.hourly.time.indexOf(current.time);
@@ -1030,20 +1051,11 @@
           btn.title = originalTitle;
 
           const locationNameEl = document.getElementById("weatherLocationName");
-          // code 1 = PERMISSION_DENIED. When this widget is embedded in a
-          // cross-origin iframe (e.g. on cleanair.lk), browsers block
-          // geolocation by default unless the embedding page's <iframe>
-          // tag includes allow="geolocation" — in that case the browser
-          // never even shows a permission prompt, it just rejects
-          // instantly, which otherwise looks like the button "does
-          // nothing." Surface that here instead of failing silently.
           const message = err.code === 1
             ? "Location blocked by this page"
             : "Location unavailable";
           locationNameEl.textContent = message;
           setTimeout(() => {
-            // Restore whatever location name was showing before, once
-            // the user has had a chance to see the message.
             if (locationNameEl.textContent === message) {
               locationNameEl.textContent = DEFAULT_WEATHER_LOCATION.name;
             }
@@ -1056,16 +1068,12 @@
     document.getElementById("unitC").addEventListener("click", () => setUnit("C"));
     document.getElementById("unitF").addEventListener("click", () => setUnit("F"));
 
-    // The whole card is an <a href="dashboard.html">, so stop this
-    // button from also triggering navigation when clicked.
     document.getElementById("preciseLocationBtn").addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       usePreciseLocation();
     });
 
-    // Initial load uses the default location; the user can upgrade to
-    // GPS precision any time via the button above.
     loadWeatherFor(DEFAULT_WEATHER_LOCATION.lat, DEFAULT_WEATHER_LOCATION.lon, DEFAULT_WEATHER_LOCATION.name);
   </script>
 
