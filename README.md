@@ -1,15 +1,20 @@
 🌍 CleanAir Sri Lanka – Real-Time Air Quality Map
 
+
 An interactive web application that visualizes real-time Air Quality Index (AQI) data across Sri Lanka. The map combines data from multiple air quality providers and displays live AQI values through an intuitive, interactive interface.
 To overcome the request limitations of free APIs, the application uses GitHub Actions workflows to periodically fetch air quality data and cache it in JSON files, providing fast page loads while staying within API usage limits.
-Live Demo: https://lumbinichathurani.github.io/cleanair-map-3/
+
+
 ________________________________________
 
 ✨ Features
 
 🌍 Interactive Air Quality Map
+
 •	Displays real-time AQI values for monitoring stations across Sri Lanka.
+
 •	Interactive Leaflet.js map with zoom and pan support.
+
 •	Responsive design for desktop and mobile devices.
 
 <img width="400" height="350" alt="map1" src="https://github.com/user-attachments/assets/b8d27660-cf70-4aa4-be50-ea3c5d10113f" />
@@ -19,7 +24,9 @@ ________________________________________
 The application collects AQI data from:
 
 •	IQAir API
+
 •	PurpleAir API
+
 •	World Air Quality Index (WAQI) API
 
 Users can filter stations by data source using built-in source selection checkboxes.
@@ -35,7 +42,9 @@ GitHub Workflows
 Three independent workflows automatically fetch data from:
 
 •	IQAir
+
 •	PurpleAir
+
 •	WAQI
 
 These workflows run at scheduled intervals and update local JSON files used by the website.
@@ -45,7 +54,9 @@ Secure API Management
 API credentials are securely stored using GitHub Secrets.
 
 •	IQAir API Key
+
 •	PurpleAir API Key
+
 •	WAQI Access Token
 
 This keeps sensitive credentials out of the source code.
@@ -61,7 +72,9 @@ aq_stations.json
 Stores:
 
 •	Current AQI
+
 •	Station information
+
 •	Latest update time
 
 This file is refreshed whenever a scheduled workflow runs.
@@ -71,7 +84,9 @@ history.json
 Stores historical AQI values.
 
 •	Previous readings are automatically moved here.
+
 •	Stores hourly data for the previous 7 days.
+
 •	Older records are automatically removed after seven days.
 
 This lightweight approach avoids using a backend database while maintaining recent historical data.
@@ -91,6 +106,7 @@ Popup
 Displays:
 
 •	Station name
+
 •	Current AQI
 
 Sidebar
@@ -98,8 +114,11 @@ Sidebar
 Displays:
 
 •	Station name
+
 •	Current AQI
+
 •	Last updated time
+
 •	Interactive 7-day hourly AQI history chart
 
  <img width="400" height="350" alt="map3" src="https://github.com/user-attachments/assets/7640406d-b29f-4685-9e87-df38713efcad" />
@@ -113,6 +132,7 @@ The application includes multiple optional layers.
 Administrative Population Layers
 
 •	GN Division Population Layer
+
 •	DS Division Population Layer
 
 These layers use compressed TopoJSON files to improve loading performance.
@@ -125,10 +145,15 @@ ________________________________________
 🎨 User Interface Features
 
 •	Light Mode / Dark Mode
+
 •	AQI Color Scale Legend
+
 •	Reset View button
+
 •	Responsive layout
+
 •	Interactive side panel
+
 •	Source filtering controls
 
 ________________________________________
@@ -140,8 +165,11 @@ Along with the map, the project includes a real-time dashboard widget powered by
 The widget displays:
 
 •	🌿 Cleanest AQI station
+
 •	⚠️ Highest AQI station
+
 •	📍 Number of online monitoring stations
+
 •	🌤 Current location weather information
 
 <img width="1398" height="350" alt="aqwidget" src="https://github.com/user-attachments/assets/bef3731f-7f29-4c61-bef2-e42a5a9f0bc3" />
@@ -160,9 +188,13 @@ ________________________________________
 Several optimizations were implemented to improve loading speed.
 
 •	Lazy loading of large JSON datasets
+
 •	Compressed TopoJSON layers
+
 •	Client-side caching through scheduled data generation
+
 •	Optimized Leaflet rendering
+
 •	Reduced API requests by serving cached data
 
 Performance was evaluated using GTmetrix.
@@ -173,16 +205,27 @@ ________________________________________
 🛠 Technologies Used
 
 •	Python
+
 •	HTML5
+
 •	CSS3
+
 •	JavaScript
+
 •	Leaflet.js
+
 •	GitHub Actions
+
 •	GitHub Pages
+
 •	TopoJSON
+
 •	Chart.js
+
 •	IQAir API
+
 •	PurpleAir API
+
 •	WAQI API
 ________________________________________
 
@@ -198,18 +241,8 @@ Open index.html using a local web server (recommended) or deploy to GitHub Pages
 
 ________________________________________
 
-📂 Repository Structure
-├── .github/
-│   └── workflows/
-├── data/
-│   ├── aq_stations.json
-│   ├── history.json
-│   └── ...
-├── js/
-├── css/
-├── assets/
-├── index.html
-└── README.md
+<img width="232" height="433" alt="repostructure" src="https://github.com/user-attachments/assets/4ac25451-35bc-44b1-aa21-429d3afbdb69" />
+
 
 ________________________________________
 
@@ -226,9 +259,13 @@ ________________________________________
 Future Improvements
 
 •	Air quality forecasting
+
 •	Additional environmental data layers
+
 •	Historical trend comparisons
+
 •	Station search and filtering
+
 •	Push notifications for unhealthy AQI levels
 
 
