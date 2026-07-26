@@ -4,6 +4,9 @@
 An interactive web application that visualizes real-time Air Quality Index (AQI) data across Sri Lanka. The map combines data from multiple air quality providers and displays live AQI values through an intuitive, interactive interface.
 To overcome the request limitations of free APIs, the application uses GitHub Actions workflows to periodically fetch air quality data and cache it in JSON files, providing fast page loads while staying within API usage limits.
 
+## 🌐 Live Map
+
+Visit **CleanAir.lk** to explore the live interactive air quality map.
 
 ________________________________________
 
