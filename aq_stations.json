@@ -142649,13 +142649,13 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.0,
+        "pm25_10min": 0.1,
         "aqi": 0,
         "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-08-02T21:31:06Z"
+        "fetchedAt": "2026-08-02T22:31:52Z"
     },
     {
         "source": "PurpleAir",
@@ -142677,18 +142677,18 @@
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-08-02T21:31:06Z"
+        "fetchedAt": "2026-08-02T22:31:52Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 0.2,
+        "pm25_10min": 0.3,
         "aqi": 1,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-08-02T21:31:07Z"
+        "fetchedAt": "2026-08-02T22:31:52Z"
     },
     {
         "source": "WAQI",
