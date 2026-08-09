@@ -723,37 +723,37 @@
         "nearest_station": "Colombo",
         "aqi": 44,
         "category": "Good",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.9271,
         "lon": 79.8612,
-        "fetchedAt": "2026-08-09T22:32:58Z"
+        "fetchedAt": "2026-08-09T23:32:48Z"
     },
     {
         "stationId": "iqair_battaramulla_6.8990_79.9230",
         "source": "IQAir",
         "name": "Battaramulla",
         "nearest_station": "Battaramulla",
-        "aqi": 55,
+        "aqi": 56,
         "category": "Moderate",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.899,
         "lon": 79.923,
-        "fetchedAt": "2026-08-09T22:32:59Z"
+        "fetchedAt": "2026-08-09T23:32:49Z"
     },
     {
         "stationId": "iqair_gampaha_7.0860_79.9990",
         "source": "IQAir",
         "name": "Gampaha",
         "nearest_station": "Gampaha",
-        "aqi": 49,
-        "category": "Good",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "aqi": 56,
+        "category": "Moderate",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.086,
         "lon": 79.999,
-        "fetchedAt": "2026-08-09T22:33:00Z"
+        "fetchedAt": "2026-08-09T23:32:50Z"
     },
     {
         "stationId": "iqair_digana_7.2970_80.7600",
@@ -762,50 +762,50 @@
         "nearest_station": "Digana",
         "aqi": 44,
         "category": "Good",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.297,
         "lon": 80.76,
-        "fetchedAt": "2026-08-09T22:33:00Z"
+        "fetchedAt": "2026-08-09T23:32:51Z"
     },
     {
         "stationId": "iqair_anuradhapura_8.3114_80.4037",
         "source": "IQAir",
         "name": "Anuradhapura",
         "nearest_station": "Anuradhapura",
-        "aqi": 49,
-        "category": "Good",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "aqi": 52,
+        "category": "Moderate",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 8.3114,
         "lon": 80.4037,
-        "fetchedAt": "2026-08-09T22:33:01Z"
+        "fetchedAt": "2026-08-09T23:32:52Z"
     },
     {
         "stationId": "iqair_batticaloa_7.7170_81.7000",
         "source": "IQAir",
         "name": "Batticaloa",
         "nearest_station": "Batticaloa",
-        "aqi": 62,
+        "aqi": 60,
         "category": "Moderate",
-        "timestamp": "2026-08-09T21:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.717,
         "lon": 81.7,
-        "fetchedAt": "2026-08-09T21:35:09Z"
+        "fetchedAt": "2026-08-09T23:33:51Z"
     },
     {
         "stationId": "iqair_galle_6.0535_80.2210",
         "source": "IQAir",
         "name": "Galle",
         "nearest_station": "Galle",
-        "aqi": 86,
+        "aqi": 73,
         "category": "Moderate",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.0535,
         "lon": 80.221,
-        "fetchedAt": "2026-08-09T22:34:09Z"
+        "fetchedAt": "2026-08-09T23:33:52Z"
     },
     {
         "stationId": "iqair_kurunegala_7.4867_80.3647",
@@ -814,11 +814,11 @@
         "nearest_station": "Kurunegala",
         "aqi": 44,
         "category": "Good",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.4867,
         "lon": 80.3647,
-        "fetchedAt": "2026-08-09T22:34:09Z"
+        "fetchedAt": "2026-08-09T23:33:53Z"
     },
     {
         "stationId": "iqair_ratnapura_6.6828_80.3992",
@@ -827,24 +827,24 @@
         "nearest_station": "Ratnapura",
         "aqi": 55,
         "category": "Moderate",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.6828,
         "lon": 80.3992,
-        "fetchedAt": "2026-08-09T22:34:10Z"
+        "fetchedAt": "2026-08-09T23:33:54Z"
     },
     {
         "stationId": "iqair_bandarawela_6.8289_80.9870",
         "source": "IQAir",
         "name": "Bandarawela",
         "nearest_station": "Bandarawela",
-        "aqi": 22,
+        "aqi": 17,
         "category": "Good",
-        "timestamp": "2026-08-09T22:00:00.000Z",
+        "timestamp": "2026-08-09T23:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.8289,
         "lon": 80.987,
-        "fetchedAt": "2026-08-09T22:34:11Z"
+        "fetchedAt": "2026-08-09T23:33:55Z"
     },
     {
         "source": "WAQI",
