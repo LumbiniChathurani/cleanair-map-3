@@ -4369,13 +4369,13 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 3,
+        "aqi": 0,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169",
-        "fetchedAt": "2026-08-18T04:41:44Z"
+        "fetchedAt": "2026-08-18T05:35:19Z"
     },
     {
         "source": "WAQI",
@@ -34660,13 +34660,13 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 14,
+        "aqi": 10,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219",
-        "fetchedAt": "2026-08-18T04:41:34Z"
+        "fetchedAt": "2026-08-18T05:35:17Z"
     },
     {
         "source": "WAQI",
@@ -214834,5 +214834,27 @@
         "lon": 79.9223,
         "stationId": "waqi_-2429083",
         "fetchedAt": "2026-08-18T04:41:43Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mullaitivu",
+        "aqi": 41,
+        "pm25": null,
+        "category": "Good",
+        "lat": 9.270252,
+        "lon": 80.814306,
+        "stationId": "waqi_-2429230",
+        "fetchedAt": "2026-08-18T05:35:20Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mannar",
+        "aqi": 57,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 8.988006,
+        "lon": 79.907524,
+        "stationId": "waqi_-2429107",
+        "fetchedAt": "2026-08-18T05:35:21Z"
     }
 ]
