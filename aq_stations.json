@@ -4369,13 +4369,13 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 2,
+        "aqi": 0,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169",
-        "fetchedAt": "2026-08-20T10:37:09Z"
+        "fetchedAt": "2026-08-20T11:32:59Z"
     },
     {
         "source": "WAQI",
@@ -34660,13 +34660,13 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 56,
+        "aqi": 27,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219",
-        "fetchedAt": "2026-08-20T10:37:03Z"
+        "fetchedAt": "2026-08-20T11:32:54Z"
     },
     {
         "source": "WAQI",
@@ -220345,5 +220345,126 @@
         "lon": 80.029483,
         "stationId": "waqi_-2451319",
         "fetchedAt": "2026-08-20T10:37:12Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kilinochchi",
+        "aqi": 62,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.391753,
+        "lon": 80.405712,
+        "stationId": "waqi_-2451709",
+        "fetchedAt": "2026-08-20T11:32:55Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Jaffna",
+        "aqi": 56,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.660709,
+        "lon": 80.029483,
+        "stationId": "waqi_-2451700",
+        "fetchedAt": "2026-08-20T11:32:56Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Ella",
+        "aqi": 28,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.8751,
+        "lon": 81.0475,
+        "stationId": "waqi_-2451691",
+        "fetchedAt": "2026-08-20T11:32:57Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 29,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-2451685",
+        "fetchedAt": "2026-08-20T11:32:58Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Anuradhapura",
+        "aqi": 35,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.334085,
+        "lon": 80.41487,
+        "stationId": "waqi_-2451697",
+        "fetchedAt": "2026-08-20T11:33:00Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Chilaw",
+        "aqi": 61,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.572222,
+        "lon": 79.801601,
+        "stationId": "waqi_-2451703",
+        "fetchedAt": "2026-08-20T11:33:01Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Nilaveli Beach Trincomalee",
+        "aqi": 41,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.706122,
+        "lon": 81.188672,
+        "stationId": "waqi_-2451688",
+        "fetchedAt": "2026-08-20T11:33:02Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mullaitivu",
+        "aqi": 54,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.270252,
+        "lon": 80.814306,
+        "stationId": "waqi_-2451601",
+        "fetchedAt": "2026-08-20T11:33:02Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mannar",
+        "aqi": 28,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.988006,
+        "lon": 79.907524,
+        "stationId": "waqi_-2451706",
+        "fetchedAt": "2026-08-20T11:33:03Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Akkaraipattu",
+        "aqi": 59,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.2314,
+        "lon": 81.8517,
+        "stationId": "waqi_-2451694",
+        "fetchedAt": "2026-08-20T11:33:04Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Rathnapura",
+        "aqi": 33,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.682721,
+        "lon": 80.398273,
+        "stationId": "waqi_-2451712",
+        "fetchedAt": "2026-08-20T11:33:05Z"
     }
 ]
