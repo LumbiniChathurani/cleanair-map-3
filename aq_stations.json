@@ -4375,7 +4375,7 @@
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169",
-        "fetchedAt": "2026-08-20T19:36:39Z"
+        "fetchedAt": "2026-08-20T20:35:38Z"
     },
     {
         "source": "WAQI",
@@ -34660,13 +34660,13 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 17,
+        "aqi": 20,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219",
-        "fetchedAt": "2026-08-20T19:36:43Z"
+        "fetchedAt": "2026-08-20T20:35:39Z"
     },
     {
         "source": "WAQI",
@@ -221246,7 +221246,7 @@
         "lat": 9.270252,
         "lon": 80.814306,
         "stationId": "waqi_-2454952",
-        "fetchedAt": "2026-08-20T19:36:37Z"
+        "fetchedAt": "2026-08-20T20:35:45Z"
     },
     {
         "source": "WAQI",
@@ -221313,5 +221313,27 @@
         "lon": 80.405712,
         "stationId": "waqi_-2455105",
         "fetchedAt": "2026-08-20T19:36:43Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kilinochchi",
+        "aqi": 34,
+        "pm25": null,
+        "category": "Good",
+        "lat": 9.391753,
+        "lon": 80.405712,
+        "stationId": "waqi_-2455471",
+        "fetchedAt": "2026-08-20T20:35:36Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Jaffna",
+        "aqi": 41,
+        "pm25": null,
+        "category": "Good",
+        "lat": 9.660709,
+        "lon": 80.029483,
+        "stationId": "waqi_-2455462",
+        "fetchedAt": "2026-08-20T20:35:37Z"
     }
 ]
