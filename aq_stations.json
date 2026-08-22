@@ -4369,13 +4369,13 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 3,
+        "aqi": 1,
         "pm25": null,
         "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169",
-        "fetchedAt": "2026-08-22T16:31:41Z"
+        "fetchedAt": "2026-08-22T17:26:19Z"
     },
     {
         "source": "WAQI",
@@ -34660,13 +34660,13 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 8,
+        "aqi": 4,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219",
-        "fetchedAt": "2026-08-22T16:31:46Z"
+        "fetchedAt": "2026-08-22T17:26:19Z"
     },
     {
         "source": "WAQI",
@@ -225910,6 +225910,6 @@
         "lat": 9.270252,
         "lon": 80.814306,
         "stationId": "waqi_-2473504",
-        "fetchedAt": "2026-08-22T16:31:48Z"
+        "fetchedAt": "2026-08-22T17:26:17Z"
     }
 ]
