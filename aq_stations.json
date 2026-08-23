@@ -34660,13 +34660,13 @@
     {
         "source": "WAQI",
         "name": "Kohuwla",
-        "aqi": 6,
+        "aqi": 7,
         "pm25": null,
         "category": "Good",
         "lat": 6.870283,
         "lon": 79.8771,
         "stationId": "waqi_-982219",
-        "fetchedAt": "2026-08-23T01:48:37Z"
+        "fetchedAt": "2026-08-23T03:09:16Z"
     },
     {
         "source": "WAQI",
@@ -226582,5 +226582,126 @@
         "lon": 80.814306,
         "stationId": "waqi_-2477539",
         "fetchedAt": "2026-08-23T01:48:44Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Rathnapura",
+        "aqi": 58,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 6.682721,
+        "lon": 80.398273,
+        "stationId": "waqi_-2478118",
+        "fetchedAt": "2026-08-23T03:09:16Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Chilaw",
+        "aqi": 44,
+        "pm25": null,
+        "category": "Good",
+        "lat": 7.572222,
+        "lon": 79.801601,
+        "stationId": "waqi_-2478109",
+        "fetchedAt": "2026-08-23T03:09:17Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mullaitivu",
+        "aqi": 52,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.270252,
+        "lon": 80.814306,
+        "stationId": "waqi_-2478079",
+        "fetchedAt": "2026-08-23T03:09:18Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Mannar",
+        "aqi": 32,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.988006,
+        "lon": 79.907524,
+        "stationId": "waqi_-2478112",
+        "fetchedAt": "2026-08-23T03:09:19Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Jaffna",
+        "aqi": 56,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.660709,
+        "lon": 80.029483,
+        "stationId": "waqi_-2478106",
+        "fetchedAt": "2026-08-23T03:09:20Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Akkaraipattu",
+        "aqi": 48,
+        "pm25": null,
+        "category": "Good",
+        "lat": 7.2314,
+        "lon": 81.8517,
+        "stationId": "waqi_-2478100",
+        "fetchedAt": "2026-08-23T03:09:21Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Ella",
+        "aqi": 23,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.8751,
+        "lon": 81.0475,
+        "stationId": "waqi_-2478097",
+        "fetchedAt": "2026-08-23T03:09:21Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Battaramulla",
+        "aqi": 29,
+        "pm25": null,
+        "category": "Good",
+        "lat": 6.898,
+        "lon": 79.9223,
+        "stationId": "waqi_-2478124",
+        "fetchedAt": "2026-08-23T03:09:22Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Anuradhapura",
+        "aqi": 38,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.334085,
+        "lon": 80.41487,
+        "stationId": "waqi_-2478103",
+        "fetchedAt": "2026-08-23T03:09:23Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Nilaveli Beach Trincomalee",
+        "aqi": 28,
+        "pm25": null,
+        "category": "Good",
+        "lat": 8.706122,
+        "lon": 81.188672,
+        "stationId": "waqi_-2478094",
+        "fetchedAt": "2026-08-23T03:09:24Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kilinochchi",
+        "aqi": 72,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 9.391753,
+        "lon": 80.405712,
+        "stationId": "waqi_-2478115",
+        "fetchedAt": "2026-08-23T03:09:25Z"
     }
 ]
