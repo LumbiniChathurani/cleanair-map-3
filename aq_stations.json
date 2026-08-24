@@ -142649,13 +142649,13 @@
     {
         "source": "PurpleAir",
         "name": "FECT - Puttalam HCC",
-        "pm25_10min": 0.1,
+        "pm25_10min": 0.0,
         "aqi": 0,
         "category": "Good",
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-08-24T22:19:55Z"
+        "fetchedAt": "2026-08-24T22:47:32Z"
     },
     {
         "source": "PurpleAir",
@@ -142677,7 +142677,7 @@
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-08-24T22:19:55Z"
+        "fetchedAt": "2026-08-24T22:47:32Z"
     },
     {
         "source": "PurpleAir",
@@ -142688,7 +142688,7 @@
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-08-24T22:19:57Z"
+        "fetchedAt": "2026-08-24T22:47:32Z"
     },
     {
         "source": "WAQI",
