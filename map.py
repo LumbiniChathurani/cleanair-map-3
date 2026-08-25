@@ -165,6 +165,7 @@ IQAIR_CITIES = [
 
     # North Western Province
     {"city": "Kurunegala", "lat": 7.4867, "lon": 80.3647},
+    {"city": "Puttalam", "lat": 8.0362, "lon": 79.8283}, 
 
     # Sabaragamuwa Province
     {"city": "Ratnapura", "lat": 6.6828, "lon": 80.3992},
