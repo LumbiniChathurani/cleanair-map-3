@@ -727,7 +727,7 @@
         "main_pollutant": "p2",
         "lat": 6.9271,
         "lon": 79.8612,
-        "fetchedAt": "2026-08-25T05:33:06Z"
+        "fetchedAt": "2026-08-25T05:58:04Z"
     },
     {
         "stationId": "iqair_battaramulla_6.8990_79.9230",
@@ -740,7 +740,7 @@
         "main_pollutant": "p2",
         "lat": 6.899,
         "lon": 79.923,
-        "fetchedAt": "2026-08-25T05:33:07Z"
+        "fetchedAt": "2026-08-25T05:58:05Z"
     },
     {
         "stationId": "iqair_gampaha_7.0860_79.9990",
@@ -753,7 +753,7 @@
         "main_pollutant": "p2",
         "lat": 7.086,
         "lon": 79.999,
-        "fetchedAt": "2026-08-25T05:33:07Z"
+        "fetchedAt": "2026-08-25T05:58:06Z"
     },
     {
         "stationId": "iqair_digana_7.2970_80.7600",
@@ -766,7 +766,7 @@
         "main_pollutant": "p2",
         "lat": 7.297,
         "lon": 80.76,
-        "fetchedAt": "2026-08-25T05:33:08Z"
+        "fetchedAt": "2026-08-25T05:58:06Z"
     },
     {
         "stationId": "iqair_anuradhapura_8.3114_80.4037",
@@ -779,7 +779,7 @@
         "main_pollutant": "p2",
         "lat": 8.3114,
         "lon": 80.4037,
-        "fetchedAt": "2026-08-25T05:33:09Z"
+        "fetchedAt": "2026-08-25T05:58:07Z"
     },
     {
         "stationId": "iqair_batticaloa_7.7170_81.7000",
@@ -805,7 +805,7 @@
         "main_pollutant": "p2",
         "lat": 6.0535,
         "lon": 80.221,
-        "fetchedAt": "2026-08-25T05:34:10Z"
+        "fetchedAt": "2026-08-25T05:59:15Z"
     },
     {
         "stationId": "iqair_kurunegala_7.4867_80.3647",
@@ -818,7 +818,7 @@
         "main_pollutant": "p2",
         "lat": 7.4867,
         "lon": 80.3647,
-        "fetchedAt": "2026-08-25T05:34:11Z"
+        "fetchedAt": "2026-08-25T05:59:15Z"
     },
     {
         "stationId": "iqair_ratnapura_6.6828_80.3992",
@@ -831,7 +831,7 @@
         "main_pollutant": "p2",
         "lat": 6.6828,
         "lon": 80.3992,
-        "fetchedAt": "2026-08-25T05:34:11Z"
+        "fetchedAt": "2026-08-25T05:59:16Z"
     },
     {
         "stationId": "iqair_bandarawela_6.8289_80.9870",
@@ -844,7 +844,7 @@
         "main_pollutant": "p2",
         "lat": 6.8289,
         "lon": 80.987,
-        "fetchedAt": "2026-08-25T05:34:12Z"
+        "fetchedAt": "2026-08-25T05:59:17Z"
     },
     {
         "source": "WAQI",
@@ -231752,5 +231752,18 @@
         "lon": 80.405712,
         "stationId": "waqi_-2499463",
         "fetchedAt": "2026-08-25T05:37:21Z"
+    },
+    {
+        "stationId": "iqair_puttalam_8.0362_79.8283",
+        "source": "IQAir",
+        "name": "Puttalam",
+        "nearest_station": "Puttalam",
+        "aqi": 41,
+        "category": "Good",
+        "timestamp": "2026-08-25T05:00:00.000Z",
+        "main_pollutant": "p2",
+        "lat": 8.0362,
+        "lon": 79.8283,
+        "fetchedAt": "2026-08-25T05:59:16Z"
     }
 ]

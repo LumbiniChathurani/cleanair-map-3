@@ -188840,5 +188840,12 @@
       "aqi": 129,
       "source": "waqi"
     }
+  ],
+  "iqair_puttalam_8.0362_79.8283": [
+    {
+      "time": "2026-08-25T05:00:00Z",
+      "aqi": 41,
+      "source": "iqair"
+    }
   ]
 }
