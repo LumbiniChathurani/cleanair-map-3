@@ -142655,7 +142655,7 @@
         "lat": 8.033402,
         "lon": 79.832245,
         "stationId": "purpleair_21935",
-        "fetchedAt": "2026-09-03T04:39:10Z"
+        "fetchedAt": "2026-09-03T09:09:45Z"
     },
     {
         "source": "PurpleAir",
@@ -142671,13 +142671,13 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 14.0,
-        "aqi": 55,
+        "pm25_10min": 15.8,
+        "aqi": 59,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-09-03T04:39:10Z"
+        "fetchedAt": "2026-09-03T09:09:45Z"
     },
     {
         "source": "PurpleAir",
@@ -142688,7 +142688,7 @@
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-09-03T04:39:11Z"
+        "fetchedAt": "2026-09-03T09:09:45Z"
     },
     {
         "source": "WAQI",
