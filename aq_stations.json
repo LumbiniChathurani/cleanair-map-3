@@ -142671,13 +142671,13 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 36.6,
-        "aqi": 104,
-        "category": "Unhealthy for Sensitive Groups",
+        "pm25_10min": 33.0,
+        "aqi": 95,
+        "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-09-09T17:56:52Z"
+        "fetchedAt": "2026-09-09T20:19:48Z"
     },
     {
         "source": "PurpleAir",
@@ -142688,7 +142688,7 @@
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-09-09T17:56:53Z"
+        "fetchedAt": "2026-09-09T20:19:48Z"
     },
     {
         "source": "WAQI",
