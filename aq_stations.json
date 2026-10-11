@@ -142671,24 +142671,24 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 17.7,
-        "aqi": 63,
+        "pm25_10min": 21.6,
+        "aqi": 71,
         "category": "Moderate",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-10-10T22:00:58Z"
+        "fetchedAt": "2026-10-11T00:53:16Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 13.7,
-        "aqi": 54,
+        "pm25_10min": 14.2,
+        "aqi": 55,
         "category": "Moderate",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-10-10T22:00:59Z"
+        "fetchedAt": "2026-10-11T00:53:17Z"
     },
     {
         "source": "WAQI",
