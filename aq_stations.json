@@ -4369,13 +4369,13 @@
     {
         "source": "WAQI",
         "name": "Perera Mawatha",
-        "aqi": 67,
+        "aqi": 0,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Good",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169",
-        "fetchedAt": "2026-10-20T00:13:21Z"
+        "fetchedAt": "2026-10-20T05:49:59Z"
     },
     {
         "source": "WAQI",
