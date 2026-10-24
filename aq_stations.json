@@ -122,13 +122,13 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 14,
+        "aqi": 11,
         "pm25": null,
         "category": "Good",
         "lat": 7.862204,
         "lon": 80.64585,
         "stationId": "waqi_-562156",
-        "fetchedAt": "2026-10-23T23:00:15Z"
+        "fetchedAt": "2026-10-24T01:30:46Z"
     },
     {
         "source": "WAQI",
@@ -189,7 +189,7 @@
         "lat": 6.990113,
         "lon": 81.05676,
         "stationId": "waqi_-562138",
-        "fetchedAt": "2026-10-23T23:00:09Z"
+        "fetchedAt": "2026-10-24T01:30:37Z"
     },
     {
         "source": "WAQI",
@@ -235,13 +235,13 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 35,
+        "aqi": 6,
         "pm25": null,
         "category": "Good",
         "lat": 8.761628,
         "lon": 80.49619,
         "stationId": "waqi_-562240",
-        "fetchedAt": "2026-10-23T23:00:24Z"
+        "fetchedAt": "2026-10-24T01:30:42Z"
     },
     {
         "source": "WAQI",
@@ -368,13 +368,13 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 28,
+        "aqi": 51,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 9.737238,
         "lon": 80.019455,
         "stationId": "waqi_-562165",
-        "fetchedAt": "2026-10-23T23:00:07Z"
+        "fetchedAt": "2026-10-24T01:30:44Z"
     },
     {
         "source": "WAQI",
@@ -89471,13 +89471,13 @@
     {
         "source": "WAQI",
         "name": "Hambantota",
-        "aqi": 16,
+        "aqi": 23,
         "pm25": null,
         "category": "Good",
         "lat": 6.1242557,
         "lon": 81.12618,
         "stationId": "waqi_-562249",
-        "fetchedAt": "2026-10-23T23:00:19Z"
+        "fetchedAt": "2026-10-24T01:30:30Z"
     },
     {
         "source": "WAQI",
@@ -269341,5 +269341,16 @@
         "lon": 80.6337,
         "stationId": "waqi_-3104233",
         "fetchedAt": "2026-10-23T23:00:22Z"
+    },
+    {
+        "source": "WAQI",
+        "name": "Kandy",
+        "aqi": 54,
+        "pm25": null,
+        "category": "Moderate",
+        "lat": 7.2906,
+        "lon": 80.6337,
+        "stationId": "waqi_-3105325",
+        "fetchedAt": "2026-10-24T01:30:32Z"
     }
 ]
