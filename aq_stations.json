@@ -122,13 +122,13 @@
     {
         "source": "WAQI",
         "name": "Dambulla",
-        "aqi": 37,
+        "aqi": 56,
         "pm25": null,
-        "category": "Good",
+        "category": "Moderate",
         "lat": 7.862204,
         "lon": 80.64585,
         "stationId": "waqi_-562156",
-        "fetchedAt": "2026-11-03T20:53:01Z"
+        "fetchedAt": "2026-11-04T01:09:55Z"
     },
     {
         "source": "WAQI",
@@ -183,13 +183,13 @@
     {
         "source": "WAQI",
         "name": "Badulla",
-        "aqi": 102,
+        "aqi": 114,
         "pm25": null,
         "category": "Unhealthy for Sensitive Groups",
         "lat": 6.990113,
         "lon": 81.05676,
         "stationId": "waqi_-562138",
-        "fetchedAt": "2026-11-03T20:52:54Z"
+        "fetchedAt": "2026-11-04T01:09:58Z"
     },
     {
         "source": "WAQI",
@@ -214,13 +214,13 @@
     {
         "source": "WAQI",
         "name": "Galle",
-        "aqi": 81,
+        "aqi": 67,
         "pm25": null,
         "category": "Moderate",
         "lat": 6.0673976,
         "lon": 80.22565,
         "stationId": "waqi_-562177",
-        "fetchedAt": "2026-11-03T20:53:07Z"
+        "fetchedAt": "2026-11-04T01:09:48Z"
     },
     {
         "source": "WAQI",
@@ -236,13 +236,13 @@
     {
         "source": "WAQI",
         "name": "Vavuniya",
-        "aqi": 66,
+        "aqi": 54,
         "pm25": null,
         "category": "Moderate",
         "lat": 8.761628,
         "lon": 80.49619,
         "stationId": "waqi_-562240",
-        "fetchedAt": "2026-11-03T20:53:05Z"
+        "fetchedAt": "2026-11-04T01:10:02Z"
     },
     {
         "source": "WAQI",
@@ -369,13 +369,13 @@
     {
         "source": "WAQI",
         "name": "Jaffna",
-        "aqi": 62,
+        "aqi": 134,
         "pm25": null,
-        "category": "Moderate",
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 9.737238,
         "lon": 80.019455,
         "stationId": "waqi_-562165",
-        "fetchedAt": "2026-11-03T20:53:05Z"
+        "fetchedAt": "2026-11-04T01:09:49Z"
     },
     {
         "source": "WAQI",
@@ -4376,7 +4376,7 @@
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "waqi_-366169",
-        "fetchedAt": "2026-11-03T20:53:00Z"
+        "fetchedAt": "2026-11-04T01:09:59Z"
     },
     {
         "source": "WAQI",
@@ -89472,13 +89472,13 @@
     {
         "source": "WAQI",
         "name": "Hambantota",
-        "aqi": 23,
+        "aqi": 30,
         "pm25": null,
         "category": "Good",
         "lat": 6.1242557,
         "lon": 81.12618,
         "stationId": "waqi_-562249",
-        "fetchedAt": "2026-11-03T20:52:53Z"
+        "fetchedAt": "2026-11-04T01:09:51Z"
     },
     {
         "source": "WAQI",
@@ -176262,13 +176262,13 @@
     {
         "source": "WAQI",
         "name": "Kegalle",
-        "aqi": 152,
+        "aqi": 123,
         "pm25": null,
-        "category": "Unhealthy",
+        "category": "Unhealthy for Sensitive Groups",
         "lat": 7.253432,
         "lon": 80.34929,
         "stationId": "waqi_-2142901",
-        "fetchedAt": "2026-11-03T20:53:00Z"
+        "fetchedAt": "2026-11-04T01:09:51Z"
     },
     {
         "source": "WAQI",
@@ -177005,7 +177005,7 @@
         "lat": 7.293864,
         "lon": 80.64136,
         "stationId": "waqi_-1410997",
-        "fetchedAt": "2026-11-03T20:52:55Z"
+        "fetchedAt": "2026-11-04T01:10:00Z"
     },
     {
         "source": "WAQI",
@@ -274791,13 +274791,13 @@
     {
         "source": "WAQI",
         "name": "Galle Fort",
-        "aqi": 50,
+        "aqi": 46,
         "pm25": null,
         "category": "Good",
         "lat": 6.027346,
         "lon": 80.21943,
         "stationId": "waqi_-3204838",
-        "fetchedAt": "2026-11-03T20:53:02Z"
+        "fetchedAt": "2026-11-04T01:09:50Z"
     },
     {
         "source": "WAQI",
