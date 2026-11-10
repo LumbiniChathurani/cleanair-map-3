@@ -142672,24 +142672,24 @@
     {
         "source": "PurpleAir",
         "name": "FECT-Test run 4",
-        "pm25_10min": 27.8,
-        "aqi": 84,
-        "category": "Moderate",
+        "pm25_10min": 8.7,
+        "aqi": 36,
+        "category": "Good",
         "lat": 7.356376,
         "lon": 80.63145,
         "stationId": "purpleair_33495",
-        "fetchedAt": "2026-11-10T18:03:27Z"
+        "fetchedAt": "2026-11-10T23:10:54Z"
     },
     {
         "source": "PurpleAir",
         "name": "OSC Sensor 4",
-        "pm25_10min": 15.8,
-        "aqi": 59,
+        "pm25_10min": 20.0,
+        "aqi": 68,
         "category": "Moderate",
         "lat": 6.89273,
         "lon": 79.929695,
         "stationId": "purpleair_173211",
-        "fetchedAt": "2026-11-10T18:03:27Z"
+        "fetchedAt": "2026-11-10T23:10:54Z"
     },
     {
         "source": "WAQI",
