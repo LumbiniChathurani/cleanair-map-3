@@ -722,13 +722,13 @@
         "source": "IQAir",
         "name": "Colombo",
         "nearest_station": "Colombo",
-        "aqi": 138,
+        "aqi": 123,
         "category": "Unhealthy for Sensitive Groups",
-        "timestamp": "2026-11-15T21:00:00.000Z",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.9271,
         "lon": 79.8612,
-        "fetchedAt": "2026-11-15T21:29:54Z"
+        "fetchedAt": "2026-11-16T01:37:17Z"
     },
     {
         "stationId": "iqair_battaramulla_6.8990_79.9230",
@@ -741,20 +741,20 @@
         "main_pollutant": "p2",
         "lat": 6.899,
         "lon": 79.923,
-        "fetchedAt": "2026-11-15T21:29:55Z"
+        "fetchedAt": "2026-11-16T01:37:17Z"
     },
     {
         "stationId": "iqair_gampaha_7.0860_79.9990",
         "source": "IQAir",
         "name": "Gampaha",
         "nearest_station": "Gampaha",
-        "aqi": 153,
-        "category": "Unhealthy",
-        "timestamp": "2026-11-15T21:00:00.000Z",
+        "aqi": 125,
+        "category": "Unhealthy for Sensitive Groups",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.086,
         "lon": 79.999,
-        "fetchedAt": "2026-11-15T21:29:56Z"
+        "fetchedAt": "2026-11-16T01:37:18Z"
     },
     {
         "stationId": "iqair_digana_7.2970_80.7600",
@@ -763,24 +763,24 @@
         "nearest_station": "Digana",
         "aqi": 66,
         "category": "Moderate",
-        "timestamp": "2026-11-15T18:00:00.000Z",
+        "timestamp": "2026-11-16T00:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.297,
         "lon": 80.76,
-        "fetchedAt": "2026-11-15T21:29:57Z"
+        "fetchedAt": "2026-11-16T01:37:18Z"
     },
     {
         "stationId": "iqair_anuradhapura_8.3114_80.4037",
         "source": "IQAir",
         "name": "Anuradhapura",
         "nearest_station": "Anuradhapura",
-        "aqi": 129,
+        "aqi": 132,
         "category": "Unhealthy for Sensitive Groups",
-        "timestamp": "2026-11-15T21:00:00.000Z",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 8.3114,
         "lon": 80.4037,
-        "fetchedAt": "2026-11-15T21:29:58Z"
+        "fetchedAt": "2026-11-16T01:37:19Z"
     },
     {
         "stationId": "iqair_batticaloa_7.7170_81.7000",
@@ -800,26 +800,26 @@
         "source": "IQAir",
         "name": "Galle",
         "nearest_station": "Galle",
-        "aqi": 84,
+        "aqi": 78,
         "category": "Moderate",
-        "timestamp": "2026-11-15T21:00:00.000Z",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.0535,
         "lon": 80.221,
-        "fetchedAt": "2026-11-15T21:30:57Z"
+        "fetchedAt": "2026-11-16T01:38:26Z"
     },
     {
         "stationId": "iqair_kurunegala_7.4867_80.3647",
         "source": "IQAir",
         "name": "Kurunegala",
         "nearest_station": "Kurunegala",
-        "aqi": 99,
-        "category": "Moderate",
-        "timestamp": "2026-11-15T21:00:00.000Z",
+        "aqi": 115,
+        "category": "Unhealthy for Sensitive Groups",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 7.4867,
         "lon": 80.3647,
-        "fetchedAt": "2026-11-15T21:30:58Z"
+        "fetchedAt": "2026-11-16T01:38:27Z"
     },
     {
         "stationId": "iqair_ratnapura_6.6828_80.3992",
@@ -828,24 +828,24 @@
         "nearest_station": "Ratnapura",
         "aqi": 129,
         "category": "Unhealthy for Sensitive Groups",
-        "timestamp": "2026-11-15T21:00:00.000Z",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.6828,
         "lon": 80.3992,
-        "fetchedAt": "2026-11-15T21:31:00Z"
+        "fetchedAt": "2026-11-16T01:38:28Z"
     },
     {
         "stationId": "iqair_bandarawela_6.8289_80.9870",
         "source": "IQAir",
         "name": "Bandarawela",
         "nearest_station": "Bandarawela",
-        "aqi": 49,
-        "category": "Good",
-        "timestamp": "2026-11-14T20:00:00.000Z",
+        "aqi": 120,
+        "category": "Unhealthy for Sensitive Groups",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 6.8289,
         "lon": 80.987,
-        "fetchedAt": "2026-11-14T21:10:05Z"
+        "fetchedAt": "2026-11-16T01:38:28Z"
     },
     {
         "source": "WAQI",
@@ -231759,13 +231759,13 @@
         "source": "IQAir",
         "name": "Puttalam",
         "nearest_station": "Puttalam",
-        "aqi": 112,
+        "aqi": 122,
         "category": "Unhealthy for Sensitive Groups",
-        "timestamp": "2026-11-15T21:00:00.000Z",
+        "timestamp": "2026-11-16T01:00:00.000Z",
         "main_pollutant": "p2",
         "lat": 8.0362,
         "lon": 79.8283,
-        "fetchedAt": "2026-11-15T21:30:59Z"
+        "fetchedAt": "2026-11-16T01:38:27Z"
     },
     {
         "source": "WAQI",
